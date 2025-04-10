@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
-import Subjects9 from "./pages/Subjects9";
-import Subjects10 from "./pages/Subjects10";
-import Subjects11 from "./pages/Subjects11";
+import Subjects9 from "./pages/Subject9";
+import Subjects10 from "./pages/Subject10";
+import Subjects11 from "./pages/Subject11";
 import Lectures9 from "./pages/Lectures9";
 import Lectures from "./pages/Lectures";
 import Lectures11 from "./pages/Lectures11";
