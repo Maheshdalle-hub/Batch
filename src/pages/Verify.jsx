@@ -5,53 +5,36 @@ const Verify = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [verificationCompleted, setVerificationCompleted] = useState(false);
-
-  // Handle the verification logic
-  const completeVerification = () => {
-    // Mark the verification as completed
-    localStorage.setItem("isVerified", "true");
-
-    // Redirect to the selected class page
-    const redirectPath = location.state?.redirectPath || "/subjects";
-    navigate(redirectPath);
-  };
+  const [isVerified, setIsVerified] = useState(false);
 
   // Handle class selection after verification
   const handleClassSelection = (classNumber) => {
-    // Directly redirect to the selected class page after verification
-    setVerificationCompleted(true);
+    // Store verification status
+    localStorage.setItem("isVerified", "true");
+    // Redirect to the selected class page
     navigate(`/subjects/${classNumber}`);
   };
 
   useEffect(() => {
-    const isVerified = localStorage.getItem("isVerified") === "true";
-    if (isVerified) {
-      // If already verified, directly redirect to the selected class
+    const verificationStatus = localStorage.getItem("isVerified");
+    
+    if (verificationStatus === "true") {
       const redirectPath = location.state?.redirectPath || "/subjects";
       navigate(redirectPath);
+    } else {
+      setIsVerified(false);
     }
   }, [navigate, location.state]);
 
   return (
     <div className="verify-container">
-      <h2>Complete Verification</h2>
-      {!verificationCompleted ? (
-        <div>
-          <p>Verification Pending...</p>
-          {/* Add a button or other verification flow */}
-          <button onClick={completeVerification}>Complete Verification</button>
-        </div>
-      ) : (
-        <div>
-          <p>Please select your class:</p>
-          <div className="class-selection">
-            <button onClick={() => handleClassSelection(9)}>Class 9</button>
-            <button onClick={() => handleClassSelection(10)}>Class 10</button>
-            <button onClick={() => handleClassSelection(11)}>Class 11</button>
-          </div>
-        </div>
-      )}
+      <h2>Verification Completed</h2>
+      <p>Please select your class:</p>
+      <div className="class-selection">
+        <button onClick={() => handleClassSelection(9)}>Class 9</button>
+        <button onClick={() => handleClassSelection(10)}>Class 10</button>
+        <button onClick={() => handleClassSelection(11)}>Class 11</button>
+      </div>
     </div>
   );
 };
