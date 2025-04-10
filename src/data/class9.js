@@ -12,7 +12,7 @@ const class9 = [
           },
           {
             lectureName: "Lecture 2",
-            m3u8Url: "https://example.com/class9/maths/ch1/lec2.m3u8",
+            m3u8Url: "here",
           },
         ],
       },
@@ -21,7 +21,7 @@ const class9 = [
         lectures: [
           {
             lectureName: "Lecture 1",
-            m3u8Url: "https://example.com/class9/maths/ch2/lec1.m3u8",
+            m3u8Url: "here",
           },
         ],
       },
@@ -35,7 +35,7 @@ const class9 = [
         lectures: [
           {
             lectureName: "Lecture 1",
-            m3u8Url: "https://example.com/class9/science/ch1/lec1.m3u8",
+            m3u8Url: "here",
           },
         ],
       },
