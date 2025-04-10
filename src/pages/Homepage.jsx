@@ -8,8 +8,8 @@ const Homepage = () => {
   const navigate = useNavigate();
 
   const handleClick = (path) => {
-    localStorage.setItem("redirectAfterLogin", path);  // Store the redirect path in localStorage
-    navigate("/login");  // Redirect to login page
+    // Pass the redirect path directly using navigate state
+    navigate("/login", { state: { redirectPath: path } });
   };
 
   return (
