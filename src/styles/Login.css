@@ -1,0 +1,52 @@
+/* 🔹 Login Page Container */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #121212; /* Dark background */
+  font-family: Arial, sans-serif;
+  color: #fff; /* White text */
+}
+
+/* 🔹 Heading */
+.login-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #ffffff; /* White text */
+}
+
+/* 🔹 Instruction Text */
+.login-container p {
+  font-size: 18px;
+  color: #bbbbbb; /* Light gray for better readability */
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* 🔹 Shortener Button */
+.shortener-button {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #1e88e5; /* Darker blue */
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.shortener-button:hover {
+  background-color: #1565c0; /* Even darker blue */
+}
+
+/* 🔹 Loading Text */
+.loading-text {
+  font-size: 16px;
+  color: #aaaaaa; /* Light gray */
+}
