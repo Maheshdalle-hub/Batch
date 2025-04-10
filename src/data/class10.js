@@ -1,5 +1,16 @@
 const class10 = [
   {
+    subject: "Notice",
+    chapters:[
+      {
+      chapterName: "Introduction",
+        lectures: [ {lectureName: "Introducation Video",
+                 m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4312904/1740491033_1089325762901906/sunny/1740490966781_94603654451027820_video_VOD.m3u8"
+, }                     ]
+      }
+    ]
+  }
+  {
     subject: "Maths",
     chapters: [
       {
