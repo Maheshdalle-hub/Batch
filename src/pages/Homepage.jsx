@@ -7,29 +7,26 @@ import mlogo from "../assets/ntmlogo.jpg";
 const Homepage = () => {
   const navigate = useNavigate();
 
-  const handleClick = (className) => {
-    navigate(`/login?class=${className}`);
+  const handleClick = (path) => {
+    sessionStorage.setItem("redirectAfterLogin", path);
+    navigate("/login");
   };
 
   return (
     <div className="container">
       <img src={mlogo} alt="Logo" className="big-logo" />
 
-      <div className="batch-grid">
-        <div className="click-box" onClick={() => handleClick("class9")}>
-          <img src={imageUrl} alt="Class 9 Batch" className="homepage-image" />
-          <h1>Aarambh batch Class 9</h1>
-        </div>
+      <div className="click-box" onClick={() => handleClick("/subject10")}>
+        <img src={imageUrl} alt="Aarambh Batch 2025-26" className="homepage-image" />
+        <h1>Aarambh Batch 2025-26</h1>
+      </div>
 
-        <div className="click-box" onClick={() => handleClick("class10")}>
-          <img src={imageUrl} alt="Class 10 Batch" className="homepage-image" />
-          <h1>Aarambh Batch Class 10</h1>
-        </div>
+      <div className="click-box" onClick={() => handleClick("/subject9")}>
+        <h1>Class 9</h1>
+      </div>
 
-        <div className="click-box" onClick={() => handleClick("class11")}>
-          <img src={imageUrl} alt="Class 11 Batch" className="homepage-image" />
-          <h1>Prarambh Batch Class 11 </h1>
-        </div>
+      <div className="click-box" onClick={() => handleClick("/subject11")}>
+        <h1>Class 11</h1>
       </div>
     </div>
   );
