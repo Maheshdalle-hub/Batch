@@ -15,22 +15,22 @@ const Login = () => {
 
     // ✅ Redirect if user is already logged in and session is still valid
     if ((isLoggedIn && isVerified) && expiresAt && Date.now() < Number(expiresAt)) {
-      const redirectPath = sessionStorage.getItem("redirectAfterLogin") || "/subjects";  // Get the redirect path after login
+      const redirectPath = localStorage.getItem("redirectAfterLogin") || "/subjects";  // Get the redirect path after login
       navigate(redirectPath);  // Navigate to the correct path after login
       return;
     }
 
     const initializeLogin = async () => {
-      let verificationUrl = sessionStorage.getItem("currentVerificationUrl");
+      let verificationUrl = localStorage.getItem("currentVerificationUrl");
 
       if (!verificationUrl) {
         const newLink = await generateShortenedLink();
         if (newLink) {
           setShortenerLink(newLink);
-          sessionStorage.setItem("currentVerificationUrl", newLink);
+          localStorage.setItem("currentVerificationUrl", newLink);
         }
       } else {
-        // ✅ Use the existing link from session storage
+        // ✅ Use the existing link from localStorage
         setShortenerLink(verificationUrl);
       }
 
