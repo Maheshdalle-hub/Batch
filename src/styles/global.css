@@ -1,0 +1,119 @@
+/* ✅ Dark Theme Background */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text */
+}
+
+/* ✅ Main Container */
+.container {
+  padding: 20px;
+}
+
+/* ✅ Common Box Styles */
+.click-box,
+.subject-box,
+.chapter-box,
+.live-class-box {
+  background: #1e1e1e; /* Darker box background */
+  color: #e0e0e0; /* Light text */
+  padding: 20px;
+  margin: 10px auto;
+  width: 80%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ✅ Hover Effect */
+.click-box:hover,
+.subject-box:hover,
+.chapter-box:hover,
+.live-class-box:hover {
+  background: #252525; /* Slightly lighter */
+  transform: scale(1.05);
+}
+
+/* ✅ Grid Layout for Subjects & Chapters */
+.subject-grid,
+.chapter-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* ✅ Live Class Box Styling */
+.live-class-box {
+  background: #ff4444; /* Bright red for live */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background 0.2s ease-in-out;
+  margin-bottom: 25px;
+}
+
+/* ✅ Homepage Image */
+.homepage-image {
+  width: 100%;
+  max-width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* ✅ Custom Video Player */
+.video-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.custom-video-player {
+  width: 90%;
+  max-width: 800px;
+  border-radius: 10px;
+  outline: none;
+  background: black;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .click-box,
+  .subject-box,
+  .chapter-box,
+  .live-class-box {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .homepage-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* ✅ Big Logo Styling */
+  .big-logo {
+width: 250px;
+max-width: 80%;
+display: block;
+margin: 20px auto;
+border-radius: 10px;
+
+  }
+
+  .tt {
+    width: 100%;
+    height: auto;
+   }
+}
