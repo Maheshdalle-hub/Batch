@@ -15,7 +15,8 @@ const Login = () => {
 
     // ✅ Redirect if user is already logged in and session is still valid
     if ((isLoggedIn && isVerified) && expiresAt && Date.now() < Number(expiresAt)) {
-      navigate("/subjects");
+      const redirectPath = sessionStorage.getItem("redirectAfterLogin") || "/subjects";  // Get the redirect path after login
+      navigate(redirectPath);  // Navigate to the correct path after login
       return;
     }
 
