@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 const Verify = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const [verificationCompleted, setVerificationCompleted] = useState(false);
 
   // Handle the verification logic
@@ -19,9 +19,9 @@ const Verify = () => {
 
   // Handle class selection after verification
   const handleClassSelection = (classNumber) => {
-    // Store the class in localStorage to manage the redirect after verification
-    localStorage.setItem("selectedClass", classNumber);
+    // Directly redirect to the selected class page after verification
     setVerificationCompleted(true);
+    navigate(`/subjects/${classNumber}`);
   };
 
   useEffect(() => {
