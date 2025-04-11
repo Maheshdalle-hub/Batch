@@ -9,7 +9,7 @@ const Lectures9 = () => {
   useEffect(() => {
     const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
     if (!isLoggedIn) {
-      navigate("/login9");
+      navigate("/login");
     }
   }, [navigate]);
 
