@@ -7,9 +7,9 @@ const Lectures11 = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
     if (!isLoggedIn) {
-      navigate("/login11");
+      navigate("/login");
     }
   }, [navigate]);
 
@@ -37,7 +37,7 @@ const Lectures11 = () => {
         {lectures[subject]?.map((lecture, index) => (
           <Link
             key={index}
-            to={`/chapter11/${subject}/${lecture.index}`}
+     to={`/chapter-lectures/11/${subject}/${lecture.index}`}
             className="lecture-box"
           >
             {lecture.name}
