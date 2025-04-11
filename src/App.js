@@ -11,7 +11,7 @@ import Lectures11 from "./pages/Lectures11";
 import ChapterLectures9 from "./pages/ChapterLectures9";
 import ChapterLectures10 from "./pages/ChapterLectures10";
 import ChapterLectures11 from "./pages/ChapterLectures11";
-import ProtectedRoute from "./ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
