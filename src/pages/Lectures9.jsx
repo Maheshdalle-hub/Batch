@@ -39,7 +39,7 @@ const Lectures9 = () => {
         {lectures[subject]?.map((lecture, index) => (
           <Link
             key={index}
-            to={`/chapter/9/${subject}/${lecture.index}`}
+         to={`/chapter-lectures/9/${subject}/${lecture.index}`}
             className="lecture-box"
           >
             {lecture.name}
