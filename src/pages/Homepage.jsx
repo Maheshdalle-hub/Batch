@@ -18,7 +18,7 @@ const Homepage = () => {
       navigate("/login");
       return;
     }
-    navigate(`/subject/${classNumber}`);
+    navigate(`/subjects/${classNumber}`);
   };
 
   return (
