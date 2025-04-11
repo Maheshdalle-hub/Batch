@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/Homepage";
 import Login from "./pages/Login";
 import Subject9 from "./pages/Subject9";     // Class 9 subjects
 import Subject10 from "./pages/Subject10";   // Class 10 subjects
