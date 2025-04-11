@@ -33,7 +33,7 @@ const Verify = () => {
 
     setVerified(true);
     console.log("✅ Verification successful. Redirecting...");
-    setTimeout(() => navigate("/subjects"), 2000);
+    setTimeout(() => navigate("/"), 2000);
   }, [token, navigate]);
 
   // Handle class selection after verification
