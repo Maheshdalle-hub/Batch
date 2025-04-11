@@ -7,7 +7,7 @@ const Lectures9 = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
+    const isLoggedIn = LocalStorage.getItem("isLoggedIn") === "true";
     if (!isLoggedIn) {
       navigate("/login");
     }
