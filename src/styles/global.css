@@ -4,8 +4,8 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
-  background: #121212; /* Dark background */
-  color: #e0e0e0; /* Light text */
+  background: #121212;
+  color: #e0e0e0;
 }
 
 /* ✅ Main Container */
@@ -13,25 +13,67 @@ body {
   padding: 20px;
 }
 
-/* ✅ Common Box Styles */
-/* ✅ Homepage Click Box - Image Centered */
+/* ✅ Section Heading */
+.section-heading {
+  font-size: 28px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ✅ Batch Grid Container */
+.batch-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 10px 0;
+}
+
+/* ✅ Modern Homepage Click Box */
 .click-box {
+  background: #1f1f1f;
+  border: 1px solid #333;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  width: 280px;
+  padding: 20px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
+
+.click-box:hover {
+  background: #2a2a2a;
+  transform: translateY(-6px);
+}
+
+/* ✅ Homepage Image */
+.homepage-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+/* ✅ Other Boxes */
 .subject-box,
 .chapter-box,
 .live-class-box {
-  background: #1e1e1e; /* Darker box background */
-  color: #e0e0e0; /* Light text */
+  background: #1e1e1e;
+  color: #e0e0e0;
   padding: 20px;
   margin: 10px auto;
   width: 80%;
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s, background 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   text-decoration: none;
   display: flex;
   justify-content: space-between;
@@ -41,11 +83,10 @@ body {
 }
 
 /* ✅ Hover Effect */
-.click-box:hover,
 .subject-box:hover,
 .chapter-box:hover,
 .live-class-box:hover {
-  background: #252525; /* Slightly lighter */
+  background: #252525;
   transform: scale(1.05);
 }
 
@@ -60,20 +101,12 @@ body {
 
 /* ✅ Live Class Box Styling */
 .live-class-box {
-  background: #ff4444; /* Bright red for live */
+  background: #ff4444;
   color: white;
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s ease-in-out, background 0.2s ease-in-out;
   margin-bottom: 25px;
-}
-
-/* ✅ Homepage Image */
-.homepage-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  margin-bottom: 10px;
 }
 
 /* ✅ Custom Video Player */
@@ -105,18 +138,16 @@ body {
     height: auto;
   }
 
-  /* ✅ Big Logo Styling */
   .big-logo {
-width: 250px;
-max-width: 80%;
-display: block;
-margin: 20px auto;
-border-radius: 10px;
-
+    width: 250px;
+    max-width: 80%;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
   }
 
   .tt {
     width: 100%;
     height: auto;
-   }
+  }
 }
