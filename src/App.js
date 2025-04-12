@@ -38,7 +38,9 @@ function App() {
         <Route path="/chapter-lectures/11/:subject/:chapterIndex" element={<ProtectedRoute><ChapterLectures11 /></ProtectedRoute>} />
 
         {/* Video Player - Recorded */}
-        <Route path="/video/:subject/:chapterIndex" element={<ProtectedRoute><VideoPlayer /></ProtectedRoute>} />
+        <Route path="/video/9/:subject/:chapterIndex" element={<ProtectedRoute><VideoPlayer /></ProtectedRoute>} />
+        <Route path="/video/10/:subject/:chapterIndex" element={<ProtectedRoute><VideoPlayer /></ProtectedRoute>} />
+        <Route path="/video/11/:subject/:chapterIndex" element={<ProtectedRoute><VideoPlayer /></ProtectedRoute>} />
 
         {/* Video Player - Live */}
      <Route path="/video/9/live" element={<ProtectedRoute><VideoPlayer /></ProtectedRoute>} />
