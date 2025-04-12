@@ -14,7 +14,12 @@ body {
 }
 
 /* ✅ Common Box Styles */
-.click-box,
+/* ✅ Homepage Click Box - Image Centered */
+.click-box {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 .subject-box,
 .chapter-box,
 .live-class-box {
