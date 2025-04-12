@@ -3,7 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import "../styles/ChapterLectures.css";
 import mlogo from "../assets/ntmlogo.jpg"; // ✅ Import logo
 
-const ChapterLectures = () => {
+const ChapterLectures10 = () => {
   const { classId, subject, chapterIndex } = useParams();
   const navigate = useNavigate();
 
@@ -86,4 +86,4 @@ const ChapterLectures = () => {
   );
 };
 
-export default ChapterLectures;
+export default ChapterLectures10;
