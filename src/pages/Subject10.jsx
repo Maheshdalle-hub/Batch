@@ -12,15 +12,15 @@ const Subject10 = () => {
   }, [navigate]);
 
   const subjects = [
-    { name: "Notice", path: "/lectures/Notice" },
-    { name: "Science", path: "/lectures/Science" },
-    { name: "Maths", path: "/lectures/Maths" },
-    { name: "SST", path: "/lectures/SST" },
-    { name: "English", path: "/lectures/English" },
-    { name: "Hindi", path: "/lectures/Hindi" },
-    { name: "IT", path: "/lectures/IT" },
-    { name: "Sanskrit", path: "/lectures/Sanskrit" },
-  ];
+  { name: "Notice", path: "/lectures/10/Notice" },
+  { name: "Science", path: "/lectures/10/Science" },
+  { name: "Maths", path: "/lectures/10/Maths" },
+  { name: "SST", path: "/lectures/10/SST" },
+  { name: "English", path: "/lectures/10/English" },
+  { name: "Hindi", path: "/lectures/10/Hindi" },
+  { name: "IT", path: "/lectures/10/IT" },
+  { name: "Sanskrit", path: "/lectures/10/Sanskrit" },
+];
 
   return (
     <div className="subjects-container">
