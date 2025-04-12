@@ -29,7 +29,7 @@ const ChapterLectures11 = () => {
         {chapterLectures[subject]?.[chapterIndex]?.map((lecture, index) => (
           <Link
             key={index}
-            to={`/video/${subject}/${chapterIndex}`}
+            to={`/video/11/${subject}/${chapterIndex}`}
             state={{
               chapterName: lecture.name,
               m3u8Url: lecture.m3u8Url,
