@@ -26,7 +26,7 @@ const Subject11 = () => {
       <h2>Select Subject - Class 11</h2>
       <div className="live-class-container">
         <Link
-          to={`/video/live`}
+          to={`/video/11/live`}
           state={{ chapterName: "Live Class", m3u8Url: "m3u8_link_here" }}
           className="subject-box live-class-section"
         >
