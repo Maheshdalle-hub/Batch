@@ -12,12 +12,12 @@ const Subject11 = () => {
   }, [navigate]);
 
   const subjects = [
-    { name: "Maths", path: "/lecture11/Maths" },
+    { name: "Maths", path: "/lecture/11/Maths" },
     { name: "Physics", path: "/lecture11/Physics" },
-    { name: "Chemistry", path: "/lecture11/Chemistry" },
-    { name: "Biology", path: "/lecture11/Biology" },
-    { name: "English", path: "/lecture11/English" },
-    { name: "IP", path: "/lecture11/IP" },
+    { name: "Chemistry", path: "/lecture/11/Chemistry" },
+    { name: "Biology", path: "/lecture/11/Biology" },
+    { name: "English", path: "/lecture/11/English" },
+    { name: "IP", path: "/lecture/11/IP" },
   ];
 
   return (
