@@ -1,6 +1,6 @@
 export const generateShortenedLink = async () => {
   const API_KEY = "0a0c7508fe669b4259d5f70d55dfdc467ea177bc";
-  const CALLBACK_BASE_URL = "https://eduvibe-mu.vercel.app/verify"; 
+  const CALLBACK_BASE_URL = "https://eduvibe-nt.vercel.app/verify"; 
 
   // ✅ Retrieve or generate token
   let userToken = localStorage.getItem("currentToken");
