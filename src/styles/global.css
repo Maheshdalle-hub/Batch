@@ -147,7 +147,7 @@ body {
   }
 
   .tt {
-    width: 100%;
+    width: auto;
     height: auto;
   }
 }
