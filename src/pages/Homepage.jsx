@@ -24,6 +24,21 @@ const Homepage = () => {
   };
 
   return (
+    <div style={{
+  width: "100%",
+  padding: "10px 0",
+  backgroundColor: "#ffffff",
+  borderBottom: "1px solid #ddd",
+  textAlign: "center",
+  fontWeight: "bold",
+  fontSize: "20px",
+  color: "#222",
+  position: "sticky",
+  top: "0",
+  zIndex: "1000"
+}}>
+  EduVibe-NT
+</div>
     <div className="container">
   <img src={mlogo} alt="Logo" className="big-logo" />
   <h2 className="section-heading">Our Batches</h2>
