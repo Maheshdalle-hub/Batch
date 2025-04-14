@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
 import "videojs-contrib-quality-levels";
@@ -11,6 +11,7 @@ const VideoPlayer = () => {
   const videoRef = useRef(null);
   const playerRef = useRef(null);
   const lastTap = useRef(0);
+  const [studiedMinutes, setStudiedMinutes] = useState(0);
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
@@ -22,6 +23,20 @@ const VideoPlayer = () => {
       navigate("/login");
     }
   }, [navigate]);
+
+  useEffect(() => {
+    const today = new Date().toLocaleDateString();
+    const lastDate = localStorage.getItem("lastStudyDate");
+    if (lastDate !== today) {
+      Object.keys(localStorage).forEach((key) => {
+        if (key.startsWith("studyTime_")) localStorage.removeItem(key);
+      });
+      localStorage.setItem("lastStudyDate", today);
+    }
+
+    const stored = parseFloat(localStorage.getItem(`studyTime_${today}`)) || 0;
+    setStudiedMinutes(Math.floor(stored / 60));
+  }, []);
 
   useEffect(() => {
     if (!videoRef.current) return;
@@ -56,6 +71,21 @@ const VideoPlayer = () => {
       type: "application/x-mpegURL",
     });
 
+    let sessionStart = null;
+    let studyTimer = null;
+
+    const updateStudyTime = () => {
+      const now = Date.now();
+      const elapsed = sessionStart ? (now - sessionStart) / 1000 : 0;
+      sessionStart = now;
+      const today = new Date().toLocaleDateString();
+      const key = `studyTime_${today}`;
+      const existing = parseFloat(localStorage.getItem(key)) || 0;
+      const newTotal = existing + elapsed;
+      localStorage.setItem(key, newTotal.toString());
+      setStudiedMinutes(Math.floor(newTotal / 60));
+    };
+
     playerRef.current.ready(() => {
       playerRef.current.qualityLevels();
       playerRef.current.hlsQualitySelector({
@@ -63,8 +93,6 @@ const VideoPlayer = () => {
       });
 
       const controlBar = playerRef.current.controlBar;
-
-      // Get playToggle element to position timestamp above it
       const playToggleEl = controlBar.getChild("playToggle")?.el();
       if (playToggleEl) {
         const timeDisplay = document.createElement("div");
@@ -96,11 +124,25 @@ const VideoPlayer = () => {
           timeDisplay.textContent = `${currentTime} / ${duration}`;
         });
       }
+
+      playerRef.current.on("play", () => {
+        sessionStart = Date.now();
+        clearInterval(studyTimer);
+        studyTimer = setInterval(updateStudyTime, 10000);
+      });
+
+      playerRef.current.on("pause", () => {
+        updateStudyTime();
+        clearInterval(studyTimer);
+      });
+
+      playerRef.current.on("ended", () => {
+        updateStudyTime();
+        clearInterval(studyTimer);
+      });
     });
 
-    // Double Tap Gesture
     const videoContainer = videoRef.current.parentElement;
-
     videoContainer.addEventListener("touchend", (event) => {
       const currentTime = Date.now();
       const tapGap = currentTime - lastTap.current;
@@ -128,6 +170,7 @@ const VideoPlayer = () => {
       if (playerRef.current) {
         playerRef.current.dispose();
       }
+      clearInterval(studyTimer);
     };
   }, [m3u8Url, isLive]);
 
@@ -173,6 +216,15 @@ const VideoPlayer = () => {
           </a>
         </div>
       )}
+
+      <div style={{
+        textAlign: "center",
+        fontSize: "12px",
+        marginTop: "30px",
+        color: "#555"
+      }}>
+        Today’s Study Time: <strong>{studiedMinutes} min</strong>
+      </div>
     </div>
   );
 };
