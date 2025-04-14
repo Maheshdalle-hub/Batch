@@ -24,7 +24,6 @@ const Homepage = () => {
   };
 
   return (
-    <h1 className="emp">EduVibe-Nt</h1>
     <div className="container">
   <img src={mlogo} alt="Logo" className="big-logo" />
   <h2 className="section-heading">Our Batches</h2>
