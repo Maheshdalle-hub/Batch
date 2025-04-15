@@ -27,8 +27,8 @@ const ChapterLectures10 = () => {
     Science: {
       0: [
         {
-          name: "Lecture 1 (nhi hua batch shuru)",
-          m3u8Url: "m3u8_link_here",
+          name: "Lecture 1 (Free on YouTube)",
+          m3u8Url: "",
           notesUrl: ""
         },
         {
@@ -49,7 +49,7 @@ const ChapterLectures10 = () => {
       0: [
         {
           name: "Lecture 1",
-          m3u8Url: "YOUR_M3U8_LINK_HERE",
+          youtubeUrl: "https://www.youtube.com/live/_0ooaKrdubI",
           notesUrl: ""
         },
         {
@@ -67,20 +67,36 @@ const ChapterLectures10 = () => {
 
       <h2>{subject} - Chapter {parseInt(chapterIndex) + 1}</h2>
       <div className="lecture-boxes">
-        {chapterLectures[subject]?.[chapterIndex]?.map((lecture, index) => (
-          <Link
-            key={index}
-            to={`/video/10/${subject}/${chapterIndex}`}
-            state={{
-              chapterName: lecture.name,
-              m3u8Url: lecture.m3u8Url,
-              notesUrl: lecture.notesUrl,
-            }}
-            className="lecture-box"
-          >
-            {lecture.name}
-          </Link>
-        ))}
+        {chapterLectures[subject]?.[chapterIndex]?.map((lecture, index) => {
+          if (lecture.youtubeUrl) {
+            return (
+              <a
+                key={index}
+                href={lecture.youtubeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lecture-box"
+              >
+                {lecture.name}
+              </a>
+            );
+          }
+
+          return (
+            <Link
+              key={index}
+              to={`/video/10/${subject}/${chapterIndex}`}
+              state={{
+                chapterName: lecture.name,
+                m3u8Url: lecture.m3u8Url,
+                notesUrl: lecture.notesUrl,
+              }}
+              className="lecture-box"
+            >
+              {lecture.name}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
