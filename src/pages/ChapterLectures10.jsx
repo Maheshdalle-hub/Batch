@@ -48,8 +48,22 @@ const ChapterLectures10 = () => {
     Maths: {
       0: [
         {
-          name: "Lecture 1",
+          name: "Lecture 1 (Free on YouTube)",
           youtubeUrl: "https://www.youtube.com/live/_0ooaKrdubI",
+          notesUrl: ""
+        },
+        {
+          name: "Lecture 2",
+          m3u8Url: "YOUR_M3U8_LINK_HERE",
+          notesUrl: ""
+        },
+      ],
+    },
+    SST: {
+      0: [
+        {
+          name: "Lecture 1 (Free on YouTube)",
+          youtubeUrl: "https://www.youtube.com/live/URGAO81IXXk",
           notesUrl: ""
         },
         {
