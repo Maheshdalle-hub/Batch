@@ -23,6 +23,21 @@ const Subject10 = () => {
 ];
 
   return (
+       <div style={{
+        width: "100%",
+        padding: "10px 0",
+        backgroundColor: "#ffffff",
+        borderBottom: "1px solid #ddd",
+        textAlign: "center",
+        fontWeight: "bold",
+        fontSize: "20px",
+        color: "#222",
+        position: "sticky",
+        top: "0",
+        zIndex: "1000"
+      }}>
+        EduVibe-NT
+      </div>
     <div className="subjects-container">
       <img src={tt} alt="Logo" className="tt" />
       <h2>Select Subject - Class 10</h2>
