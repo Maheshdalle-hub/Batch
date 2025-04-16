@@ -35,6 +35,14 @@ const ChapterLectures11 = () => {
         },
       ],
     },
+    Physics: {
+      0: [
+        {
+          name: "Lecture 1",
+          youtubeUrl: "https://www.youtube.com/live/eYHkwzP0TkY"
+        },
+      ],
+    },
 
   };
 
