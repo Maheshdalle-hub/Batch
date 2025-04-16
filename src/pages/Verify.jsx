@@ -23,7 +23,7 @@ const Verify = () => {
     }
 
     // ✅ Store verification info
-    const expirationTime = Date.now() + 2 * 24 * 60 * 60 * 1000;
+    const expirationTime = Date.now() + 1.5 * 24 * 60 * 60 * 1000;
     localStorage.setItem("isLoggedIn", "true");
     localStorage.setItem("isVerified", "true");
     localStorage.setItem("verificationExpires", expirationTime);
