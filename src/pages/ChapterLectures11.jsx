@@ -27,7 +27,15 @@ const ChapterLectures11 = () => {
         },
       ],
     },
-    // Add more subjects and chapters...
+    Maths: {
+      0: [
+        {
+          name: "Lecture 1",
+          youtubeUrl: "https://www.youtube.com/live/vcqyIgZfCog"
+        },
+      ],
+    },
+
   };
 
   const handleLectureClick = (lecture) => {
