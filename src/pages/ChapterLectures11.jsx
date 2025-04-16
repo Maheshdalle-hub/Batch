@@ -43,6 +43,14 @@ const ChapterLectures11 = () => {
         },
       ],
     },
+    Chemistry: {
+      0: [
+        {
+          name: "Lecture 1",
+          youtubeUrl: "https://www.youtube.com/live/EVU_Bvc3HpE"
+        },
+      ],
+    },
 
   };
 
