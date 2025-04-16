@@ -58,6 +58,16 @@ const ChapterLectures10 = () => {
           notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/22420916723093830.pdf"
         },
       ],
+      2: [
+        {
+          name: "DPP 1",
+          redirect: "https://drive.google.com/file/d/1M2C9SEvckkjzKpzR63fIpy-0GiDBYZYN/view?usp=sharing"
+        }
+        {
+          name: "DPP 2",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/754506419720273500.pdf"
+        }
+      ]
     },
     SST: {
       0: [
@@ -93,6 +103,18 @@ const ChapterLectures10 = () => {
               >
                 {lecture.name}
               </a>
+            );
+          }
+
+          if (lecture.redirect) {
+            return (
+              <div
+                key={index}
+                onClick={() => window.location.href = lecture.redirect}
+                className="lecture-box"
+              >
+                {lecture.name}
+              </div>
             );
           }
 
