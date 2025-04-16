@@ -28,7 +28,7 @@ const ChapterLectures10 = () => {
       0: [
         {
           name: "Lecture 1 (Free on YouTube)",
-          m3u8Url: "",
+          youtubeUrl: "https://www.youtube.com/live/TRS7cu_n108",
           notesUrl: ""
         },
         {
