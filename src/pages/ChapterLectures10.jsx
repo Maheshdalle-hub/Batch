@@ -62,12 +62,12 @@ const ChapterLectures10 = () => {
         {
           name: "DPP 1",
           redirect: "https://drive.google.com/file/d/1M2C9SEvckkjzKpzR63fIpy-0GiDBYZYN/view?usp=sharing"
-        }
+        },
         {
           name: "DPP 2",
           redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/754506419720273500.pdf"
-        }
-      ]
+        },
+      ],
     },
     SST: {
       0: [
