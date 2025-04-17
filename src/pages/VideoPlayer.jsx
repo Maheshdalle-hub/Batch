@@ -152,8 +152,12 @@ return () => {
 
 }, [m3u8Url, selectedQuality]);
 
-const formatTime = (timeInSeconds) => { if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00"; const minutes = Math.floor(timeInSeconds / 60); const seconds = Math.floor(timeInSeconds % 60); return ${minutes.toString().padStart(2, "0")}:${seconds .toString() .padStart(2, "0")}; };
-
+const formatTime = (timeInSeconds) => {
+  if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00";
+  const minutes = Math.floor(timeInSeconds / 60);
+  const seconds = Math.floor(timeInSeconds % 60);
+  return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+};
 return ( <div> <h2> {isLive ? "🔴 Live Class" : Now Playing: ${chapterName} - ${lectureName || "Unknown Lecture"}} </h2>
 
 {!isMaster && (
