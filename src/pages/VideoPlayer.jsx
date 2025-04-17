@@ -207,7 +207,7 @@ const VideoPlayer = () => {
         <video ref={videoRef} className="video-js vjs-default-skin" />
       </div>
 
-      {m3u8Url && !isLive && (
+      {m3u8Url && !isLive && m3u8Url.includes("index.m3u8") && (
         <div style={{ marginTop: "20px", textAlign: "center" }}>
           <h4>Select Quality:</h4>
           {qualities.map((quality) => (
