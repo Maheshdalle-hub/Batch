@@ -18,12 +18,13 @@ const VideoPlayer = () => {
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
-  const defaultLiveUrl = "m3u8_link_here";  // Placeholder for live URL
+  const defaultLiveUrl = "m3u8_link_here"; // Placeholder for live URL
+
   const qualityUrls = {
     "240p": "index_1.m3u8",
     "360p": "index_2.m3u8",
     "480p": "index_3.m3u8",
-    "720p": "index_4.m3u8"
+    "720p": "index_4.m3u8",
   };
 
   useEffect(() => {
@@ -54,9 +55,9 @@ const VideoPlayer = () => {
 
     // Checking if the URL is a master playlist or non-master
     const checkIfMaster = (url) => {
-      const isMaster = url.includes("index.m3u8");
+      const isMaster = url && url.includes("index.m3u8");
       setIsMasterPlaylist(isMaster);
-      setCurrentQuality(isMaster ? videoSource : qualityUrls["240p"]); // Default to 240p if not master
+      setCurrentQuality(isMaster ? url : qualityUrls["240p"]); // Default to 240p if not master
       setQualityButtonVisible(!isMaster); // Show quality button only for non-master
     };
 
