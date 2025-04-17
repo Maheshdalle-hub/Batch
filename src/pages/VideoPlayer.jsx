@@ -12,25 +12,25 @@ const VideoPlayer = () => {
   const playerRef = useRef(null);
   const lastTap = useRef(0);
   const [studiedMinutes, setStudiedMinutes] = useState(0);
-  const [isMasterPlaylist, setIsMasterPlaylist] = useState(false);
-  const [qualityOptions, setQualityOptions] = useState([]);
-  const [selectedQuality, setSelectedQuality] = useState(null);
+  const [currentQuality, setCurrentQuality] = useState(null);
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
   const defaultLiveUrl = "m3u8_link_here";
-  const qualityUrls = {
-    240: "index_1.m3u8",
-    360: "index_2.m3u8",
-    480: "index_3.m3u8",
-    720: "index_4.m3u8",
-  };
+
+  const isMaster = m3u8Url && m3u8Url.includes("index.m3u8");
+  const nonMasterBase = m3u8Url?.replace("index.m3u8", "index_");
+
+  const qualities = [
+    { label: "240p", value: "1" },
+    { label: "360p", value: "2" },
+    { label: "480p", value: "3" },
+    { label: "720p", value: "4" },
+  ];
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-    if (!isLoggedIn) {
-      navigate("/login");
-    }
+    if (!isLoggedIn) navigate("/login");
   }, [navigate]);
 
   useEffect(() => {
@@ -50,15 +50,15 @@ const VideoPlayer = () => {
   useEffect(() => {
     if (!videoRef.current) return;
 
-    // Check if the URL is a master playlist or non-master playlist
-    const videoSource = isLive ? defaultLiveUrl : m3u8Url || defaultLiveUrl;
+    const source =
+      isLive
+        ? defaultLiveUrl
+        : isMaster || !currentQuality
+        ? m3u8Url || defaultLiveUrl
+        : `${nonMasterBase}${currentQuality}.m3u8`;
 
-    if (videoSource.includes("index.m3u8")) {
-      setIsMasterPlaylist(true);
-    } else {
-      setIsMasterPlaylist(false);
-      // Extract the quality options based on the non-master playlist
-      setQualityOptions(Object.keys(qualityUrls));
+    if (playerRef.current) {
+      playerRef.current.dispose();
     }
 
     playerRef.current = videojs(videoRef.current, {
@@ -72,26 +72,20 @@ const VideoPlayer = () => {
           enableLowInitialPlaylist: true,
         },
       },
-      controlBar: {
-        children: [
-          "playToggle",
-          "progressControl",
-          "volumePanel",
-          "playbackRateMenuButton",
-          "qualitySelector", // This will work only for master playlists
-          "fullscreenToggle",
-        ],
-      },
     });
 
-    // If it's a master playlist, configure it accordingly
-    if (isMasterPlaylist) {
-      playerRef.current.src({
-        src: videoSource,
-        type: "application/x-mpegURL",
+    playerRef.current.src({ src: source, type: "application/x-mpegURL" });
+
+    if (isMaster) {
+      playerRef.current.ready(() => {
+        playerRef.current.qualityLevels();
+        playerRef.current.hlsQualitySelector({
+          displayCurrentQuality: true,
+        });
       });
     }
 
+    // Time Tracking
     let sessionStart = null;
     let studyTimer = null;
 
@@ -107,77 +101,74 @@ const VideoPlayer = () => {
       setStudiedMinutes(Math.floor(newTotal / 60));
     };
 
-    playerRef.current.ready(() => {
-      playerRef.current.qualityLevels();
-      playerRef.current.hlsQualitySelector({
-        displayCurrentQuality: true,
-      });
-
-      const controlBar = playerRef.current.controlBar;
-      const playToggleEl = controlBar.getChild("playToggle")?.el();
-      if (playToggleEl) {
-        const timeDisplay = document.createElement("div");
-        timeDisplay.className = "vjs-custom-time-display";
-        timeDisplay.style.position = "absolute";
-        timeDisplay.style.bottom = "50px";
-        timeDisplay.style.left = "0";
-        timeDisplay.style.background = "rgba(0, 0, 0, 0.7)";
-        timeDisplay.style.color = "#fff";
-        timeDisplay.style.fontSize = "13px";
-        timeDisplay.style.padding = "4px 8px";
-        timeDisplay.style.borderRadius = "4px";
-        timeDisplay.style.whiteSpace = "nowrap";
-        timeDisplay.style.pointerEvents = "none";
-        timeDisplay.style.zIndex = "999";
-        timeDisplay.textContent = "00:00 / 00:00";
-
-        playToggleEl.style.position = "relative";
-        playToggleEl.appendChild(timeDisplay);
-
-        playerRef.current.on("loadedmetadata", () => {
-          const duration = formatTime(playerRef.current.duration());
-          timeDisplay.textContent = `00:00 / ${duration}`;
-        });
-
-        playerRef.current.on("timeupdate", () => {
-          const currentTime = formatTime(playerRef.current.currentTime());
-          const duration = formatTime(playerRef.current.duration());
-          timeDisplay.textContent = `${currentTime} / ${duration}`;
-        });
-      }
-
-      playerRef.current.on("play", () => {
-        sessionStart = Date.now();
-        clearInterval(studyTimer);
-        studyTimer = setInterval(updateStudyTime, 10000);
-      });
-
-      playerRef.current.on("pause", () => {
-        updateStudyTime();
-        clearInterval(studyTimer);
-      });
-
-      playerRef.current.on("ended", () => {
-        updateStudyTime();
-        clearInterval(studyTimer);
-      });
+    playerRef.current.on("play", () => {
+      sessionStart = Date.now();
+      clearInterval(studyTimer);
+      studyTimer = setInterval(updateStudyTime, 10000);
     });
 
-    const videoContainer = videoRef.current.parentElement;
-    videoContainer.addEventListener("touchend", (event) => {
-      const currentTime = Date.now();
-      const tapGap = currentTime - lastTap.current;
-      lastTap.current = currentTime;
+    playerRef.current.on("pause", () => {
+      updateStudyTime();
+      clearInterval(studyTimer);
+    });
+
+    playerRef.current.on("ended", () => {
+      updateStudyTime();
+      clearInterval(studyTimer);
+    });
+
+    // Time Display
+    const controlBar = playerRef.current.controlBar;
+    const playToggleEl = controlBar.getChild("playToggle")?.el();
+    if (playToggleEl) {
+      const timeDisplay = document.createElement("div");
+      timeDisplay.className = "vjs-custom-time-display";
+      Object.assign(timeDisplay.style, {
+        position: "absolute",
+        bottom: "50px",
+        left: "0",
+        background: "rgba(0, 0, 0, 0.7)",
+        color: "#fff",
+        fontSize: "13px",
+        padding: "4px 8px",
+        borderRadius: "4px",
+        whiteSpace: "nowrap",
+        pointerEvents: "none",
+        zIndex: "999",
+      });
+      timeDisplay.textContent = "00:00 / 00:00";
+
+      playToggleEl.style.position = "relative";
+      playToggleEl.appendChild(timeDisplay);
+
+      playerRef.current.on("loadedmetadata", () => {
+        const duration = formatTime(playerRef.current.duration());
+        timeDisplay.textContent = `00:00 / ${duration}`;
+      });
+
+      playerRef.current.on("timeupdate", () => {
+        const current = formatTime(playerRef.current.currentTime());
+        const duration = formatTime(playerRef.current.duration());
+        timeDisplay.textContent = `${current} / ${duration}`;
+      });
+    }
+
+    // Gesture
+    const container = videoRef.current.parentElement;
+    container.addEventListener("touchend", (event) => {
+      const now = Date.now();
+      const gap = now - lastTap.current;
+      lastTap.current = now;
 
       const touch = event.changedTouches[0];
-      const rect = videoContainer.getBoundingClientRect();
+      const rect = container.getBoundingClientRect();
       const tapX = touch.clientX - rect.left;
-      const videoWidth = rect.width;
+      const width = rect.width;
 
-      if (tapGap < 300) {
-        if (tapX < videoWidth / 3) {
+      if (gap < 300) {
+        if (tapX < width / 3) {
           playerRef.current.currentTime(playerRef.current.currentTime() - 10);
-        } else if (tapX > (2 * videoWidth) / 3) {
+        } else if (tapX > (2 * width) / 3) {
           playerRef.current.currentTime(playerRef.current.currentTime() + 10);
         } else {
           playerRef.current.paused()
@@ -188,28 +179,16 @@ const VideoPlayer = () => {
     });
 
     return () => {
-      if (playerRef.current) {
-        playerRef.current.dispose();
-      }
+      if (playerRef.current) playerRef.current.dispose();
       clearInterval(studyTimer);
     };
-  }, [m3u8Url, isLive, isMasterPlaylist]);
+  }, [m3u8Url, isLive, currentQuality]);
 
-  const formatTime = (timeInSeconds) => {
-    if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00";
-    const minutes = Math.floor(timeInSeconds / 60);
-    const seconds = Math.floor(timeInSeconds % 60);
-    return `${minutes.toString().padStart(2, "0")}:${seconds
-      .toString()
-      .padStart(2, "0")}`;
-  };
-
-  const handleQualityChange = (quality) => {
-    setSelectedQuality(quality);
-    playerRef.current.src({
-      src: qualityUrls[quality],
-      type: "application/x-mpegURL",
-    });
+  const formatTime = (seconds) => {
+    if (isNaN(seconds) || seconds < 0) return "00:00";
+    const min = Math.floor(seconds / 60);
+    const sec = Math.floor(seconds % 60);
+    return `${min.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")}`;
   };
 
   return (
@@ -224,86 +203,62 @@ const VideoPlayer = () => {
         <video ref={videoRef} className="video-js vjs-default-skin" />
       </div>
 
-      {!isMasterPlaylist && qualityOptions.length > 0 && (
-        <div style={{ marginTop: "20px", textAlign: "center" }}>
-          <button
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#007bff",
-              color: "#fff",
-              borderRadius: "8px",
-              fontSize: "16px",
-            }}
-            onClick={() => handleQualityChange(240)}
-          >
-            240p
-          </button>
-          <button
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#007bff",
-              color: "#fff",
-              borderRadius: "8px",
-              fontSize: "16px",
-            }}
-            onClick={() => handleQualityChange(360)}
-          >
-            360p
-          </button>
-          <button
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#007bff",
-              color: "#fff",
-              borderRadius: "8px",
-              fontSize: "16px",
-              marginLeft: "10px",
-            }}
-            onClick={() => handleQualityChange(480)}
-          >
-            480p
-          </button>
-          <button
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#007bff",
-              color: "#fff",
-              borderRadius: "8px",
-              fontSize: "16px",
-              marginLeft: "10px",
-            }}
-            onClick={() => handleQualityChange(720)}
-          >
-            720p
-          </button>
+      {!isMaster && (
+        <div style={{ textAlign: "center", marginTop: "10px" }}>
+          <span style={{ fontWeight: "bold" }}>Quality:</span>{" "}
+          {qualities.map((q) => (
+            <button
+              key={q.value}
+              onClick={() => setCurrentQuality(q.value)}
+              style={{
+                margin: "5px",
+                padding: "6px 12px",
+                backgroundColor:
+                  currentQuality === q.value ? "#007bff" : "#f0f0f0",
+                color: currentQuality === q.value ? "#fff" : "#000",
+                border: "none",
+                borderRadius: "4px",
+              }}
+            >
+              {q.label}
+            </button>
+          ))}
         </div>
       )}
 
-      <div style={{ marginTop: "10px", textAlign: "center" }}>
-        <p>Today’s Study Time: {studiedMinutes} minutes</p>
+      {notesUrl && (
+        <div style={{ marginTop: "20px", textAlign: "center" }}>
+          <a
+            href={notesUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              padding: "12px 24px",
+              backgroundColor: "#007bff",
+              color: "#fff",
+              textDecoration: "none",
+              borderRadius: "8px",
+              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+              fontSize: "16px",
+              fontWeight: "bold",
+            }}
+          >
+            Download Notes
+          </a>
+        </div>
+      )}
+
+      <div
+        style={{
+          textAlign: "center",
+          fontSize: "12px",
+          marginTop: "30px",
+          color: "#555",
+        }}
+      >
+        Today’s Study Time: <strong>{studiedMinutes} min</strong>
       </div>
     </div>
-{notesUrl && (
-  <div style={{ marginTop: "20px", textAlign: "center" }}>
-    <a
-      href={notesUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        padding: "12px 24px",
-        backgroundColor: "#007bff",
-        color: "#fff",
-        textDecoration: "none",
-        borderRadius: "8px",
-        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-        fontSize: "16px",
-        fontWeight: "bold",
-      }}
-    >
-      Download Notes
-    </a>
-  </div>
-)}
   );
 };
 
