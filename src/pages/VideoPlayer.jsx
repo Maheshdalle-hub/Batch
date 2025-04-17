@@ -12,10 +12,19 @@ const VideoPlayer = () => {
   const playerRef = useRef(null);
   const lastTap = useRef(0);
   const [studiedMinutes, setStudiedMinutes] = useState(0);
+  const [currentQuality, setCurrentQuality] = useState(""); // To track selected quality
+  const [isMasterPlaylist, setIsMasterPlaylist] = useState(false); // To check if it's a master playlist
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
   const defaultLiveUrl = "m3u8_link_here";
+
+  // Check if it's a master playlist or non-master
+  useEffect(() => {
+    if (m3u8Url) {
+      setIsMasterPlaylist(m3u8Url === "index.m3u8");
+    }
+  }, [m3u8Url]);
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -41,7 +50,13 @@ const VideoPlayer = () => {
   useEffect(() => {
     if (!videoRef.current) return;
 
-    const videoSource = isLive ? defaultLiveUrl : m3u8Url || defaultLiveUrl;
+    // Decide the video URL based on the playlist type (master or non-master)
+    let videoSource = "";
+    if (isMasterPlaylist) {
+      videoSource = m3u8Url || defaultLiveUrl;
+    } else {
+      videoSource = currentQuality || m3u8Url || defaultLiveUrl; // Use the selected quality URL
+    }
 
     playerRef.current = videojs(videoRef.current, {
       controls: true,
@@ -60,7 +75,7 @@ const VideoPlayer = () => {
           "progressControl",
           "volumePanel",
           "playbackRateMenuButton",
-          "qualitySelector",
+          "qualitySelector", // For quality selector
           "fullscreenToggle",
         ],
       },
@@ -87,41 +102,13 @@ const VideoPlayer = () => {
     };
 
     playerRef.current.ready(() => {
-      playerRef.current.qualityLevels();
-      playerRef.current.hlsQualitySelector({
-        displayCurrentQuality: true,
-      });
-
       const controlBar = playerRef.current.controlBar;
       const playToggleEl = controlBar.getChild("playToggle")?.el();
-      if (playToggleEl) {
-        const timeDisplay = document.createElement("div");
-        timeDisplay.className = "vjs-custom-time-display";
-        timeDisplay.style.position = "absolute";
-        timeDisplay.style.bottom = "50px";
-        timeDisplay.style.left = "0";
-        timeDisplay.style.background = "rgba(0, 0, 0, 0.7)";
-        timeDisplay.style.color = "#fff";
-        timeDisplay.style.fontSize = "13px";
-        timeDisplay.style.padding = "4px 8px";
-        timeDisplay.style.borderRadius = "4px";
-        timeDisplay.style.whiteSpace = "nowrap";
-        timeDisplay.style.pointerEvents = "none";
-        timeDisplay.style.zIndex = "999";
-        timeDisplay.textContent = "00:00 / 00:00";
 
-        playToggleEl.style.position = "relative";
-        playToggleEl.appendChild(timeDisplay);
-
-        playerRef.current.on("loadedmetadata", () => {
-          const duration = formatTime(playerRef.current.duration());
-          timeDisplay.textContent = `00:00 / ${duration}`;
-        });
-
-        playerRef.current.on("timeupdate", () => {
-          const currentTime = formatTime(playerRef.current.currentTime());
-          const duration = formatTime(playerRef.current.duration());
-          timeDisplay.textContent = `${currentTime} / ${duration}`;
+      // Handle the quality selector button based on master or non-master playlist
+      if (!isMasterPlaylist) {
+        playerRef.current.hlsQualitySelector({
+          displayCurrentQuality: true,
         });
       }
 
@@ -142,37 +129,13 @@ const VideoPlayer = () => {
       });
     });
 
-    const videoContainer = videoRef.current.parentElement;
-    videoContainer.addEventListener("touchend", (event) => {
-      const currentTime = Date.now();
-      const tapGap = currentTime - lastTap.current;
-      lastTap.current = currentTime;
-
-      const touch = event.changedTouches[0];
-      const rect = videoContainer.getBoundingClientRect();
-      const tapX = touch.clientX - rect.left;
-      const videoWidth = rect.width;
-
-      if (tapGap < 300) {
-        if (tapX < videoWidth / 3) {
-          playerRef.current.currentTime(playerRef.current.currentTime() - 10);
-        } else if (tapX > (2 * videoWidth) / 3) {
-          playerRef.current.currentTime(playerRef.current.currentTime() + 10);
-        } else {
-          playerRef.current.paused()
-            ? playerRef.current.play()
-            : playerRef.current.pause();
-        }
-      }
-    });
-
     return () => {
       if (playerRef.current) {
         playerRef.current.dispose();
       }
       clearInterval(studyTimer);
     };
-  }, [m3u8Url, isLive]);
+  }, [m3u8Url, isLive, currentQuality, isMasterPlaylist]);
 
   const formatTime = (timeInSeconds) => {
     if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00";
@@ -181,6 +144,28 @@ const VideoPlayer = () => {
     return `${minutes.toString().padStart(2, "0")}:${seconds
       .toString()
       .padStart(2, "0")}`;
+  };
+
+  const handleQualityChange = (quality) => {
+    let qualityUrl = "";
+
+    // Based on selected quality, update the video URL
+    if (quality === "240p") {
+      qualityUrl = "index_1.m3u8";
+    } else if (quality === "360p") {
+      qualityUrl = "index_2.m3u8";
+    } else if (quality === "480p") {
+      qualityUrl = "index_3.m3u8";
+    } else if (quality === "720p") {
+      qualityUrl = "index_4.m3u8";
+    }
+
+    // Update the current quality and set the new video source
+    setCurrentQuality(qualityUrl);
+    playerRef.current.src({
+      src: qualityUrl,
+      type: "application/x-mpegURL",
+    });
   };
 
   return (
@@ -194,6 +179,58 @@ const VideoPlayer = () => {
       <div style={{ position: "relative" }}>
         <video ref={videoRef} className="video-js vjs-default-skin" />
       </div>
+
+      {isMasterPlaylist && !isLive && (
+        <div style={{ textAlign: "center", marginTop: "20px" }}>
+          <button
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "#fff",
+              borderRadius: "4px",
+            }}
+            onClick={() => handleQualityChange("240p")}
+          >
+            240p
+          </button>
+          <button
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "#fff",
+              borderRadius: "4px",
+              marginLeft: "10px",
+            }}
+            onClick={() => handleQualityChange("360p")}
+          >
+            360p
+          </button>
+          <button
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "#fff",
+              borderRadius: "4px",
+              marginLeft: "10px",
+            }}
+            onClick={() => handleQualityChange("480p")}
+          >
+            480p
+          </button>
+          <button
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "#fff",
+              borderRadius: "4px",
+              marginLeft: "10px",
+            }}
+            onClick={() => handleQualityChange("720p")}
+          >
+            720p
+          </button>
+        </div>
+      )}
 
       {notesUrl && (
         <div style={{ marginTop: "20px", textAlign: "center" }}>
@@ -212,18 +249,17 @@ const VideoPlayer = () => {
               fontWeight: "bold",
             }}
           >
-            Download Notes
+            View Notes
           </a>
         </div>
       )}
 
-      <div style={{
-        textAlign: "center",
-        fontSize: "12px",
-        marginTop: "30px",
-        color: "#555"
-      }}>
-        Today’s Study Time: <strong>{studiedMinutes} min</strong>
+      <div style={{ marginTop: "20px", textAlign: "center" }}>
+        <p>
+          {isLive
+            ? "Watching live. Please stay tuned for the latest updates!"
+            : `You have studied for: ${formatTime(studiedMinutes * 60)}`}
+        </p>
       </div>
     </div>
   );
