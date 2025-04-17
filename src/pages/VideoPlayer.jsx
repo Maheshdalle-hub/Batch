@@ -12,10 +12,19 @@ const VideoPlayer = () => {
   const playerRef = useRef(null);
   const lastTap = useRef(0);
   const [studiedMinutes, setStudiedMinutes] = useState(0);
+  const [isMasterPlaylist, setIsMasterPlaylist] = useState(false);
+  const [qualityOptions, setQualityOptions] = useState([]);
+  const [selectedQuality, setSelectedQuality] = useState(null);
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
   const defaultLiveUrl = "m3u8_link_here";
+  const qualityUrls = {
+    240: "index_1.m3u8",
+    360: "index_2.m3u8",
+    480: "index_3.m3u8",
+    720: "index_4.m3u8",
+  };
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -41,7 +50,16 @@ const VideoPlayer = () => {
   useEffect(() => {
     if (!videoRef.current) return;
 
+    // Check if the URL is a master playlist or non-master playlist
     const videoSource = isLive ? defaultLiveUrl : m3u8Url || defaultLiveUrl;
+
+    if (videoSource.includes("index.m3u8")) {
+      setIsMasterPlaylist(true);
+    } else {
+      setIsMasterPlaylist(false);
+      // Extract the quality options based on the non-master playlist
+      setQualityOptions(Object.keys(qualityUrls));
+    }
 
     playerRef.current = videojs(videoRef.current, {
       controls: true,
@@ -60,16 +78,19 @@ const VideoPlayer = () => {
           "progressControl",
           "volumePanel",
           "playbackRateMenuButton",
-          "qualitySelector",
+          "qualitySelector", // This will work only for master playlists
           "fullscreenToggle",
         ],
       },
     });
 
-    playerRef.current.src({
-      src: videoSource,
-      type: "application/x-mpegURL",
-    });
+    // If it's a master playlist, configure it accordingly
+    if (isMasterPlaylist) {
+      playerRef.current.src({
+        src: videoSource,
+        type: "application/x-mpegURL",
+      });
+    }
 
     let sessionStart = null;
     let studyTimer = null;
@@ -172,7 +193,7 @@ const VideoPlayer = () => {
       }
       clearInterval(studyTimer);
     };
-  }, [m3u8Url, isLive]);
+  }, [m3u8Url, isLive, isMasterPlaylist]);
 
   const formatTime = (timeInSeconds) => {
     if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00";
@@ -181,6 +202,14 @@ const VideoPlayer = () => {
     return `${minutes.toString().padStart(2, "0")}:${seconds
       .toString()
       .padStart(2, "0")}`;
+  };
+
+  const handleQualityChange = (quality) => {
+    setSelectedQuality(quality);
+    playerRef.current.src({
+      src: qualityUrls[quality],
+      type: "application/x-mpegURL",
+    });
   };
 
   return (
@@ -195,35 +224,63 @@ const VideoPlayer = () => {
         <video ref={videoRef} className="video-js vjs-default-skin" />
       </div>
 
-      {notesUrl && (
+      {!isMasterPlaylist && qualityOptions.length > 0 && (
         <div style={{ marginTop: "20px", textAlign: "center" }}>
-          <a
-            href={notesUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
             style={{
-              padding: "12px 24px",
+              padding: "10px 20px",
               backgroundColor: "#007bff",
               color: "#fff",
-              textDecoration: "none",
               borderRadius: "8px",
-              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
               fontSize: "16px",
-              fontWeight: "bold",
             }}
+            onClick={() => handleQualityChange(240)}
           >
-            Download Notes
-          </a>
+            240p
+          </button>
+          <button
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "#fff",
+              borderRadius: "8px",
+              fontSize: "16px",
+            }}
+            onClick={() => handleQualityChange(360)}
+          >
+            360p
+          </button>
+          <button
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "#fff",
+              borderRadius: "8px",
+              fontSize: "16px",
+              marginLeft: "10px",
+            }}
+            onClick={() => handleQualityChange(480)}
+          >
+            480p
+          </button>
+          <button
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "#fff",
+              borderRadius: "8px",
+              fontSize: "16px",
+              marginLeft: "10px",
+            }}
+            onClick={() => handleQualityChange(720)}
+          >
+            720p
+          </button>
         </div>
       )}
 
-      <div style={{
-        textAlign: "center",
-        fontSize: "12px",
-        marginTop: "30px",
-        color: "#555"
-      }}>
-        Today’s Study Time: <strong>{studiedMinutes} min</strong>
+      <div style={{ marginTop: "10px", textAlign: "center" }}>
+        <p>Today’s Study Time: {studiedMinutes} minutes</p>
       </div>
     </div>
   );
