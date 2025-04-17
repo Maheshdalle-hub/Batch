@@ -12,19 +12,10 @@ const VideoPlayer = () => {
   const playerRef = useRef(null);
   const lastTap = useRef(0);
   const [studiedMinutes, setStudiedMinutes] = useState(0);
-  const [currentQuality, setCurrentQuality] = useState(null);
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
   const defaultLiveUrl = "m3u8_link_here";
-  const nonMasterBase = m3u8Url?.replace("index.m3u8", "index_");
-
-  const qualities = [
-    { label: "240p", value: "1" },
-    { label: "360p", value: "2" },
-    { label: "480p", value: "3" },
-    { label: "720p", value: "4" },
-  ];
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -50,10 +41,14 @@ const VideoPlayer = () => {
   useEffect(() => {
     if (!videoRef.current) return;
 
-    const videoSource =
-      currentQuality === null
-        ? m3u8Url
-        : `${nonMasterBase}${currentQuality}.m3u8`;
+    const isMasterPlaylist = m3u8Url?.includes("index.m3u8");
+    let videoSource = m3u8Url;
+
+    if (!isMasterPlaylist) {
+      const nonMasterBase = m3u8Url?.replace(/index_\d+.m3u8/, "index_");
+      // Set default quality (e.g., 240p or 360p)
+      videoSource = `${nonMasterBase}${currentQuality}.m3u8`;
+    }
 
     playerRef.current = videojs(videoRef.current, {
       controls: true,
@@ -184,7 +179,7 @@ const VideoPlayer = () => {
       }
       clearInterval(studyTimer);
     };
-  }, [m3u8Url, currentQuality]);
+  }, [m3u8Url, isLive]);
 
   const formatTime = (timeInSeconds) => {
     if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00";
@@ -206,29 +201,6 @@ const VideoPlayer = () => {
       <div style={{ position: "relative" }}>
         <video ref={videoRef} className="video-js vjs-default-skin" />
       </div>
-
-      {m3u8Url && !isLive && m3u8Url.includes("index.m3u8") && (
-        <div style={{ marginTop: "20px", textAlign: "center" }}>
-          <h4>Select Quality:</h4>
-          {qualities.map((quality) => (
-            <button
-              key={quality.value}
-              onClick={() => setCurrentQuality(quality.value)}
-              style={{
-                margin: "5px",
-                padding: "10px 20px",
-                backgroundColor: "#007bff",
-                color: "#fff",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-              }}
-            >
-              {quality.label}
-            </button>
-          ))}
-        </div>
-      )}
 
       {notesUrl && (
         <div style={{ marginTop: "20px", textAlign: "center" }}>
