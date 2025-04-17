@@ -17,7 +17,7 @@ setStudiedMinutes(Math.floor(stored / 60));
 
 }, []);
 
-const getFinalVideoUrl = () => { if (selectedQuality) { return ${baseUrl}${selectedQuality}; } return m3u8Url || defaultLiveUrl; };
+const getFinalVideoUrl = () => { if (selectedQuality); { return ${baseUrl}${selectedQuality}; } return m3u8Url || defaultLiveUrl; };
 
 useEffect(() => { if (!videoRef.current) return;
 
