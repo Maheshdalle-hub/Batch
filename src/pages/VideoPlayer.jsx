@@ -18,7 +18,7 @@ const VideoPlayer = () => {
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
-  const defaultLiveUrl = "m3u8_link_here";
+  const defaultLiveUrl = "m3u8_link_here";  // Placeholder for live URL
   const qualityUrls = {
     "240p": "index_1.m3u8",
     "360p": "index_2.m3u8",
