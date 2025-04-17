@@ -63,7 +63,6 @@ const VideoPlayer = () => {
           "volumePanel",
           "playbackRateMenuButton",
           "fullscreenToggle",
-          "qualitySelector", // Always show the quality selector
         ],
       },
     });
@@ -224,20 +223,16 @@ const VideoPlayer = () => {
         Today’s Study Time: <strong>{studiedMinutes} min</strong>
       </div>
 
-      <div style={{ textAlign: "center", marginTop: "10px" }}>
-        {isMasterPlaylist && (
+      {/* Quality Selector for Non-Master Playlist */}
+      {!isMasterPlaylist && (
+        <div style={{ textAlign: "center", marginTop: "10px" }}>
           <button onClick={() => handleQualityChange(240)}>240p</button>
-        )}
-        {isMasterPlaylist && (
           <button onClick={() => handleQualityChange(360)}>360p</button>
-        )}
-        {isMasterPlaylist && (
           <button onClick={() => handleQualityChange(480)}>480p</button>
-        )}
-        {isMasterPlaylist && (
           <button onClick={() => handleQualityChange(720)}>720p</button>
-        )}
-      </div>
+        </div>
+      )}
+
     </div>
   );
 };
