@@ -17,8 +17,6 @@ const VideoPlayer = () => {
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
   const defaultLiveUrl = "m3u8_link_here";
-
-  const isMaster = m3u8Url && m3u8Url.includes("index.m3u8");
   const nonMasterBase = m3u8Url?.replace("index.m3u8", "index_");
 
   const qualities = [
@@ -30,7 +28,9 @@ const VideoPlayer = () => {
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-    if (!isLoggedIn) navigate("/login");
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
   }, [navigate]);
 
   useEffect(() => {
@@ -50,16 +50,10 @@ const VideoPlayer = () => {
   useEffect(() => {
     if (!videoRef.current) return;
 
-    const source =
-      isLive
-        ? defaultLiveUrl
-        : isMaster || !currentQuality
-        ? m3u8Url || defaultLiveUrl
+    const videoSource =
+      currentQuality === null
+        ? m3u8Url
         : `${nonMasterBase}${currentQuality}.m3u8`;
-
-    if (playerRef.current) {
-      playerRef.current.dispose();
-    }
 
     playerRef.current = videojs(videoRef.current, {
       controls: true,
@@ -72,20 +66,23 @@ const VideoPlayer = () => {
           enableLowInitialPlaylist: true,
         },
       },
+      controlBar: {
+        children: [
+          "playToggle",
+          "progressControl",
+          "volumePanel",
+          "playbackRateMenuButton",
+          "qualitySelector",
+          "fullscreenToggle",
+        ],
+      },
     });
 
-    playerRef.current.src({ src: source, type: "application/x-mpegURL" });
+    playerRef.current.src({
+      src: videoSource,
+      type: "application/x-mpegURL",
+    });
 
-    if (isMaster) {
-      playerRef.current.ready(() => {
-        playerRef.current.qualityLevels();
-        playerRef.current.hlsQualitySelector({
-          displayCurrentQuality: true,
-        });
-      });
-    }
-
-    // Time Tracking
     let sessionStart = null;
     let studyTimer = null;
 
@@ -101,74 +98,77 @@ const VideoPlayer = () => {
       setStudiedMinutes(Math.floor(newTotal / 60));
     };
 
-    playerRef.current.on("play", () => {
-      sessionStart = Date.now();
-      clearInterval(studyTimer);
-      studyTimer = setInterval(updateStudyTime, 10000);
-    });
-
-    playerRef.current.on("pause", () => {
-      updateStudyTime();
-      clearInterval(studyTimer);
-    });
-
-    playerRef.current.on("ended", () => {
-      updateStudyTime();
-      clearInterval(studyTimer);
-    });
-
-    // Time Display
-    const controlBar = playerRef.current.controlBar;
-    const playToggleEl = controlBar.getChild("playToggle")?.el();
-    if (playToggleEl) {
-      const timeDisplay = document.createElement("div");
-      timeDisplay.className = "vjs-custom-time-display";
-      Object.assign(timeDisplay.style, {
-        position: "absolute",
-        bottom: "50px",
-        left: "0",
-        background: "rgba(0, 0, 0, 0.7)",
-        color: "#fff",
-        fontSize: "13px",
-        padding: "4px 8px",
-        borderRadius: "4px",
-        whiteSpace: "nowrap",
-        pointerEvents: "none",
-        zIndex: "999",
-      });
-      timeDisplay.textContent = "00:00 / 00:00";
-
-      playToggleEl.style.position = "relative";
-      playToggleEl.appendChild(timeDisplay);
-
-      playerRef.current.on("loadedmetadata", () => {
-        const duration = formatTime(playerRef.current.duration());
-        timeDisplay.textContent = `00:00 / ${duration}`;
+    playerRef.current.ready(() => {
+      playerRef.current.qualityLevels();
+      playerRef.current.hlsQualitySelector({
+        displayCurrentQuality: true,
       });
 
-      playerRef.current.on("timeupdate", () => {
-        const current = formatTime(playerRef.current.currentTime());
-        const duration = formatTime(playerRef.current.duration());
-        timeDisplay.textContent = `${current} / ${duration}`;
-      });
-    }
+      const controlBar = playerRef.current.controlBar;
+      const playToggleEl = controlBar.getChild("playToggle")?.el();
+      if (playToggleEl) {
+        const timeDisplay = document.createElement("div");
+        timeDisplay.className = "vjs-custom-time-display";
+        timeDisplay.style.position = "absolute";
+        timeDisplay.style.bottom = "50px";
+        timeDisplay.style.left = "0";
+        timeDisplay.style.background = "rgba(0, 0, 0, 0.7)";
+        timeDisplay.style.color = "#fff";
+        timeDisplay.style.fontSize = "13px";
+        timeDisplay.style.padding = "4px 8px";
+        timeDisplay.style.borderRadius = "4px";
+        timeDisplay.style.whiteSpace = "nowrap";
+        timeDisplay.style.pointerEvents = "none";
+        timeDisplay.style.zIndex = "999";
+        timeDisplay.textContent = "00:00 / 00:00";
 
-    // Gesture
-    const container = videoRef.current.parentElement;
-    container.addEventListener("touchend", (event) => {
-      const now = Date.now();
-      const gap = now - lastTap.current;
-      lastTap.current = now;
+        playToggleEl.style.position = "relative";
+        playToggleEl.appendChild(timeDisplay);
+
+        playerRef.current.on("loadedmetadata", () => {
+          const duration = formatTime(playerRef.current.duration());
+          timeDisplay.textContent = `00:00 / ${duration}`;
+        });
+
+        playerRef.current.on("timeupdate", () => {
+          const currentTime = formatTime(playerRef.current.currentTime());
+          const duration = formatTime(playerRef.current.duration());
+          timeDisplay.textContent = `${currentTime} / ${duration}`;
+        });
+      }
+
+      playerRef.current.on("play", () => {
+        sessionStart = Date.now();
+        clearInterval(studyTimer);
+        studyTimer = setInterval(updateStudyTime, 10000);
+      });
+
+      playerRef.current.on("pause", () => {
+        updateStudyTime();
+        clearInterval(studyTimer);
+      });
+
+      playerRef.current.on("ended", () => {
+        updateStudyTime();
+        clearInterval(studyTimer);
+      });
+    });
+
+    const videoContainer = videoRef.current.parentElement;
+    videoContainer.addEventListener("touchend", (event) => {
+      const currentTime = Date.now();
+      const tapGap = currentTime - lastTap.current;
+      lastTap.current = currentTime;
 
       const touch = event.changedTouches[0];
-      const rect = container.getBoundingClientRect();
+      const rect = videoContainer.getBoundingClientRect();
       const tapX = touch.clientX - rect.left;
-      const width = rect.width;
+      const videoWidth = rect.width;
 
-      if (gap < 300) {
-        if (tapX < width / 3) {
+      if (tapGap < 300) {
+        if (tapX < videoWidth / 3) {
           playerRef.current.currentTime(playerRef.current.currentTime() - 10);
-        } else if (tapX > (2 * width) / 3) {
+        } else if (tapX > (2 * videoWidth) / 3) {
           playerRef.current.currentTime(playerRef.current.currentTime() + 10);
         } else {
           playerRef.current.paused()
@@ -179,16 +179,20 @@ const VideoPlayer = () => {
     });
 
     return () => {
-      if (playerRef.current) playerRef.current.dispose();
+      if (playerRef.current) {
+        playerRef.current.dispose();
+      }
       clearInterval(studyTimer);
     };
-  }, [m3u8Url, isLive, currentQuality]);
+  }, [m3u8Url, currentQuality]);
 
-  const formatTime = (seconds) => {
-    if (isNaN(seconds) || seconds < 0) return "00:00";
-    const min = Math.floor(seconds / 60);
-    const sec = Math.floor(seconds % 60);
-    return `${min.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")}`;
+  const formatTime = (timeInSeconds) => {
+    if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00";
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
   };
 
   return (
@@ -203,24 +207,24 @@ const VideoPlayer = () => {
         <video ref={videoRef} className="video-js vjs-default-skin" />
       </div>
 
-      {!isMaster && (
-        <div style={{ textAlign: "center", marginTop: "10px" }}>
-          <span style={{ fontWeight: "bold" }}>Quality:</span>{" "}
-          {qualities.map((q) => (
+      {m3u8Url && !isLive && (
+        <div style={{ marginTop: "20px", textAlign: "center" }}>
+          <h4>Select Quality:</h4>
+          {qualities.map((quality) => (
             <button
-              key={q.value}
-              onClick={() => setCurrentQuality(q.value)}
+              key={quality.value}
+              onClick={() => setCurrentQuality(quality.value)}
               style={{
                 margin: "5px",
-                padding: "6px 12px",
-                backgroundColor:
-                  currentQuality === q.value ? "#007bff" : "#f0f0f0",
-                color: currentQuality === q.value ? "#fff" : "#000",
+                padding: "10px 20px",
+                backgroundColor: "#007bff",
+                color: "#fff",
                 border: "none",
-                borderRadius: "4px",
+                borderRadius: "5px",
+                cursor: "pointer",
               }}
             >
-              {q.label}
+              {quality.label}
             </button>
           ))}
         </div>
@@ -248,14 +252,12 @@ const VideoPlayer = () => {
         </div>
       )}
 
-      <div
-        style={{
-          textAlign: "center",
-          fontSize: "12px",
-          marginTop: "30px",
-          color: "#555",
-        }}
-      >
+      <div style={{
+        textAlign: "center",
+        fontSize: "12px",
+        marginTop: "30px",
+        color: "#555"
+      }}>
         Today’s Study Time: <strong>{studiedMinutes} min</strong>
       </div>
     </div>
