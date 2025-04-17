@@ -12,20 +12,10 @@ const VideoPlayer = () => {
   const playerRef = useRef(null);
   const lastTap = useRef(0);
   const [studiedMinutes, setStudiedMinutes] = useState(0);
-  const [isMasterPlaylist, setIsMasterPlaylist] = useState(false);
-  const [currentQuality, setCurrentQuality] = useState("");
-  const [qualityButtonVisible, setQualityButtonVisible] = useState(false);
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
-  const defaultLiveUrl = "m3u8_link_here"; // Placeholder for live URL
-
-  const qualityUrls = {
-    "240p": "index_1.m3u8",
-    "360p": "index_2.m3u8",
-    "480p": "index_3.m3u8",
-    "720p": "index_4.m3u8",
-  };
+  const defaultLiveUrl = "m3u8_link_here";
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -53,16 +43,6 @@ const VideoPlayer = () => {
 
     const videoSource = isLive ? defaultLiveUrl : m3u8Url || defaultLiveUrl;
 
-    // Checking if the URL is a master playlist or non-master
-    const checkIfMaster = (url) => {
-      const isMaster = url && url.includes("index.m3u8");
-      setIsMasterPlaylist(isMaster);
-      setCurrentQuality(isMaster ? url : qualityUrls["240p"]); // Default to 240p if not master
-      setQualityButtonVisible(!isMaster); // Show quality button only for non-master
-    };
-
-    checkIfMaster(m3u8Url);
-
     playerRef.current = videojs(videoRef.current, {
       controls: true,
       autoplay: false,
@@ -86,9 +66,8 @@ const VideoPlayer = () => {
       },
     });
 
-    // Set video source and initialize playback
     playerRef.current.src({
-      src: currentQuality,
+      src: videoSource,
       type: "application/x-mpegURL",
     });
 
@@ -193,7 +172,7 @@ const VideoPlayer = () => {
       }
       clearInterval(studyTimer);
     };
-  }, [m3u8Url, isLive, currentQuality]);
+  }, [m3u8Url, isLive]);
 
   const formatTime = (timeInSeconds) => {
     if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00";
@@ -202,14 +181,6 @@ const VideoPlayer = () => {
     return `${minutes.toString().padStart(2, "0")}:${seconds
       .toString()
       .padStart(2, "0")}`;
-  };
-
-  const handleQualityChange = (quality) => {
-    setCurrentQuality(qualityUrls[quality]);
-    playerRef.current.src({
-      src: qualityUrls[quality],
-      type: "application/x-mpegURL",
-    });
   };
 
   return (
@@ -243,15 +214,6 @@ const VideoPlayer = () => {
           >
             Download Notes
           </a>
-        </div>
-      )}
-
-      {qualityButtonVisible && (
-        <div style={{ textAlign: "center", marginTop: "20px" }}>
-          <button onClick={() => handleQualityChange("240p")}>240p</button>
-          <button onClick={() => handleQualityChange("360p")}>360p</button>
-          <button onClick={() => handleQualityChange("480p")}>480p</button>
-          <button onClick={() => handleQualityChange("720p")}>720p</button>
         </div>
       )}
 
