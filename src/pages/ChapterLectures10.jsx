@@ -38,7 +38,7 @@ const ChapterLectures10 = () => {
         },
         {
           name: "Lecture 3",
-          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4352723/174480784354101097666/index_2.m3u8"
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4353809/174489432994287880624/index_2.m3u8"
         }
       ],
       1: [
