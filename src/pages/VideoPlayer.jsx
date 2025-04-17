@@ -12,12 +12,19 @@ const VideoPlayer = () => {
   const playerRef = useRef(null);
   const lastTap = useRef(0);
   const [studiedMinutes, setStudiedMinutes] = useState(0);
-  
+  const [isMasterPlaylist, setIsMasterPlaylist] = useState(false);
+  const [currentQuality, setCurrentQuality] = useState("");
+  const [qualityButtonVisible, setQualityButtonVisible] = useState(false);
+
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
-  const defaultLiveUrl = "m3u8_link_here"; // This should be your default live stream URL
-
-  const isMasterPlaylist = m3u8Url && m3u8Url.includes("index.m3u8"); // Check if URL is master playlist
+  const defaultLiveUrl = "m3u8_link_here";
+  const qualityUrls = {
+    "240p": "index_1.m3u8",
+    "360p": "index_2.m3u8",
+    "480p": "index_3.m3u8",
+    "720p": "index_4.m3u8"
+  };
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -44,7 +51,17 @@ const VideoPlayer = () => {
     if (!videoRef.current) return;
 
     const videoSource = isLive ? defaultLiveUrl : m3u8Url || defaultLiveUrl;
-    
+
+    // Checking if the URL is a master playlist or non-master
+    const checkIfMaster = (url) => {
+      const isMaster = url.includes("index.m3u8");
+      setIsMasterPlaylist(isMaster);
+      setCurrentQuality(isMaster ? videoSource : qualityUrls["240p"]); // Default to 240p if not master
+      setQualityButtonVisible(!isMaster); // Show quality button only for non-master
+    };
+
+    checkIfMaster(m3u8Url);
+
     playerRef.current = videojs(videoRef.current, {
       controls: true,
       autoplay: false,
@@ -62,14 +79,15 @@ const VideoPlayer = () => {
           "progressControl",
           "volumePanel",
           "playbackRateMenuButton",
+          "qualitySelector",
           "fullscreenToggle",
         ],
       },
     });
 
-    // Set the video source
+    // Set video source and initialize playback
     playerRef.current.src({
-      src: videoSource,
+      src: currentQuality,
       type: "application/x-mpegURL",
     });
 
@@ -89,13 +107,10 @@ const VideoPlayer = () => {
     };
 
     playerRef.current.ready(() => {
-      if (isMasterPlaylist) {
-        // For master playlist, enable quality selector with the existing URL
-        playerRef.current.qualityLevels();
-        playerRef.current.hlsQualitySelector({
-          displayCurrentQuality: true,
-        });
-      }
+      playerRef.current.qualityLevels();
+      playerRef.current.hlsQualitySelector({
+        displayCurrentQuality: true,
+      });
 
       const controlBar = playerRef.current.controlBar;
       const playToggleEl = controlBar.getChild("playToggle")?.el();
@@ -147,13 +162,37 @@ const VideoPlayer = () => {
       });
     });
 
+    const videoContainer = videoRef.current.parentElement;
+    videoContainer.addEventListener("touchend", (event) => {
+      const currentTime = Date.now();
+      const tapGap = currentTime - lastTap.current;
+      lastTap.current = currentTime;
+
+      const touch = event.changedTouches[0];
+      const rect = videoContainer.getBoundingClientRect();
+      const tapX = touch.clientX - rect.left;
+      const videoWidth = rect.width;
+
+      if (tapGap < 300) {
+        if (tapX < videoWidth / 3) {
+          playerRef.current.currentTime(playerRef.current.currentTime() - 10);
+        } else if (tapX > (2 * videoWidth) / 3) {
+          playerRef.current.currentTime(playerRef.current.currentTime() + 10);
+        } else {
+          playerRef.current.paused()
+            ? playerRef.current.play()
+            : playerRef.current.pause();
+        }
+      }
+    });
+
     return () => {
       if (playerRef.current) {
         playerRef.current.dispose();
       }
       clearInterval(studyTimer);
     };
-  }, [m3u8Url, isLive]);
+  }, [m3u8Url, isLive, currentQuality]);
 
   const formatTime = (timeInSeconds) => {
     if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00";
@@ -165,17 +204,9 @@ const VideoPlayer = () => {
   };
 
   const handleQualityChange = (quality) => {
-    const qualityMap = {
-      240: "index_1.m3u8",  // Assuming index_1.m3u8 is 240p
-      360: "index_2.m3u8",  // Assuming index_2.m3u8 is 360p
-      480: "index_3.m3u8",  // Assuming index_3.m3u8 is 480p
-      720: "index_4.m3u8",  // Assuming index_4.m3u8 is 720p
-    };
-
-    // Change the video source based on the selected quality
-    const selectedUrl = qualityMap[quality] || m3u8Url; // Default to the original m3u8Url if not found
+    setCurrentQuality(qualityUrls[quality]);
     playerRef.current.src({
-      src: selectedUrl,
+      src: qualityUrls[quality],
       type: "application/x-mpegURL",
     });
   };
@@ -214,6 +245,15 @@ const VideoPlayer = () => {
         </div>
       )}
 
+      {qualityButtonVisible && (
+        <div style={{ textAlign: "center", marginTop: "20px" }}>
+          <button onClick={() => handleQualityChange("240p")}>240p</button>
+          <button onClick={() => handleQualityChange("360p")}>360p</button>
+          <button onClick={() => handleQualityChange("480p")}>480p</button>
+          <button onClick={() => handleQualityChange("720p")}>720p</button>
+        </div>
+      )}
+
       <div style={{
         textAlign: "center",
         fontSize: "12px",
@@ -222,17 +262,6 @@ const VideoPlayer = () => {
       }}>
         Today’s Study Time: <strong>{studiedMinutes} min</strong>
       </div>
-
-      {/* Quality Selector for Non-Master Playlist */}
-      {!isMasterPlaylist && (
-        <div style={{ textAlign: "center", marginTop: "10px" }}>
-          <button onClick={() => handleQualityChange(240)}>240p</button>
-          <button onClick={() => handleQualityChange(360)}>360p</button>
-          <button onClick={() => handleQualityChange(480)}>480p</button>
-          <button onClick={() => handleQualityChange(720)}>720p</button>
-        </div>
-      )}
-
     </div>
   );
 };
