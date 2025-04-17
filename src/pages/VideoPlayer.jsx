@@ -283,6 +283,27 @@ const VideoPlayer = () => {
         <p>Today’s Study Time: {studiedMinutes} minutes</p>
       </div>
     </div>
+{notesUrl && (
+  <div style={{ marginTop: "20px", textAlign: "center" }}>
+    <a
+      href={notesUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        padding: "12px 24px",
+        backgroundColor: "#007bff",
+        color: "#fff",
+        textDecoration: "none",
+        borderRadius: "8px",
+        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+        fontSize: "16px",
+        fontWeight: "bold",
+      }}
+    >
+      Download Notes
+    </a>
+  </div>
+)}
   );
 };
 
