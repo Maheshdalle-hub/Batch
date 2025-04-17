@@ -221,7 +221,7 @@ const VideoPlayer = () => {
         textAlign: "center",
         fontSize: "12px",
         marginTop: "30px",
-        color: "#555"
+        color: "#ffffff"
       }}>
         Today’s Study Time: <strong>{studiedMinutes} min</strong>
       </div>
