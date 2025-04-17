@@ -12,6 +12,7 @@ const VideoPlayer = () => {
   const playerRef = useRef(null);
   const lastTap = useRef(0);
   const [studiedMinutes, setStudiedMinutes] = useState(0);
+  const [currentQuality, setCurrentQuality] = useState("1");  // Default to 240p
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
@@ -46,7 +47,7 @@ const VideoPlayer = () => {
 
     if (!isMasterPlaylist) {
       const nonMasterBase = m3u8Url?.replace(/index_\d+.m3u8/, "index_");
-      // Set default quality (e.g., 240p or 360p)
+      // Set the video quality based on the selected quality
       videoSource = `${nonMasterBase}${currentQuality}.m3u8`;
     }
 
@@ -179,7 +180,7 @@ const VideoPlayer = () => {
       }
       clearInterval(studyTimer);
     };
-  }, [m3u8Url, isLive]);
+  }, [m3u8Url, isLive, currentQuality]);
 
   const formatTime = (timeInSeconds) => {
     if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00";
@@ -188,6 +189,10 @@ const VideoPlayer = () => {
     return `${minutes.toString().padStart(2, "0")}:${seconds
       .toString()
       .padStart(2, "0")}`;
+  };
+
+  const handleQualityChange = (quality) => {
+    setCurrentQuality(quality);
   };
 
   return (
@@ -200,6 +205,17 @@ const VideoPlayer = () => {
 
       <div style={{ position: "relative" }}>
         <video ref={videoRef} className="video-js vjs-default-skin" />
+      </div>
+
+      <div style={{ marginTop: "10px", textAlign: "center" }}>
+        {!isLive && (
+          <>
+            <button onClick={() => handleQualityChange("1")}>240p</button>
+            <button onClick={() => handleQualityChange("2")}>360p</button>
+            <button onClick={() => handleQualityChange("3")}>480p</button>
+            <button onClick={() => handleQualityChange("4")}>720p</button>
+          </>
+        )}
       </div>
 
       {notesUrl && (
