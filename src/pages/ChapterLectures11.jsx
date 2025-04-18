@@ -57,6 +57,12 @@ const ChapterLectures11 = () => {
          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/282566967198221150.pdf"
        }
      ],
+      19: [
+        {
+          name: "PCP 01",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/798807099203843300.pdf"
+        }
+      ],
     },
     Chemistry: {
       0: [
@@ -78,6 +84,17 @@ const ChapterLectures11 = () => {
     if (lecture.youtubeUrl) {
       window.location.href = lecture.youtubeUrl;
     }
+  };
+  if (lecture.redirect) {
+            return (
+              <div
+                key={index}
+                onClick={() => window.location.href = lecture.redirect}
+                className="lecture-box"
+              >
+                {lecture.name}
+              </div>
+            );
   };
 
   return (
