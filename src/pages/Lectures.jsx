@@ -19,6 +19,7 @@ const Lectures = () => {
       { name: "Introduction", index:0},
 ],
     Science: [
+      {name: "ACP", index: 19 },
       { name: "Chapter 1", index: 0 },
       { name: "Chapter 2", index: 1 },
     ],
