@@ -95,7 +95,7 @@ const ChapterLectures11 = () => {
                 {lecture.name}
               </div>
             );
-  };
+  }
 
   return (
     <div className="chapter-lectures-container">
