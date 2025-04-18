@@ -84,7 +84,7 @@ const ChapterLectures11 = () => {
     if (lecture.youtubeUrl) {
       window.location.href = lecture.youtubeUrl;
     }
-  };
+  }
   if (lecture.redirect) {
             return (
               <div
