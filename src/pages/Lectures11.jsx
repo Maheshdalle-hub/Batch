@@ -16,6 +16,7 @@ const Lectures11 = () => {
 
   const lectures = {
     Physics: [
+      {name: "PCP", index: 19 },
       { name: "Chapter 1", index: 0 },
       { name: "Chapter 2", index: 1 },
     ],
