@@ -22,8 +22,8 @@ const ChapterLectures11 = () => {
         },
         {
           name: "Lecture 2",
-          m3u8Url: "YOUR_M3U8_LINK_2",
-          notesUrl: "",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4353875/174489575453452621696/index_2.m3u8",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/840347643747496200.pdf"
         },
       ],
     },
