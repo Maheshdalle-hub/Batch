@@ -13,11 +13,11 @@ const Subject11 = () => {
 
   const subjects = [
     { name: "Maths", path: "/lectures/11/Maths" },
-    { name: "Physics", path: "/lecture11/Physics" },
+    { name: "Physics", path: "/lectures/11/Physics" },
     { name: "Chemistry", path: "/lectures/11/Chemistry" },
     { name: "Biology", path: "/lectures/11/Biology" },
     { name: "English", path: "/lectures/11/English" },
-    { name: "IP", path: "/lectures/11/IP" },
+    { name: "Hindi", path: "/lectures/11/Hindi" },
   ];
 
   return (
