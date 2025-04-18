@@ -44,13 +44,19 @@ const ChapterLectures10 = () => {
           {
             name: "Lecture 4",
             m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4354717/174498038229378296383/index_2.m3u8"
-          }
+          },
       ],
       1: [
         {
           name: "Lecture 1",
           m3u8Url: "YOUR_M3U8_LINK_HERE",
           notesUrl: ""
+        },
+      ],
+      19: [
+        {
+          name: "ACP 01",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/151758065059113380.pdf"
         },
       ],
     },
@@ -69,7 +75,7 @@ const ChapterLectures10 = () => {
         {
           name: "Lecture 3",
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4354873/174499225616481097666/index_2.m3u8"
-        }
+        },
       ],
       19: [
         {
@@ -98,7 +104,7 @@ const ChapterLectures10 = () => {
             name: "Lecture 3",
             m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4354004/174490425923587880624/index_2.m3u8",
             notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/757785193454953700.pdf"
-          }
+          },
       ],
     },
   };
