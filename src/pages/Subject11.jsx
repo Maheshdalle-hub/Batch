@@ -27,7 +27,7 @@ const Subject11 = () => {
       <div className="live-class-container">
         <Link
           to={`/video/11/live`}
-          state={{ chapterName: "Live Class", m3u8Url: "https://d2xqn12y4qo6nr.cloudfront.net/out/v1/4dacc3cc62ed4047b817b91580e11584/index.m3u8" }}
+          state={{ chapterName: "Live Class", m3u8Url: "https://d3rho91jos7925.cloudfront.net/out/v1/04e48ce150b5494fa5bca97d1bea5bb0/index.m3u8" }}
           className="subject-box live-class-section"
         >
           🔴 Live Class (Click to Join)
