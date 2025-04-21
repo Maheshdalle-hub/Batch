@@ -69,7 +69,7 @@ body {
   color: #e0e0e0;
   padding: 20px;
   margin: 10px auto;
-  width: 80%;
+  width: 400px;
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s, background 0.3s;
@@ -147,14 +147,13 @@ body {
   }
 
   .tt {
-    width: auto;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    max-height: 615px;
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   }
 
   .emp {
