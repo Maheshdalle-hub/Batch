@@ -146,7 +146,7 @@ body {
   }
 
   .tt {
-  width: auto;
+  width: 550px;
   max-width: 1000px;
   height: auto;
   display: block;
