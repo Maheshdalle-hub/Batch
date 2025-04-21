@@ -45,7 +45,7 @@ const VideoPlayer = () => {
 
     playerRef.current = videojs(videoRef.current, {
       controls: true,
-      autoplay: false,
+      autoplay: true,
       fluid: true,
       playbackRates: [0.5, 1, 1.25, 1.5, 1.75, 2],
       html5: {
@@ -57,10 +57,10 @@ const VideoPlayer = () => {
       controlBar: {
         children: [
           "playToggle",
-          "progressControl",
           "volumePanel",
-          "playbackRateMenuButton",
+          "progressControl",
           "qualitySelector",
+          "pipButton",
           "fullscreenToggle",
         ],
       },
