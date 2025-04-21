@@ -22,7 +22,7 @@ const Subject11 = () => {
 
   return (
     <div className="subjects-container">
-      <img src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/48308950_WhatsApp%20Image%202025-04-08%20at%2017.44.46_5cf1db33.jpg" alt="Logo" className="tt" />
+      <img src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/6874310_IMG-20250420-WA0012.jpg" alt="Logo" className="tt" />
       <h2>Select Subject - Class 11</h2>
       <div className="live-class-container">
         <Link
