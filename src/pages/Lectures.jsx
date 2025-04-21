@@ -20,16 +20,16 @@ const Lectures = () => {
 ],
     Science: [
       {name: "ACP", index: 19 },
-      { name: "Chapter 1", index: 0 },
+      { name: "Chemical Reaction & Equations", index: 0 },
       { name: "Chapter 2", index: 1 },
     ],
     Maths: [
       {name: "DPP", index: 19 },
-      { name: "Chapter 1", index: 0 },
+      { name: "Real Number", index: 0 },
       { name: "Chapter 2", index: 1 },
     ],
     SST: [
-      { name: "Chapter 1", index: 0 },
+      { name: "Development", index: 0 },
       { name: "Chapter 2", index: 1 },
     ],
     IT: [
@@ -37,7 +37,7 @@ const Lectures = () => {
       { name: "Chapter 2", index: 1 },
     ],
     English: [
-      { name: "Chapter 1", index: 0 },
+      { name: "A Letter to God", index: 0 },
     ],
     Hindi: [
       { name: "Chapter 1", index: 0 },
