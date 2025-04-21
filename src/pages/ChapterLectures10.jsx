@@ -127,6 +127,18 @@ const ChapterLectures10 = () => {
         },
       ],
     },
+    English: {
+      0: [
+        {
+          name: "Lecture 1",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4355437/1745094964_5789358984187695/sunny/1745075625242_69087200894049560_video_VOD.m3u8"
+        },
+        {
+          name: "Lecture 2",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4355438/1745092805_3842501733043505/sunny/1745075729856_273253030448162560_video_VOD.m3u8"
+        },
+      ],
+    },
   };
 
   return (
