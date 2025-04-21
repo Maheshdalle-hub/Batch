@@ -69,7 +69,7 @@ body {
   color: #e0e0e0;
   padding: 20px;
   margin: 10px auto;
-  width: 400px;
+  width: auto;
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s, background 0.3s;
@@ -80,6 +80,7 @@ body {
   align-items: center;
   font-size: 18px;
   font-weight: bold;
+  max-width: 1000px;
 }
 
 /* ✅ Hover Effect */
@@ -123,8 +124,6 @@ body {
   background: black;
 }
 
-/* ✅ Responsive Design for Mobile */
-@media (max-width: 768px) {
   .click-box,
   .subject-box,
   .chapter-box,
@@ -161,31 +160,5 @@ body {
     text-align: center;
     font-weight: bold;
   }
-}
 
-/* ✅ Enhanced Desktop View */
-@media (min-width: 769px) {
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .click-box,
-  .subject-box,
-  .chapter-box,
-  .live-class-box {
-    width: 250px;
-    font-size: 18px;
-  }
-
-  .subject-grid,
-  .chapter-grid {
-    justify-content: flex-start;
-    gap: 30px;
-  }
-
-  .section-heading {
-    font-size: 32px;
-    margin-bottom: 30px;
-  }
     }
