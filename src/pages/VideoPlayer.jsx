@@ -186,11 +186,12 @@ const VideoPlayer = () => {
   return (
     <div>
       <h2>
-        {isLive
-          ? "🔴 Live Class"
-          : `Now Playing: ${chapterName} - ${lectureName || "Unknown Lecture"}`}
-      </h2>
-
+  {isLive
+    ? "🔴 Live Class"
+    : chapterName
+      ? `Now Playing: ${chapterName}${lectureName ? ` - ${lectureName}` : ""}`
+      : "Now Playing"}
+</h2>
       <div style={{ position: "relative" }}>
         <video ref={videoRef} className="video-js vjs-default-skin" />
       </div>
