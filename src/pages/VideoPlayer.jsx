@@ -179,7 +179,7 @@ const VideoPlayer = () => {
   {isLive
     ? "🔴 Live Class"
     : chapterName
-      ? `Now Playing: ${chapterName}${lectureName ? ` - ${lectureName}` : ""}`
+      ? `Now Playing: ${chapterName}${lectureName ? ` ${chapterName} - ${lectureName}` : ""}`
       : "Now Playing"}
 </h2>
       <div style={{ position: "relative" }}>
