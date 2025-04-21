@@ -54,16 +54,6 @@ const VideoPlayer = () => {
           enableLowInitialPlaylist: true,
         },
       },
-      controlBar: {
-        children: [
-          "playToggle",
-          "volumePanel",
-          "progressControl",
-          "qualitySelector",
-          "pipButton",
-          "fullscreenToggle",
-        ],
-      },
     });
 
     playerRef.current.src({
