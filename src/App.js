@@ -46,6 +46,7 @@ function App() {
      <Route path="/video/9/live" element={<ProtectedRoute><VideoPlayer /></ProtectedRoute>} />
 <Route path="/video/10/live" element={<ProtectedRoute><VideoPlayer /></ProtectedRoute>} />
 <Route path="/video/11/live" element={<ProtectedRoute><VideoPlayer /></ProtectedRoute>} />
+          <Route path="/video/10/bio/live" element={<ProtectedRoute><VideoPlayer /></ProtectedRoute>} />
       </Routes>
     </Router>
   );
