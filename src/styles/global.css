@@ -221,10 +221,6 @@ body {
     justify-content: flex-start;
     gap: 30px;
   }
-
-  .section-heading {
-    font-size: 32px;
-    margin-bottom: 30px;
   }
   .tt {
   width: 1000px;
