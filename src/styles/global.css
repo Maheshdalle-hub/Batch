@@ -211,18 +211,4 @@ body {
     width: 1000px;
     font-size: 18px;
   }
-
-  .subject-grid,
-  .chapter-grid {
-    justify-content: flex-start;
-    gap: 30px;
-  }
-  .tt {
-  width: 1000px;
-  height: auto;
-  display: block;
-  margin: 30px auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
       }
