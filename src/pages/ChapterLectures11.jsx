@@ -43,6 +43,10 @@ const ChapterLectures11 = () => {
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4353889/174489667533668296383/174489667533668296383_8296383.m3u8",
           notesUrl: "https://dxixtlyravvxx.cloudfront.net/540/admin_v1/file_manager/pdf/5110820Sets%20L2.pdf_Sets%20L2.pdf"
         },
+        {
+          name: "Lecture 3",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4356690/174524049345081097666/174524049345081097666_1097666.m3u8"
+        },
       ],
     },
     Physics: {
@@ -84,7 +88,11 @@ const ChapterLectures11 = () => {
         name: "Lecture 3",
         m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4355452/174507897732027555169/174507897732027555169_7555169.m3u8",
         notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/563943491510636200.pdf"
-      }
+      },
+        {
+          name: "Lecture 4",
+          m3u8Url: "http://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4357309/174530949861477555169/174530949861477555169_7555169.m3u8"
+        },
       ],
     },
   };
