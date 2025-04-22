@@ -34,10 +34,10 @@ const Subject11 = () => {
         </Link>
         <Link
           to={`/video/11/bio/live`}
-          state={{ chapterName: "Live Class", m3u8Url: "https://d3rho91jos7925.cloudfront.net/out/v1/04e48ce150b5494fa5bca97d1bea5bb0/index.m3u8" }}
+          state={{ chapterName: "Live Class", m3u8Url: "https://d1kw75zcv4u98c.cloudfront.net/out/v1/c843fae2d8ac47ffbe15b3988abf9adb/index.m3u8" }}
           className="subject-box live-class-section"
         >
-          🔴 Biology Live Class
+          🔴 Biology Live Class (Click to Join)
         </Link>
       </div>
       <div className="subject-boxes">
