@@ -9,6 +9,7 @@ import mlogo from "../assets/ntmlogo.jpg";
 const Homepage = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showModal, setShowModal] = useState(true); // Always show on load
 
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -23,8 +24,40 @@ const Homepage = () => {
     navigate(`/subjects/${classNumber}`);
   };
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <>
+      {/* Modal */}
+      {showModal && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+    <div className="bg-white rounded-xl shadow-xl p-6 w-[90%] max-w-md text-center">
+      <h2 className="text-xl font-bold mb-3">Welcome to EduVibe!</h2>
+      <p className="mb-4">Explore batches and start learning with ease. This website is aboslutely free of cost. If you don't have joined the telegram channel, join it because I will give there updates 👇👇</p>
+
+      <a
+        href="https://t.me/+PEKf79OMNfQxYjNl" // <-- Replace this with your actual channel
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition mb-3"
+      >
+        Join Telegram
+      </a>
+
+      <br />
+
+      <button
+        onClick={handleCloseModal}
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
+      {/* Top Bar */}
       <div style={{
         width: "100%",
         padding: "10px 0",
@@ -41,6 +74,7 @@ const Homepage = () => {
         EduVibe-NT
       </div>
 
+      {/* Content */}
       <div className="container">
         <img src={mlogo} alt="Logo" className="big-logo" />
         <h2 className="section-heading">Our Batches</h2>
