@@ -30,42 +30,76 @@ const Homepage = () => {
 
   return (
     <>
+      {/* Simple overlay to disable background */}
       {showPopup && (
-        <>
-          {/* Background overlay */}
-          <div className="fixed inset-0 bg-black bg-opacity-40 z-40 pointer-events-none" />
-
-          {/* Centered Popup */}
-          <div className="fixed inset-0 z-50 flex items-center justify-center">
-            <div className="bg-white p-6 rounded-xl shadow-xl w-[90%] max-w-sm text-center relative z-50">
-              <h2 className="text-xl font-bold mb-2">Welcome to EduVibe!</h2>
-              <p className="text-gray-600 mb-4">
-                Explore batches and start learning with ease. This website is aboslutely free of cost. If you don't have joined the telegram channel yet, join it because I will give there updates about the lectures and live classes.👇👇
-              </p>
-
-              <a
-                href="https://t.me/+PEKf79OMNfQxYjNl" // Replace with your channel link
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-[#229ED9] text-white px-4 py-2 rounded-md mb-3 hover:bg-[#1e8dbf]"
-              >
-                Join Telegram
-              </a>
-
-              <br />
-
-              <button
-                onClick={handleClosePopup}
-                className="bg-gray-700 text-white px-4 py-2 rounded-md hover:bg-gray-800"
-              >
-                Close
-              </button>
-            </div>
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            zIndex: 1000,
+          }}
+        >
+          {/* Simple center popup box */}
+          <div
+            style={{
+              backgroundColor: "#fff",
+              padding: "24px",
+              borderRadius: "10px",
+              width: "90%",
+              maxWidth: "400px",
+              textAlign: "center",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: 1001,
+            }}
+          >
+            <h2 style={{ fontWeight: "bold", marginBottom: "12px" }}>
+              Welcome to EduVibe!
+            </h2>
+            <p style={{ marginBottom: "16px", color: "#555" }}>
+              Explore batches and start learning with ease. This website is aboslutely free of cost. If you don't have joined the telegram channel, join it because I will give there updates 👇👇
+            </p>
+            <a
+              href="https://t.me/+PEKf79OMNfQxYjNl"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                backgroundColor: "#229ED9",
+                color: "#fff",
+                padding: "10px 20px",
+                borderRadius: "6px",
+                textDecoration: "none",
+                marginBottom: "10px",
+              }}
+            >
+              Join Telegram
+            </a>
+            <br />
+            <button
+              onClick={handleClosePopup}
+              style={{
+                backgroundColor: "#555",
+                color: "#fff",
+                padding: "8px 16px",
+                borderRadius: "6px",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              Close
+            </button>
           </div>
-        </>
+        </div>
       )}
 
-      {/* Top Bar */}
+      {/* Header */}
       <div
         style={{
           width: "100%",
@@ -78,13 +112,13 @@ const Homepage = () => {
           color: "#222",
           position: "sticky",
           top: "0",
-          zIndex: "1000",
+          zIndex: "10",
         }}
       >
         EduVibe-NT
       </div>
 
-      {/* Main Content */}
+      {/* Main content */}
       <div className="container">
         <img src={mlogo} alt="Logo" className="big-logo" />
         <h2 className="section-heading">Our Batches</h2>
@@ -100,20 +134,12 @@ const Homepage = () => {
           </div>
 
           <div className="click-box" onClick={() => handleClick(9)}>
-            <img
-              src={imageUrl9}
-              alt="Class 9 Batch"
-              className="homepage-image"
-            />
+            <img src={imageUrl9} alt="Class 9 Batch" className="homepage-image" />
             <h1>Class 9</h1>
           </div>
 
           <div className="click-box" onClick={() => handleClick(11)}>
-            <img
-              src={imageUrl11}
-              alt="Class 11 Batch"
-              className="homepage-image"
-            />
+            <img src={imageUrl11} alt="Class 11 Batch" className="homepage-image" />
             <h1>Class 11</h1>
           </div>
         </div>
