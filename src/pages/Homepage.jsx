@@ -30,7 +30,7 @@ const Homepage = () => {
 
   return (
     <>
-      {/* Simple overlay to disable background */}
+      {/* Dark overlay + center popup */}
       {showPopup && (
         <div
           style={{
@@ -39,14 +39,13 @@ const Homepage = () => {
             left: 0,
             width: "100vw",
             height: "100vh",
-            backgroundColor: "rgba(0,0,0,0.5)",
+            backgroundColor: "rgba(0,0,0,0.85)",
             zIndex: 1000,
           }}
         >
-          {/* Simple center popup box */}
           <div
             style={{
-              backgroundColor: "#fff",
+              backgroundColor: "#1e1e1e",
               padding: "24px",
               borderRadius: "10px",
               width: "90%",
@@ -57,12 +56,14 @@ const Homepage = () => {
               left: "50%",
               transform: "translate(-50%, -50%)",
               zIndex: 1001,
+              color: "#fff",
+              boxShadow: "0 0 20px rgba(255,255,255,0.1)",
             }}
           >
             <h2 style={{ fontWeight: "bold", marginBottom: "12px" }}>
               Welcome to EduVibe!
             </h2>
-            <p style={{ marginBottom: "16px", color: "#555" }}>
+            <p style={{ marginBottom: "16px", color: "#ccc" }}>
               Explore batches and start learning with ease. This website is aboslutely free of cost. If you don't have joined the telegram channel, join it because I will give there updates 👇👇
             </p>
             <a
@@ -85,12 +86,13 @@ const Homepage = () => {
             <button
               onClick={handleClosePopup}
               style={{
-                backgroundColor: "#555",
+                backgroundColor: "#333",
                 color: "#fff",
                 padding: "8px 16px",
                 borderRadius: "6px",
                 border: "none",
                 cursor: "pointer",
+                marginTop: "10px",
               }}
             >
               Close
@@ -99,17 +101,17 @@ const Homepage = () => {
         </div>
       )}
 
-      {/* Header */}
+      {/* Dark Header */}
       <div
         style={{
           width: "100%",
           padding: "10px 0",
-          backgroundColor: "#ffffff",
-          borderBottom: "1px solid #ddd",
+          backgroundColor: "#111",
+          borderBottom: "1px solid #444",
           textAlign: "center",
           fontWeight: "bold",
           fontSize: "20px",
-          color: "#222",
+          color: "#eee",
           position: "sticky",
           top: "0",
           zIndex: "10",
@@ -118,10 +120,10 @@ const Homepage = () => {
         EduVibe-NT
       </div>
 
-      {/* Main content */}
-      <div className="container">
+      {/* Main content in dark mode */}
+      <div className="container" style={{ backgroundColor: "#121212", minHeight: "100vh", paddingBottom: "40px" }}>
         <img src={mlogo} alt="Logo" className="big-logo" />
-        <h2 className="section-heading">Our Batches</h2>
+        <h2 className="section-heading" style={{ color: "#fff" }}>Our Batches</h2>
 
         <div className="batch-container">
           <div className="click-box" onClick={() => handleClick(10)}>
@@ -130,17 +132,17 @@ const Homepage = () => {
               alt="Aarambh Batch 2025-26"
               className="homepage-image"
             />
-            <h1>Aarambh Batch 2025-26</h1>
+            <h1 style={{ color: "#fff" }}>Aarambh Batch 2025-26</h1>
           </div>
 
           <div className="click-box" onClick={() => handleClick(9)}>
             <img src={imageUrl9} alt="Class 9 Batch" className="homepage-image" />
-            <h1>Class 9</h1>
+            <h1 style={{ color: "#fff" }}>Class 9</h1>
           </div>
 
           <div className="click-box" onClick={() => handleClick(11)}>
             <img src={imageUrl11} alt="Class 11 Batch" className="homepage-image" />
-            <h1>Class 11</h1>
+            <h1 style={{ color: "#fff" }}>Class 11</h1>
           </div>
         </div>
       </div>
