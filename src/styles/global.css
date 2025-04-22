@@ -203,10 +203,6 @@ body {
 
 /* ✅ Enhanced Desktop View */
 @media (min-width: 769px) {
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
 
   .click-box,
   .subject-box,
