@@ -18,7 +18,6 @@ const VideoPlayer = () => {
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
-  const defaultLiveUrl = "m3u8_link_here";
   
   // Path for live viewers (10th, 11th, etc.)
   const classPath = location.pathname.split("/")[2]; // "10", "11", etc.
@@ -48,7 +47,7 @@ const VideoPlayer = () => {
   useEffect(() => {
     if (!videoRef.current) return;
 
-    const videoSource = isLive ? defaultLiveUrl : m3u8Url || defaultLiveUrl;
+    const videoSource = isLive ? defaultLiveUrl : m3u8Url ;
 
     playerRef.current = videojs(videoRef.current, {
       controls: true,
