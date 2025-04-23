@@ -151,6 +151,11 @@ const ChapterLectures10 = () => {
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4357716/174532560751637880624/174532560751637880624_7880624.m3u8",
           notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/307992216764131200.pdf"
         },
+        {
+          name: "Lecture 2",
+          notesUrl: "",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4359018/174542319983487880624/174542319983487880624_7880624.m3u8"
+        },
       ],
       19: [
         {
@@ -178,6 +183,15 @@ const ChapterLectures10 = () => {
         {
           name: "Poetic Device 2",
           m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4355436/1745094844_9240190758365079/sunny/1745075412050_483337412598451650_video_VOD.m3u8"
+        },
+      ],
+    },
+    Hindi: {
+      0: [
+        {
+          name: "Lecture 1",
+          notesUrl: "",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4186201/1729265541_2410105506345580/1T-z7_tVWEOoVElSMKj6nYFwnPxaf5e1h.m3u8"
         },
       ],
     },
