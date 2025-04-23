@@ -39,6 +39,7 @@ const Lectures = () => {
     ],
     English: [
       { name: "A Letter to God", index: 0 },
+      { name: "Grammer", index: 19 },
     ],
     Hindi: [
       { name: "Chapter 1", index: 0 },
