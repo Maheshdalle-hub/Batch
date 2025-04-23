@@ -48,7 +48,7 @@ const VideoPlayer = () => {
   useEffect(() => {
     if (!videoRef.current) return;
 
-    const videoSource = isLive ? defaultLiveUrl : m3u8Url ;
+    const videoSource = isLive ? defaultLiveUrl : m3u8Url;
 
     playerRef.current = videojs(videoRef.current, {
       controls: true,
@@ -249,11 +249,7 @@ const VideoPlayer = () => {
         fontSize: "18px",
         marginTop: "20px"
       }}>
-        {isLive && (
-          <div>
-            <p> 🔴 Live Viewers: <strong>{liveViewers}</strong></p>
-          </div>
-        )}
+        <p> Viewers: <strong>{liveViewers}</strong></p>
       </div>
     </div>
   );
