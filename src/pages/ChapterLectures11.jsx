@@ -91,7 +91,7 @@ const ChapterLectures11 = () => {
       },
         {
           name: "Lecture 4",
-          m3u8Url: "http://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4357309/174530949861477555169/174530949861477555169_7555169.m3u8"
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4357309/174530949861477555169/174530949861477555169_7555169.m3u8"
         },
       ],
     },
