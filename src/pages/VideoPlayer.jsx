@@ -4,6 +4,8 @@ import "video.js/dist/video-js.css";
 import "videojs-contrib-quality-levels";
 import "videojs-hls-quality-selector";
 import { useLocation, useNavigate } from "react-router-dom";
+import { getDatabase, ref, onValue, increment, runTransaction } from "firebase/database";
+import "../firebase"; // Firebase already initialized
 
 const VideoPlayer = () => {
   const location = useLocation();
@@ -12,9 +14,12 @@ const VideoPlayer = () => {
   const playerRef = useRef(null);
   const lastTap = useRef(0);
   const [studiedMinutes, setStudiedMinutes] = useState(0);
+  const [liveViewers, setLiveViewers] = useState(0);
+  const isLive = location.pathname.includes("/video") && location.pathname.includes("/live");
+  const livePath = location.pathname.replace(/^\/|\/$/g, ""); // e.g., video/10/live
+  const db = getDatabase();
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
-  const isLive = location.pathname.includes("/video/live");
   const defaultLiveUrl = "m3u8_link_here";
 
   useEffect(() => {
@@ -40,7 +45,6 @@ const VideoPlayer = () => {
 
   useEffect(() => {
     if (!videoRef.current) return;
-
     const videoSource = isLive ? defaultLiveUrl : m3u8Url || defaultLiveUrl;
 
     playerRef.current = videojs(videoRef.current, {
@@ -78,28 +82,27 @@ const VideoPlayer = () => {
 
     playerRef.current.ready(() => {
       playerRef.current.qualityLevels();
-      playerRef.current.hlsQualitySelector({
-        displayCurrentQuality: true,
-      });
+      playerRef.current.hlsQualitySelector({ displayCurrentQuality: true });
 
       const controlBar = playerRef.current.controlBar;
       const playToggleEl = controlBar.getChild("playToggle")?.el();
       if (playToggleEl) {
         const timeDisplay = document.createElement("div");
         timeDisplay.className = "vjs-custom-time-display";
-        timeDisplay.style.position = "absolute";
-        timeDisplay.style.bottom = "50px";
-        timeDisplay.style.left = "0";
-        timeDisplay.style.background = "rgba(0, 0, 0, 0.7)";
-        timeDisplay.style.color = "#fff";
-        timeDisplay.style.fontSize = "13px";
-        timeDisplay.style.padding = "4px 8px";
-        timeDisplay.style.borderRadius = "4px";
-        timeDisplay.style.whiteSpace = "nowrap";
-        timeDisplay.style.pointerEvents = "none";
-        timeDisplay.style.zIndex = "999";
+        Object.assign(timeDisplay.style, {
+          position: "absolute",
+          bottom: "50px",
+          left: "0",
+          background: "rgba(0, 0, 0, 0.7)",
+          color: "#fff",
+          fontSize: "13px",
+          padding: "4px 8px",
+          borderRadius: "4px",
+          whiteSpace: "nowrap",
+          pointerEvents: "none",
+          zIndex: "999",
+        });
         timeDisplay.textContent = "00:00 / 00:00";
-
         playToggleEl.style.position = "relative";
         playToggleEl.appendChild(timeDisplay);
 
@@ -157,32 +160,67 @@ const VideoPlayer = () => {
     });
 
     return () => {
-      if (playerRef.current) {
-        playerRef.current.dispose();
-      }
+      if (playerRef.current) playerRef.current.dispose();
       clearInterval(studyTimer);
     };
   }, [m3u8Url, isLive]);
 
-  const formatTime = (timeInSeconds) => {
-    if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00";
-    const minutes = Math.floor(timeInSeconds / 60);
-    const seconds = Math.floor(timeInSeconds % 60);
-    return `${minutes.toString().padStart(2, "0")}:${seconds
-      .toString()
-      .padStart(2, "0")}`;
+  useEffect(() => {
+    if (!isLive) return;
+
+    const countRef = ref(db, `liveViewers/${livePath}`);
+
+    const offWatcher = onValue(countRef, (snapshot) => {
+      setLiveViewers(snapshot.val() || 0);
+    });
+
+    const incRef = ref(db, `liveViewers/${livePath}`);
+    runTransaction(incRef, (count) => (count || 0) + 1);
+
+    return () => {
+      runTransaction(incRef, (count) => Math.max((count || 1) - 1, 0));
+      offWatcher();
+    };
+  }, [isLive, db, livePath]);
+
+  const formatTime = (seconds) => {
+    if (isNaN(seconds) || seconds < 0) return "00:00";
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
 
   return (
     <div>
       <h2>
-  {isLive
-    ? "🔴 Live Class"
-    : chapterName
-      ? `Now Playing: ${chapterName} - ${lectureName ? ` ${chapterName} - ${lectureName}` : ""}`
-      : "Now Playing"}
-</h2>
+        {isLive
+          ? "🔴 Live Class"
+          : chapterName
+          ? `Now Playing: ${chapterName} - ${lectureName || ""}`
+          : "Now Playing"}
+      </h2>
+
       <div style={{ position: "relative" }}>
+        {isLive && (
+          <div
+            style={{
+              position: "absolute",
+              top: "8px",
+              right: "8px",
+              backgroundColor: "rgba(255, 0, 0, 0.8)",
+              color: "#fff",
+              padding: "4px 12px",
+              borderRadius: "20px",
+              fontWeight: "bold",
+              zIndex: "10",
+              fontSize: "14px",
+              boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+              transition: "all 0.3s ease-in-out",
+            }}
+          >
+            🔴 {liveViewers} watching
+          </div>
+        )}
         <video ref={videoRef} className="video-js vjs-default-skin" />
       </div>
 
@@ -208,12 +246,7 @@ const VideoPlayer = () => {
         </div>
       )}
 
-      <div style={{
-        textAlign: "center",
-        fontSize: "12px",
-        marginTop: "30px",
-        color: "#ffffff"
-      }}>
+      <div style={{ textAlign: "center", fontSize: "12px", marginTop: "30px", color: "#ffffff" }}>
         Today’s Study Time: <strong>{studiedMinutes} min</strong>
       </div>
     </div>
