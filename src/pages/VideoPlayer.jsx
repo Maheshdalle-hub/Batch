@@ -4,8 +4,8 @@ import "video.js/dist/video-js.css";
 import "videojs-contrib-quality-levels";
 import "videojs-hls-quality-selector";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getDatabase, ref, set, onValue, push, remove, onDisconnect } from "firebase/database";
-import "../firebase";  // Import your firebase configuration
+import { getDatabase, ref, set, onValue, remove } from "firebase/database";
+import { database } from "../firebase"; // Import Firebase
 
 const VideoPlayer = () => {
   const location = useLocation();
@@ -14,15 +14,21 @@ const VideoPlayer = () => {
   const playerRef = useRef(null);
   const lastTap = useRef(0);
   const [studiedMinutes, setStudiedMinutes] = useState(0);
-  const [liveViewers, setLiveViewers] = useState(0);  // State for tracking live viewers
+  const [viewersCount, setViewersCount] = useState(0); // To store the viewer count
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
   const defaultLiveUrl = "m3u8_link_here";
-  
-  // Path for live viewers (10th, 11th, etc.)
-  const classPath = location.pathname.split("/")[2]; // "10", "11", etc.
-  const livePath = `video/${classPath}/live`;
+
+  // Generate a unique user ID or retrieve it from localStorage
+  const userID = useRef(localStorage.getItem("userID") || generateUserID());
+
+  // Generate a new user ID
+  const generateUserID = () => {
+    const uniqueID = `user_${Math.random().toString(36).substr(2, 9)}`;
+    localStorage.setItem("userID", uniqueID);
+    return uniqueID;
+  };
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -30,6 +36,28 @@ const VideoPlayer = () => {
       navigate("/login");
     }
   }, [navigate]);
+
+  // Update viewers count in Firebase
+  useEffect(() => {
+    const viewersRef = ref(database, "live/viewersCount");
+
+    // Add current user to the live viewers list
+    set(ref(database, `live/viewers/${userID.current}`), true);
+
+    // Remove current user when they leave the video
+    return () => {
+      remove(ref(database, `live/viewers/${userID.current}`));
+    };
+  }, []);
+
+  // Get live viewers count
+  useEffect(() => {
+    const viewersRef = ref(database, "live/viewersCount");
+    onValue(viewersRef, (snapshot) => {
+      const data = snapshot.val();
+      setViewersCount(data ? Object.keys(data).length : 0); // Count number of unique viewers
+    });
+  }, []);
 
   useEffect(() => {
     const today = new Date().toLocaleDateString();
@@ -139,35 +167,6 @@ const VideoPlayer = () => {
       });
     });
 
-    // Handle live viewer tracking with Firebase
-    if (isLive) {
-      const db = getDatabase();
-      const liveRef = ref(db, `liveViewers/${livePath}`);
-
-      // Create a unique user ID for the viewer
-      const userId = push(ref(db, `liveViewers/${livePath}`)).key;
-
-      // Add the user to the live viewers list
-      set(ref(db, `liveViewers/${livePath}/${userId}`), true);
-
-      // Set up a listener to keep track of the live viewer count in real-time
-      const viewerCountRef = ref(db, `liveViewers/${livePath}`);
-      const viewerCountListener = onValue(viewerCountRef, (snapshot) => {
-        setLiveViewers(snapshot.numChildren() || 0);  // Update the count based on the number of users
-      });
-
-      // Ensure that when a user disconnects, their viewer ID is removed from the list
-      const userRef = ref(db, `liveViewers/${livePath}/${userId}`);
-      onDisconnect(userRef).remove();
-
-      return () => {
-        // Clean up listener on unmount
-        viewerCountListener();
-        // Also ensure the user's viewer ID is removed if they disconnect or leave
-        remove(userRef);
-      };
-    }
-
     const videoContainer = videoRef.current.parentElement;
     videoContainer.addEventListener("touchend", (event) => {
       const currentTime = Date.now();
@@ -198,7 +197,7 @@ const VideoPlayer = () => {
       }
       clearInterval(studyTimer);
     };
-  }, [m3u8Url, isLive, livePath]);
+  }, [m3u8Url, isLive]);
 
   const formatTime = (timeInSeconds) => {
     if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00";
@@ -215,8 +214,8 @@ const VideoPlayer = () => {
         {isLive
           ? "🔴 Live Class"
           : chapterName
-            ? `Now Playing: ${chapterName} - ${lectureName ? ` ${chapterName} - ${lectureName}` : ""}`
-            : "Now Playing"}
+          ? `Now Playing: ${chapterName} - ${lectureName ? ` ${chapterName} - ${lectureName}` : ""}`
+          : "Now Playing"}
       </h2>
       <div style={{ position: "relative" }}>
         <video ref={videoRef} className="video-js vjs-default-skin" />
@@ -246,20 +245,26 @@ const VideoPlayer = () => {
 
       <div style={{
         textAlign: "center",
-        fontSize: "18px",
-        marginTop: "20px"
+        fontSize: "12px",
+        marginTop: "30px",
+        color: "#ffffff"
       }}>
-        {isLive && (
-          <div>
-            <p>Live Viewers: <strong>{liveViewers}</strong></p>
-          </div>
-        )}
-      </div>
-      <div style={{ textAlign: "center", fontSize: "12px", marginTop: "30px", color: "#ffffff" }}>
         Today’s Study Time: <strong>{studiedMinutes} min</strong>
       </div>
+
+      {/* Display live viewers count */}
+      {isLive && (
+        <div style={{
+          textAlign: "center",
+          fontSize: "14px",
+          marginTop: "10px",
+          color: "#ffffff"
+        }}>
+          Viewers Watching: <strong>{viewersCount}</strong>
+        </div>
+      )}
     </div>
   );
 };
 
-export default VideoPlayer;
+export default VideoPlayer
