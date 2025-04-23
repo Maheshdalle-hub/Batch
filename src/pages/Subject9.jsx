@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../styles/global.css";
-import tt from "../assets/tt.png";
 
 const Subject9 = () => {
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ const Subject9 = () => {
 
   return (
     <div className="subjects-container">
-      <img src={tt} alt="Logo" className="tt" />
+      <img src= "https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/50028900_07%20%3B00%20PM.png" alt="Logo" className="tt" />
       <h2>Select Subject - Class 9</h2>
       <div className="live-class-container">
         <Link
