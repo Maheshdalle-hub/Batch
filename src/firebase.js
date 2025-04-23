@@ -9,7 +9,8 @@ const firebaseConfig = {
   storageBucket: "studyapp-c37eb.firebasestorage.app",
   messagingSenderId: "22291109354",
   appId: "1:22291109354:web:943772b232d59710ed0e93",
-  measurementId: "G-3HYCRLWC6S"
+  measurementId: "G-3HYCRLWC6S",
+  databaseUrl: "https://studyapp-c37eb-default-rtdb.firebaseio.com/"
 };
 
 
