@@ -18,8 +18,7 @@ const VideoPlayer = () => {
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/live");
-  const defaultLiveUrl = "m3u8_link_here";
-  const telegramDownloaderLink = "https://t.me/your_downloader_group"; // Replace with actual link
+  const telegramDownloaderLink = "https://t.me/+UHFOhCOAU7xhYWY9"; // Replace with actual link
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
