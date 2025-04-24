@@ -245,6 +245,10 @@ const ChapterLectures10 = () => {
                 notesUrl: lecture.notesUrl,
               }}
               className="lecture-box"
+              onClick={() => {
+              // Store chapter name and index in localStorage for later use
+              localStorage.setItem("lectureName", lecture.name);  // Store chapter name
+            }}
             >
               {lecture.name}
             </Link>
