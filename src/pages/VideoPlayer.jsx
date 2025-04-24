@@ -42,11 +42,6 @@ const VideoPlayer = () => {
     setStudiedMinutes(Math.floor(stored / 60));
   }, []);
 
-  useEffect(() => {
-    if (!videoRef.current) return;
-
-    const videoSource = isLive ? m3u8Url ;
-
     playerRef.current = videojs(videoRef.current, {
       controls: true,
       autoplay: false,
