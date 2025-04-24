@@ -12,10 +12,15 @@ const VideoPlayer = () => {
   const playerRef = useRef(null);
   const lastTap = useRef(0);
   const [studiedMinutes, setStudiedMinutes] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
+  const chaptersName = localStorage.getItem("chapterName");
+  const lecturesName = localStorage.getItem("lectureName");
+  
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
   const isLive = location.pathname.includes("/video/live");
   const defaultLiveUrl = "m3u8_link_here";
+  const telegramDownloaderLink = "https://t.me/+UHFOhCOAU7xhYWY9"; // Replace with actual link
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -172,6 +177,13 @@ const VideoPlayer = () => {
       .toString()
       .padStart(2, "0")}`;
   };
+  const handleDownloadClick = () => {
+    if (!m3u8Url) return;
+    const copyText = `/yl ${m3u8Url} -n ${chaptersName} ${lecturesName} by Eduvibe`;
+    navigator.clipboard.writeText(copyText).then(() => {
+      setShowPopup(true);
+    });
+  };
 
   return (
     <div>
@@ -179,12 +191,84 @@ const VideoPlayer = () => {
   {isLive
     ? "🔴 Live Class"
     : chapterName
-      ? `Now Playing: ${chapterName} - ${lectureName ? ` ${chapterName} - ${lectureName}` : ""}`
+      ? `Now Playing: ${chaptersName} - ${lecturesName ? ` ${chaptersName} - ${lecturesName}` : ""}`
       : "Now Playing"}
 </h2>
       <div style={{ position: "relative" }}>
         <video ref={videoRef} className="video-js vjs-default-skin" />
       </div>
+      
+      {!isLive && (
+        <div style={{ textAlign: "center", marginTop: "20px" }}>
+          <button
+            onClick={handleDownloadClick}
+            style={{
+              backgroundColor: "#28a745",
+              color: "#fff",
+              padding: "10px 20px",
+              border: "none",
+              borderRadius: "5px",
+              fontSize: "16px",
+              cursor: "pointer",
+              boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+            }}
+          >
+            Download Lecture
+          </button>
+        </div>
+      )}
+
+      {showPopup && (
+        <div style={{
+          position: "fixed",
+          bottom: "20px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          backgroundColor: "#fff",
+          padding: "20px",
+          borderRadius: "10px",
+          boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
+          zIndex: 1000,
+          textAlign: "center",
+          maxWidth: "90%",
+        }}>
+          <p style={{ marginBottom: "15px", color: "#333" }}>
+            Link copied to clipboard. Go to Telegram group, paste the link, and send to download the video.
+          </p>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <button
+              onClick={() => setShowPopup(false)}
+              style={{
+                padding: "8px 16px",
+                backgroundColor: "#ddd",
+                border: "none",
+                borderRadius: "5px",
+                color: "#333",
+                fontWeight: "bold",
+                flex: 1,
+                marginRight: "10px",
+              }}
+            >
+              Cancel
+            </button>
+            <button
+              onClick={() => window.open(telegramDownloaderLink, "_blank")}
+              style={{
+                padding: "8px 16px",
+                backgroundColor: "#007bff",
+                border: "none",
+                borderRadius: "5px",
+                color: "#fff",
+                fontWeight: "bold",
+                flex: 1,
+              }}
+            >
+              Go to Downloader
+            </button>
+          </div>
+        </div>
+      )}
+          
 
       {notesUrl && (
         <div style={{ marginTop: "20px", textAlign: "center" }}>
