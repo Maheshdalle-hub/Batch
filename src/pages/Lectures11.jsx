@@ -28,8 +28,13 @@ const Lectures11 = () => {
       { name: "Chapter 1", index: 0 },
       { name: "Chapter 2", index: 1 },
     ],
-    Biology: [{ name: "Chapter 1", index: 0 }],
-    English: [{ name: "Chapter 1", index: 0 }],
+    Biology: [
+      { name: "Chapter 1", index: 0 }
+    ],
+    English: [
+      { name: "Grammer", index: 19 },
+      { name: "Chapter 1", index: 0 },
+    ],
   };
 
   return (
