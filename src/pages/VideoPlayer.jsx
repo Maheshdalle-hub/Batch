@@ -161,7 +161,7 @@ const VideoPlayer = () => {
       }
       clearInterval(studyTimer);
     };
-  }, [m3u8Url, isLive]);
+  , [m3u8Url, isLive ];
 
   const formatTime = (timeInSeconds) => {
     if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00";
