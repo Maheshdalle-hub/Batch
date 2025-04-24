@@ -46,7 +46,7 @@ const VideoPlayer = () => {
   useEffect(() => {
     if (!videoRef.current) return;
 
-    const videoSource = isLive ? defaultLiveUrl : m3u8Url || defaultLiveUrl;
+    const videoSource = isLive ? defaultLiveUrl : m3u8Url ;
 
     playerRef.current = videojs(videoRef.current, {
       controls: true,
