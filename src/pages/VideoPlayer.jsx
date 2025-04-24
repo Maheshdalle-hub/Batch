@@ -15,11 +15,11 @@ const VideoPlayer = () => {
   const [showPopup, setShowPopup] = useState(false);
   const chaptersName = localStorage.getItem("chapterName");
   const lecturesName = localStorage.getItem("lectureName");
-  
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
-  const isLive = location.pathname.includes("/live");
-  const telegramDownloaderLink = "https://t.me/+UHFOhCOAU7xhYWY9"; // Replace with actual link
+  const isLive = location.pathname.includes("/video/live");
+  const defaultLiveUrl = "m3u8_link_here";
+  const telegramDownloaderLink = "https://t.me/your_downloader_group"; // Replace with actual link
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -42,6 +42,11 @@ const VideoPlayer = () => {
     setStudiedMinutes(Math.floor(stored / 60));
   }, []);
 
+  useEffect(() => {
+    if (!videoRef.current) return;
+
+    const videoSource = isLive ? defaultLiveUrl : m3u8Url || defaultLiveUrl;
+
     playerRef.current = videojs(videoRef.current, {
       controls: true,
       autoplay: false,
@@ -52,6 +57,16 @@ const VideoPlayer = () => {
           overrideNative: true,
           enableLowInitialPlaylist: true,
         },
+      },
+      controlBar: {
+        children: [
+          "playToggle",
+          "progressControl",
+          "volumePanel",
+          "playbackRateMenuButton",
+          "qualitySelector",
+          "fullscreenToggle",
+        ],
       },
     });
 
@@ -161,7 +176,7 @@ const VideoPlayer = () => {
       }
       clearInterval(studyTimer);
     };
-  , [m3u8Url, isLive ];
+  }, [m3u8Url, isLive]);
 
   const formatTime = (timeInSeconds) => {
     if (isNaN(timeInSeconds) || timeInSeconds < 0) return "00:00";
@@ -171,6 +186,7 @@ const VideoPlayer = () => {
       .toString()
       .padStart(2, "0")}`;
   };
+
   const handleDownloadClick = () => {
     if (!m3u8Url) return;
     const copyText = `/yl ${m3u8Url} -n ${chaptersName} ${lecturesName} by Eduvibe`;
@@ -182,16 +198,15 @@ const VideoPlayer = () => {
   return (
     <div>
       <h2>
-  {isLive
-    ? "🔴 Live Class"
-    : chapterName
-      ? `Now Playing: ${chaptersName} - ${lecturesName ? ` ${chaptersName} - ${lecturesName}` : ""}`
-      : "Now Playing"}
-</h2>
+        {isLive
+          ? "🔴 Live Class"
+          : `Now Playing: ${chaptersName} - ${lecturesName || "Unknown Lecture"}`}
+      </h2>
+
       <div style={{ position: "relative" }}>
         <video ref={videoRef} className="video-js vjs-default-skin" />
       </div>
-      
+
       {!isLive && (
         <div style={{ textAlign: "center", marginTop: "20px" }}>
           <button
@@ -262,7 +277,6 @@ const VideoPlayer = () => {
           </div>
         </div>
       )}
-          
 
       {notesUrl && (
         <div style={{ marginTop: "20px", textAlign: "center" }}>
