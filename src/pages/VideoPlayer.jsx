@@ -17,7 +17,7 @@ const VideoPlayer = () => {
   const lecturesName = localStorage.getItem("lectureName");
 
   const { chapterName, lectureName, m3u8Url, notesUrl } = location.state || {};
-  const isLive = location.pathname.includes("/video/live");
+  const isLive = location.pathname.includes("/live");
   const defaultLiveUrl = "m3u8_link_here";
   const telegramDownloaderLink = "https://t.me/your_downloader_group"; // Replace with actual link
 
@@ -45,7 +45,7 @@ const VideoPlayer = () => {
   useEffect(() => {
     if (!videoRef.current) return;
 
-    const videoSource = isLive ? defaultLiveUrl : m3u8Url || defaultLiveUrl;
+    const videoSource = m3u8Url;
 
     playerRef.current = videojs(videoRef.current, {
       controls: true,
