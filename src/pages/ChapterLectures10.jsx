@@ -104,6 +104,13 @@ const ChapterLectures10 = () => {
           notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/601835403370027400.pdf"
         }
       ],
+      1: [
+        {
+          name: "Lecture 1",
+          notesUrl: "",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4361323/174559737034061097666/174559737034061097666_1097666.m3u8"
+        },
+      ],
       19: [
         {
           name: "DPP 1",
