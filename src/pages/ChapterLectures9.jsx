@@ -32,6 +32,21 @@ const ChapterLectures9 = () => {
         },
       ],
     },
+    SST: [
+      0: [
+      {
+        name: "Lecture 1"
+      },
+      {
+        name: "Lecture 2",
+        m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4358823/174541217023577880624/174541217023577880624_7880624.m3u8"
+      },
+      {
+        name: "Lecture 3",
+        m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4359911/174549813759727880624/174549813759727880624_7880624.m3u8"
+      },
+      ],
+    ],
     // Add more subjects here...
   };
 
