@@ -59,7 +59,7 @@ const ChapterLectures9 = () => {
       },
       {
         name: "Lecture 3",
-        m3u8Url: "https://d1kw75zcv4u98c.cloudfront.net/out/v1/287810d967cc428e9bd992002e55b72c/index.m3u8"
+        m3u8Url: ""
       },
       ],
     },
