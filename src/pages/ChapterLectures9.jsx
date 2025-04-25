@@ -47,7 +47,22 @@ const ChapterLectures9 = () => {
       },
       ],
     ],
-    // Add more subjects here...
+    // Add 
+    Maths: [
+      0: [
+      {
+        name: "Lecture 1",
+      },
+      {
+        name: "Lecture 2",
+        m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4360152/174550928629871097666/174550928629871097666_1097666.m3u8"
+      },
+      {
+        name: "Lecture 3",
+        m3u8Url: "https://d1kw75zcv4u98c.cloudfront.net/out/v1/287810d967cc428e9bd992002e55b72c/index.m3u8"
+      },
+      ],
+    ],
   };
 
   return (
