@@ -26,7 +26,7 @@ const Lectures = () => {
     Maths: [
       {name: "DPP", index: 19 },
       { name: "Real Number", index: 0 },
-      { name: "Chapter 2", index: 1 },
+      { name: "Polynomial", index: 1 },
     ],
     SST: [
       { name: "WPP", index: 19 },
