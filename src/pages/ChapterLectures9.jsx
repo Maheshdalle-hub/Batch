@@ -32,7 +32,7 @@ const ChapterLectures9 = () => {
         },
       ],
     },
-    SST: [
+    SST: {
       0: [
       {
         name: "Lecture 1"
@@ -46,9 +46,9 @@ const ChapterLectures9 = () => {
         m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4359911/174549813759727880624/174549813759727880624_7880624.m3u8"
       },
       ],
-    ],
+    },
     // Add 
-    Maths: [
+    Maths: {
       0: [
       {
         name: "Lecture 1",
@@ -62,7 +62,7 @@ const ChapterLectures9 = () => {
         m3u8Url: "https://d1kw75zcv4u98c.cloudfront.net/out/v1/287810d967cc428e9bd992002e55b72c/index.m3u8"
       },
       ],
-    ],
+    },
   };
 
   return (
