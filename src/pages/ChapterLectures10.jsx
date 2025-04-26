@@ -53,7 +53,7 @@ const ChapterLectures10 = () => {
         },
         {
           name: "Lecture 6",
-          notesUrl: "",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/692200381751812900.pdf",
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4359955/174549890921018296383/174549890921018296383_8296383.m3u8"
         },
         {
