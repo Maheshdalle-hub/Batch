@@ -177,12 +177,13 @@ const VideoPlayer = () => {
   };
 
   const handleDownloadClick = () => {
-    if (!m3u8Url) return;
-    const copyText = `/yl ${m3u8Url} -n ${chaptersName} ${lecturesName} by Eduvibe`;
-    navigator.clipboard.writeText(copyText).then(() => {
-      setShowPopup(true);
-    });
-  };
+    const fileName = `${chaptersName} ${lecturesName}`; // You can customize filename if you want
+    const downloadUrl= m3u8Url;
+    const intentUrl = `intent:${downloadUrl}#Intent;action=android.intent.action.VIEW;package=idm.internet.download.manager;scheme=1dmdownload;S.title=${encodeURIComponent(fileName)};end`;
+    
+  // Redirect to open in 1DM
+  window.location.href = intentUrl;
+};
 
   return (
     <div>
