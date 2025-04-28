@@ -67,7 +67,7 @@ const Homepage = () => {
               Explore batches and start learning with ease. This website is aboslutely free of cost. If you don't have joined the telegram channel, join it because I will give there updates 👇👇
             </p>
             <a
-              href="https://t.me/+PEKf79OMNfQxYjNl"
+              href="https://t.me/eduvibe_all_classes"
               target="_blank"
               rel="noopener noreferrer"
               style={{
