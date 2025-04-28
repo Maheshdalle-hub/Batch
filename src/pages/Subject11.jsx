@@ -90,7 +90,7 @@ const Subject11 = () => {
         </Link>
 
         <Link
-          to={`/video/11/live-biology`}
+          to={`/video/11/bio/live`}
           state={{ chapterName: "Biology Live Class", m3u8Url: bioM3u8Url }}
           className="subject-box live-class-section"
         >
