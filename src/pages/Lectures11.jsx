@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import "../styles/Lectures.css";
-import mlogo from "../assets/ntmlogo.jpg"; // ✅ Import logo
 
 const Lectures11 = () => {
   const { subject } = useParams();
@@ -17,7 +16,7 @@ const Lectures11 = () => {
   const lectures = {
     Physics: [
       {name: "PCP", index: 19 },
-      { name: "Chapter 1", index: 0 },
+      { name: "Units and Measurement", index: 0 },
       { name: "Chapter 2", index: 1 },
     ],
     Chemistry: [
@@ -25,7 +24,7 @@ const Lectures11 = () => {
       { name: "Chapter 2", index: 1 },
     ],
     Maths: [
-      { name: "Chapter 1", index: 0 },
+      { name: "Sets", index: 0 },
       { name: "Chapter 2", index: 1 },
     ],
     Biology: [
@@ -40,7 +39,7 @@ const Lectures11 = () => {
 
   return (
     <div className="lectures-container">
-      <img src={mlogo} alt="Logo" className="big-logo" />
+      <img src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/12287030_WhatsApp%20Image%202025-04-26%20at%2016.12.39.jpeg" alt="Logo" className="big-logo" />
       <h2>{subject} Lectures</h2>
       <div className="lecture-boxes">
         {lectures[subject]?.map((lecture, index) => (
