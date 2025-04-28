@@ -74,7 +74,7 @@ const Subject11 = () => {
   return (
     <div className="subjects-container">
       <img
-        src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/50028900_07%20%3B00%20PM.png"
+        src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/6874310_IMG-20250420-WA0012.jpg"
         alt="Logo"
         className="tt"
       />
