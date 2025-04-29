@@ -30,6 +30,10 @@ const ChapterLectures9 = () => {
           notesUrl: "",
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4359011/174542283188648296383/174542283188648296383_8296383.m3u8"
         },
+        {
+          name: "Lecture 4",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4363242/174584458672078296383/174584458672078296383_8296383.m3u8"
+        },
       ],
     },
     SST: {
@@ -59,8 +63,12 @@ const ChapterLectures9 = () => {
       },
       {
         name: "Lecture 3",
-        m3u8Url: ""
+        m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4361156/174558576440391097666/174558576440391097666_1097666.m3u8"
       },
+        {
+          name: "Lecture 4",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4362008/174567183539581097666/174567183539581097666_1097666.m3u8"
+        },
       ],
     },
   };
