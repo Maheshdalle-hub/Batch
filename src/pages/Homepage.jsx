@@ -111,7 +111,7 @@ const Homepage = () => {
           textAlign: "center",
           fontWeight: "bold",
           fontSize: "20px",
-          color: "#eee",
+          color: "#111",
           position: "sticky",
           top: "0",
           zIndex: "10",
