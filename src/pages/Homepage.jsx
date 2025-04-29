@@ -106,7 +106,7 @@ const Homepage = () => {
         style={{
           width: "100%",
           padding: "10px 0",
-          backgroundColor: "#111",
+          backgroundColor: "#ffffff",
           borderBottom: "1px solid #444",
           textAlign: "center",
           fontWeight: "bold",
