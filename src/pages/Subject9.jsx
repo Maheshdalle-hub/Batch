@@ -34,7 +34,6 @@ const Subject9 = () => {
 
       const slots = [
         { time: "17:00", start: 17 * 60, subject: schedule[day]?.["17:00"] },
-        { time: "19:00", start: 19 * 60, subject: schedule[day]?.["19:00"] },
         { time: "20:00", start: 20 * 60, subject: schedule[day]?.["20:00"] },
       ];
 
@@ -66,7 +65,7 @@ const Subject9 = () => {
   return (
     <div className="subjects-container">
       <img
-        src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/50028900_07%20%3B00%20PM.png"
+        src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/31318830_Next%20toppers%20Slider%202025.png"
         alt="Logo"
         className="tt"
       />
