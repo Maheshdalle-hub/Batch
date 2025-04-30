@@ -88,6 +88,12 @@ const ChapterLectures11 = () => {
           notesUrl: ""
         },
       ],
+      19: [
+        {
+          name: "DPP 1",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/759054519832697600.pdf"
+        },
+      ],
     },
     Physics: {
       0: [
