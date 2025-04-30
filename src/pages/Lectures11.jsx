@@ -24,6 +24,7 @@ const Lectures11 = () => {
       { name: "Chapter 2", index: 1 },
     ],
     Maths: [
+      { name: "DPP 01", index: 19 },
       { name: "Sets", index: 0 },
       { name: "Chapter 2", index: 1 },
     ],
