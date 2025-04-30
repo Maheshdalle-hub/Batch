@@ -82,6 +82,11 @@ const ChapterLectures11 = () => {
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4363249/174584513794761261798/174584513794761261798_1261798.m3u8",
           notesUrl: ""
         },
+        {
+          name: "Lecture 2",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4364488/174592875146111261798/174592875146111261798_1261798.m3u8",
+          notesUrl: ""
+        },
       ],
     },
     Physics: {
