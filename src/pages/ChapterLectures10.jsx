@@ -235,6 +235,10 @@ const ChapterLectures10 = () => {
           noresUrl: "",
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4366034/174602805446617880624/174602805446617880624_7880624.m3u8"
         },
+        {
+          name: "Doubt Solving",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4367150/174611369995057880624/174611369995057880624_7880624.m3u8"
+        },
       ],
       19: [
         {
