@@ -22,7 +22,7 @@ const Subject11 = () => {
   };
 
   const subjectLinks = {
-    Physics: "https://d2xqn12y4qo6nr.cloudfront.net/out/v1/4dacc3cc62ed4047b817b91580e11584/index.m3u8",
+    Physics: "https://d2ypa0i2sdc0h2.cloudfront.net/out/v1/a59bf4ef54554503aaaa875115401b92/index.m3u8",
     Chemistry: "https://d3rho91jos7925.cloudfront.net/out/v1/04e48ce150b5494fa5bca97d1bea5bb0/index.m3u8",
     Maths: "https://d1kw75zcv4u98c.cloudfront.net/out/v1/5df5be72d17649f79577314291c6d2fc/index.m3u8",
     Biology: "https://d1kw75zcv4u98c.cloudfront.net/out/v1/c843fae2d8ac47ffbe15b3988abf9adb/index.m3u8",
