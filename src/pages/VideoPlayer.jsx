@@ -136,7 +136,32 @@ const VideoPlayer = () => {
     });
 
     const videoContainer = videoRef.current.parentElement;
-    videoContainer.addEventListener("touchend", (event) => {
+    const videoEl = videoRef.current;
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    let holdTimeout = null;
+    let speedHeld = false;
+
+    const handleTouchStart = () => {
+      if (!isMobile) return;
+      holdTimeout = setTimeout(() => {
+        if (playerRef.current && !speedHeld) {
+          speedHeld = true;
+          playerRef.current.playbackRate(2);
+        }
+      }, 1000);
+    };
+
+    const handleTouchEnd = () => {
+      if (!isMobile) return;
+      clearTimeout(holdTimeout);
+      if (playerRef.current && speedHeld) {
+        playerRef.current.playbackRate(1);
+        speedHeld = false;
+      }
+    };
+
+    const handleDoubleTap = (event) => {
       const currentTime = Date.now();
       const tapGap = currentTime - lastTap.current;
       lastTap.current = currentTime;
@@ -144,12 +169,12 @@ const VideoPlayer = () => {
       const touch = event.changedTouches[0];
       const rect = videoContainer.getBoundingClientRect();
       const tapX = touch.clientX - rect.left;
-      const videoWidth = rect.width;
+      const width = rect.width;
 
       if (tapGap < 300) {
-        if (tapX < videoWidth / 3) {
+        if (tapX < width / 3) {
           playerRef.current.currentTime(playerRef.current.currentTime() - 10);
-        } else if (tapX > (2 * videoWidth) / 3) {
+        } else if (tapX > (2 * width) / 3) {
           playerRef.current.currentTime(playerRef.current.currentTime() + 10);
         } else {
           playerRef.current.paused()
@@ -157,7 +182,17 @@ const VideoPlayer = () => {
             : playerRef.current.pause();
         }
       }
-    });
+    };
+
+    videoEl.addEventListener("touchstart", handleTouchStart);
+    videoEl.addEventListener("touchend", handleTouchEnd);
+    videoContainer.addEventListener("touchend", handleDoubleTap);
+
+    return () => {
+      videoEl.removeEventListener("touchstart", handleTouchStart);
+      videoEl.removeEventListener("touchend", handleTouchEnd);
+      videoContainer.removeEventListener("touchend", handleDoubleTap);
+    };
 
     return () => {
       if (playerRef.current) {
