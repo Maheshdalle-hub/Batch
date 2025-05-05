@@ -91,8 +91,12 @@ const ChapterLectures10 = () => {
       ],
       19: [
         {
-          name: "ACP 01",
+          name: "ACP Chemical Reaction & Equation",
           redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/151758065059113380.pdf"
+        },
+        {
+          name: "ACP - Light",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/553368258434162370.pdf"
         },
       ],
     },
