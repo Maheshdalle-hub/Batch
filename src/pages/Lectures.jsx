@@ -52,7 +52,7 @@ const Lectures = () => {
 
   return (
     <div className="lectures-container">
-      <img src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/30079620_WhatsApp%20Image%202025-04-28%20at%2012.47.41.jpeg" alt="Weekly Planner" className="tt" />
+      <img src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/49501700_Next%20toppers%20Slider%202025-2.png" alt="Weekly Planner" className="tt" />
       <h2>{subject} Lectures</h2>
       <div className="lecture-boxes">
         {lectures[subject]?.map((lecture, index) => (
