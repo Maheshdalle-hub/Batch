@@ -28,7 +28,7 @@ const Lectures11 = () => {
       { name: "Sets", index: 0 },
       { name: "Chapter 2", index: 1 },
     ],
-    Applied×Maths: [
+    AppliedMaths: [
       {name: "Chapter 1", index: 0 },
     ],
     Biology: [
