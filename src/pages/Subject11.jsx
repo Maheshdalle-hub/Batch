@@ -66,7 +66,6 @@ const Subject11 = () => {
     { name: "Physics", path: "/lectures/11/Physics" },
     { name: "Chemistry", path: "/lectures/11/Chemistry" },
     { name: "Maths", path: "/lectures/11/Maths" },
-    { name: "Applied Maths", path: "/lectures/11/AppliedMaths"},
     { name: "Biology", path: "/lectures/11/Biology" },
     { name: "English", path: "/lectures/11/English" },
     { name: "IT", path: "/lectures/11/IT" },
