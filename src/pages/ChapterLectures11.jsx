@@ -57,6 +57,11 @@ const ChapterLectures11 = () => {
           notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/634399216622604700.pdf",
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4364707/174593615136972621696/174593615136972621696_2621696.m3u8"
         },
+        {
+          name: "L 6",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4366969/174610253788082621696/174610253788082621696_2621696.m3u8",
+          notesUrl: ""
+        },
       ],
     },
     Maths: {
