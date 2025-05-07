@@ -297,6 +297,14 @@ const ChapterLectures10 = () => {
           name: "WPP 01",
           redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/346089666981640100.pdf"
         },
+        {
+          name: "WPP 01 Solution",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/761630106449919600.pdf"
+        },
+        {
+          name: "WPP 02",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/190224942159109730.pdf"
+        },
       ],
     },
     English: {
