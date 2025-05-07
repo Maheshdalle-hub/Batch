@@ -112,11 +112,24 @@ const ChapterLectures11 = () => {
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4367111/174610963914991261798/174610963914991261798_1261798.m3u8",
           
         },
+        {
+          name: "L 5",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4373799/174653642467251261798/174653642467251261798_1261798.m3u8",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/348718648836124700.pdf"
+        },
       ],
       19: [
         {
           name: "DPP 1",
           redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/759054519832697600.pdf"
+        },
+        {
+          name: "Complex no DPP 1",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/331934519130572160.pdf"
+        },
+        {
+          name: "Complex no DPP 2",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/831229669238566000.pdf"
         },
       ],
     },
@@ -161,7 +174,12 @@ const ChapterLectures11 = () => {
         {
           name: "Basic maths L 1",
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4368402/174620181785161071993/174620181785161071993_1071993.m3u8",
-          
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/63080286597865820.pdf"
+        },
+        {
+          name: "Basic Maths L 2",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4370179/174628987185681071993/174628987185681071993_1071993.m3u8",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/781289778058012200.pdf"
         },
       ],
       19: [
