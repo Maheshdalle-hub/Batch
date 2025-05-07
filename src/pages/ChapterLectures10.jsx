@@ -280,6 +280,18 @@ const ChapterLectures10 = () => {
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4367150/174611369995057880624/174611369995057880624_7880624.m3u8"
         },
       ],
+      2: [
+        {
+          name: "L 1",
+          notesUrl: "",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4372168/174644893368577880624/174644893368577880624_7880624.m3u8"
+        },
+        {
+          name: "L 2",
+          notesUrl: "",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4373745/174653484988497880624/174653484988497880624_7880624.m3u8"
+        },
+      ],
       19: [
         {
           name: "WPP 01",
