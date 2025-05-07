@@ -27,11 +27,13 @@ const Lectures = () => {
       {name: "DPP", index: 19 },
       { name: "Real Number", index: 0 },
       { name: "Polynomial", index: 1 },
+      { name: "Pair of Linear Eq in one var", index: 2 },
     ],
     SST: [
       { name: "WPP", index: 19 },
       { name: "Development", index: 0 },
       { name: "Resources and Development", index: 1 },
+      { name: "Power Sharing", index: 2 },
     ],
     IT: [
       { name: "Chapter 1", index: 0 },
