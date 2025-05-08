@@ -27,7 +27,7 @@ const Lectures = () => {
       {name: "DPP", index: 19 },
       { name: "Real Number", index: 0 },
       { name: "Polynomial", index: 1 },
-      { name: "Pair of Linear Eq in one var", index: 2 },
+      { name: "Pair of Linear Eq in two var", index: 2 },
     ],
     SST: [
       { name: "WPP", index: 19 },
