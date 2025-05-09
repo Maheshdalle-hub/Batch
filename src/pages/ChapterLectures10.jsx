@@ -191,6 +191,11 @@ const ChapterLectures10 = () => {
           notesUrl: "",
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4373921/174654659565961097666/174654659565961097666_1097666.m3u8"
         },
+        {
+          name: "L 3",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4377325/174680602725391097666/174680602725391097666_1097666.m3u8",
+          notesUrl: ""
+        },
       ],
       19: [
         {
