@@ -234,6 +234,14 @@ const ChapterLectures10 = () => {
           name: "DPP 9",
           redirect: "https://dxixtlyravvxx.cloudfront.net/540/admin_v1/file_manager/pdf/623728210th%20Aarambh%20DPP%209.pdf_10th%20Aarambh%20DPP%209.pdf"
         },
+        {
+          name: "DPP 10",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/629573474530629900.pdf"
+        },
+        {
+          name: "DPP 11",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/360874131302271400.pdf"
+        },
       ],
     },
     SST: {
