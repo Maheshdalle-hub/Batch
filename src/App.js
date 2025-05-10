@@ -13,14 +13,12 @@ import ChapterLectures10 from "./pages/ChapterLectures10";
 import ChapterLectures11 from "./pages/ChapterLectures11";
 import VideoPlayer from "./pages/VideoPlayer";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Admin from "./pages/admin"
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/admin" element={<Admin />} />
         <Route path="/login" element={<Login />} />
         <Route path="/verify/:token" element={<Verify />} />
 
