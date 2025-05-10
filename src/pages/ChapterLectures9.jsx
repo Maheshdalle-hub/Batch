@@ -42,6 +42,11 @@ const ChapterLectures9 = () => {
           name: "L 6",
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4366027/174602777136308296383/174602777136308296383_8296383.m3u8"
         },
+        {
+          name: "Que practice + doubt solving",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4372218/174645099842398296383/174645099842398296383_8296383.m3u8",
+          notesUrl: ""
+        },
       ],
     },
     SST: {
@@ -68,6 +73,18 @@ const ChapterLectures9 = () => {
         {
           name: "L 6",
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4366987/174610309713617880624/174610309713617880624_7880624.m3u8"
+        },
+      ],
+      1:[
+        {
+          name: "L 1",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4373763/174653575278717555169/174653575278717555169_7555169.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "L 2",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4375004/174663371989087555169/174663371989087555169_7555169.m3u8",
+          notesUrl: ""
         },
       ],
     },
