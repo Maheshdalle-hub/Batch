@@ -6,6 +6,7 @@ import mlogo from "../assets/ntmlogo.jpg"; // ✅ Import logo
 const ChapterLectures10 = () => {
   const { classId, subject, chapterIndex } = useParams();
   const navigate = useNavigate();
+  const chaptersName = localStorage.getItem("chapterName");
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -433,7 +434,7 @@ const ChapterLectures10 = () => {
     <div className="chapter-lectures-container">
       <img src={mlogo} alt="Logo" className="big-logo" />
 
-      <h2>{subject} - Chapter {parseInt(chapterIndex) + 1}</h2>
+      <h2>{subject} - ${chaptersName}</h2>
       <div className="lecture-boxes">
         {chapterLectures[subject]?.[chapterIndex]?.map((lecture, index) => {
           if (lecture.youtubeUrl) {
