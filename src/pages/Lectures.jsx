@@ -1,31 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import "../styles/Lectures.css"; 
+import "../styles/Lectures.css";
 
 const Lectures = () => {
   const { subject } = useParams();
   const navigate = useNavigate();
-  const [selectedTab, setSelectedTab] = useState("CourseA");
+  const [selectedCourse, setSelectedCourse] = useState("A");
 
-  // ✅ Redirect if user is not logged in
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
     if (!isLoggedIn) {
-      navigate("/login"); // Redirect to login
+      navigate("/login");
     }
   }, [navigate]);
 
   const lectures = {
     Notice: [
-      { name: "Introduction", index:0},
-],
+      { name: "Introduction", index: 0 },
+    ],
     Science: [
-      {name: "ACP", index: 19 },
+      { name: "ACP", index: 19 },
       { name: "Chemical Reaction & Equations", index: 0 },
       { name: "Chapter 2", index: 1 },
     ],
     Maths: [
-      {name: "DPP", index: 19 },
+      { name: "DPP", index: 19 },
       { name: "Real Number", index: 0 },
       { name: "Polynomial", index: 1 },
       { name: "Pair of Linear Eq in two var", index: 2 },
@@ -41,57 +40,69 @@ const Lectures = () => {
       { name: "Chapter 2", index: 1 },
     ],
     English: {
-      CourseA:[
-      { name: "A Letter to God", index: 0 },
-      { name: "A Dust of Snow", index: 1},
-      { name: "Grammer", index: 19 },
-        ],
-      CourseB:[
-        { name: "Chapter 1", index:0 },
+      A: [
+        { name: "A Letter to God", index: 0 },
+        { name: "A Dust of Snow", index: 1 },
+        { name: "Grammar", index: 2 },
       ],
-     },
-    Hindi: [
-      { name: "Chapter 1", index: 0 },
-    ],
+      B: [
+        { name: "Ch 1", index: 100 },
+        { name: "Ch 2", index: 101 },
+      ],
+    },
+    Hindi: {
+      A: [
+        { name: "Chapter 1", index: 0 },
+        { name: "Chapter 2", index: 1 },
+      ],
+      B: [
+        { name: "Chapter 3", index: 2 },
+        { name: "Chapter 4", index: 3 },
+      ],
+    },
     Sanskrit: [
       { name: "Chapter 1", index: 0 },
     ],
   };
 
-  const isTabSubject = subject === "English" || subject === "Hindi";
-  const subjectLectures = lectures[subject];
+  const isCourseSubject = subject === "English" || subject === "Hindi";
+  const chapters = isCourseSubject ? lectures[subject][selectedCourse] : lectures[subject];
 
   return (
     <div className="lectures-container">
-      <img src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/49501700_Next%20toppers%20Slider%202025-2.png" alt="Weekly Planner" className="tt" />
+      <img
+        src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/49501700_Next%20toppers%20Slider%202025-2.png"
+        alt="Weekly Planner"
+        className="tt"
+      />
       <h2>{subject} Lectures</h2>
 
-       {isTabSubject && (
-        <div className="tabs">
+      {isCourseSubject && (
+        <div className="course-tabs">
           <button
-            className={`tab-button ${selectedTab === "CourseA" ? "active" : ""}`}
-            onClick={() => setSelectedTab("CourseA")}
+            className={`tab-button ${selectedCourse === "A" ? "active" : ""}`}
+            onClick={() => setSelectedCourse("A")}
           >
             Course A
           </button>
           <button
-            className={`tab-button ${selectedTab === "CourseB" ? "active" : ""}`}
-            onClick={() => setSelectedTab("CourseB")}
+            className={`tab-button ${selectedCourse === "B" ? "active" : ""}`}
+            onClick={() => setSelectedCourse("B")}
           >
             Course B
           </button>
         </div>
       )}
-      
+
       <div className="lecture-boxes">
-        {lectures[subject]?.map((lecture, index) => (
+        {chapters?.map((lecture, index) => (
           <Link
             key={index}
-      to={`/chapter-lectures/10/${subject}/${lecture.index}`}
+            to={`/chapter-lectures/10/${subject}/${lecture.index}`}
+            state={{ course: isCourseSubject ? selectedCourse : null }}
             className="lecture-box"
             onClick={() => {
-              // Store chapter name and index in localStorage for later use
-              localStorage.setItem("chapterName", lecture.name);  // Store chapter name
+              localStorage.setItem("chapterName", lecture.name);
             }}
           >
             {lecture.name}
