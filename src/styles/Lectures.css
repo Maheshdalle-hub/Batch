@@ -73,14 +73,14 @@
     width: 90%;
   }
     }
-.tab-buttons {
+.tab-button {
   display: flex;
   justify-content: center;
   margin: 15px 0;
   gap: 10px;
 }
 
-.tab-buttons button {
+.tab-button button {
   padding: 8px 16px;
   font-size: 16px;
   background-color: #eee;
@@ -90,7 +90,7 @@
   transition: 0.2s;
 }
 
-.tab-buttons button.active-tab {
+.tab-button button.active-tab {
   background-color: #007bff;
   color: white;
 }
