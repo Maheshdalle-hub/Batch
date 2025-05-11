@@ -381,6 +381,30 @@ const ChapterLectures10 = () => {
           m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4355436/1745094844_9240190758365079/sunny/1745075412050_483337412598451650_video_VOD.m3u8"
         },
       ],
+      100: [
+        {
+          name: "L 1",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4355439/1745093044_4924087909410992/sunny/1745075811428_105843213207123620_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "L 2",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4355440/1745093225_3967621876101546/sunny/1745075940281_157990210964759200_video_VOD.m3u8",
+          notesUrl: ""
+        },
+      ],
+      101: [
+        {
+          name: "L 1",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4362090/1745704264_4978832941989791/sunny/1745675953554_782663074466947200_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "L 2",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4362091/1745704384_6312355312118548/sunny/1745676024180_88967490348689950_video_VOD.m3u8",
+          notesUrl: ""
+        },
+      ],
     },
     Hindi: {
       0: [
