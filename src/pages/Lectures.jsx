@@ -80,13 +80,13 @@ const Lectures = () => {
       {isCourseSubject && (
         <div className="course-tabs">
           <button
-            className={`tab-button ${selectedCourse === "A" ? "active" : ""}`}
+            className={`course-tabs ${selectedCourse === "A" ? "active" : ""}`}
             onClick={() => setSelectedCourse("A")}
           >
             Course A
           </button>
           <button
-            className={`tab-button ${selectedCourse === "B" ? "active" : ""}`}
+            className={`course-tabs ${selectedCourse === "B" ? "active" : ""}`}
             onClick={() => setSelectedCourse("B")}
           >
             Course B
