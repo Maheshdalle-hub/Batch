@@ -355,11 +355,13 @@ const ChapterLectures10 = () => {
       0: [
         {
           name: "Lecture 1",
-          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4355437/1745094964_5789358984187695/sunny/1745075625242_69087200894049560_video_VOD.m3u8"
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4355437/1745094964_5789358984187695/sunny/1745075625242_69087200894049560_video_VOD.m3u8",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540/admin_v1/file_manager/pdf/4311183letter%20to%20god%20L1.pdf_letter%20to%20god%20L1.pdf"
         },
         {
           name: "Lecture 2",
-          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4355438/1745092805_3842501733043505/sunny/1745075729856_273253030448162560_video_VOD.m3u8"
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4355438/1745092805_3842501733043505/sunny/1745075729856_273253030448162560_video_VOD.m3u8",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540/admin_v1/file_manager/pdf/7084023letter to god L2.pdf_letter to god L2.pdf"
         },
       ],
       1:[
@@ -434,7 +436,7 @@ const ChapterLectures10 = () => {
     <div className="chapter-lectures-container">
       <img src={mlogo} alt="Logo" className="big-logo" />
 
-      <h2>{subject} - ${chaptersName}</h2>
+      <h2>{subject} - {chaptersName}</h2>
       <div className="lecture-boxes">
         {chapterLectures[subject]?.[chapterIndex]?.map((lecture, index) => {
           if (lecture.youtubeUrl) {
