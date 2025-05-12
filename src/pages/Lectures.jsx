@@ -71,7 +71,7 @@ const Lectures = () => {
   return (
     <div className="lectures-container">
       <img
-        src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/49501700_Next%20toppers%20Slider%202025-2.png"
+        src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/sample/55335180_10th%20weekly.jpeg"
         alt="Weekly Planner"
         className="tt"
       />
