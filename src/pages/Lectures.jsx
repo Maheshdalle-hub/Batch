@@ -83,13 +83,13 @@ const Lectures = () => {
             className={`course-tab ${selectedCourse === "A" ? "active" : ""}`}
             onClick={() => setSelectedCourse("A")}
           >
-            Course A
+            Lang & Lit
           </button>
           <button
             className={`course-tab ${selectedCourse === "B" ? "active" : ""}`}
             onClick={() => setSelectedCourse("B")}
           >
-            Course B
+            Communicative
           </button>
         </div>
       )}
