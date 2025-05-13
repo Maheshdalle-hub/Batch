@@ -46,8 +46,10 @@ const Lectures = () => {
         { name: "Grammar", index: 2 },
       ],
       B: [
-        { name: "Ch 1", index: 100 },
-        { name: "Ch 2", index: 101 },
+        { name: "Two Gentlemen of Verona", index: 100 },
+        { name: "Frog and Nightingale", index: 101 },
+        { name: "Mr Packletide's Tiger", index: 102 },
+        { name: "Not Marble nor Glied Monuments", index: 103},
       ],
     },
     Hindi: {
@@ -56,8 +58,8 @@ const Lectures = () => {
         { name: "Chapter 2", index: 1 },
       ],
       B: [
-        { name: "Chapter 3", index: 2 },
-        { name: "Chapter 4", index: 3 },
+        { name: "Chapter 1", index: 100 },
+        { name: "Chapter 2", index: 101 },
       ],
     },
     Sanskrit: [
