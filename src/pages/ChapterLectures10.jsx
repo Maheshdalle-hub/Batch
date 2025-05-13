@@ -388,6 +388,18 @@ const ChapterLectures10 = () => {
           m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4362884/1745829304_9832761018325665/sunny/1745823991438_632000197320964000_video_VOD.m3u8"
         },
       ],
+      2:[
+        {
+          name: "L 1",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4367124/1746114124_9255773397148498/sunny/1746110633800_95893697207908130_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "L 2",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4367125/1746114604_3028472308291210/sunny/1746110727065_699236270267016600_video_VOD.m3u8",
+          notesUrl: ""
+        },
+      ],
       19: [
         {
           name: "Poetic Device 1",
@@ -419,6 +431,30 @@ const ChapterLectures10 = () => {
         {
           name: "L 2",
           m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4362091/1745704384_6312355312118548/sunny/1745676024180_88967490348689950_video_VOD.m3u8",
+          notesUrl: ""
+        },
+      ],
+      102: [
+        {
+          name: "L 1",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4375874/1746715685_6467102360708575/sunny/1746702709908_190195341099177200_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "L 2",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4367122/1746113585_9053988121991665/sunny/1746110508932_875998882032868000_video_VOD.m3u8",
+          notesUrl: ""
+        },
+      ],
+      103: [
+        {
+          name: "L 1",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4376917/1746788586_3118219510350494/sunny/1746785237746_73373005227226720_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "L 2",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4376916/1746788286_9238689736936176/sunny/1746785064614_34380386813839468_video_VOD.m3u8",
           notesUrl: ""
         },
       ],
