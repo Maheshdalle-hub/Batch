@@ -1,21 +1,45 @@
-/* Round the player */
+/* Smooth, rounded player */
 .video-js {
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   background-color: #000;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Control bar tweaks */
+/* Control bar transparent and floating-style */
 .video-js .vjs-control-bar {
-  background: rgba(0, 0, 0, 0.6); /* transparent control bar */
-  backdrop-filter: blur(6px);
-  padding: 8px 16px;
-  border-radius: 0 0 16px 16px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  padding: 10px;
+  border-radius: 0 0 20px 20px;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  z-index: 10;
 }
 
-/* Big Play Button styling */
+/* Control bar height fixes */
+.video-js .vjs-control {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+/* Fix any overlapping controls */
+.video-js .vjs-control:has(.vjs-icon-placeholder) {
+  max-height: 36px;
+}
+
+/* Big play button center and round */
 .video-js .vjs-big-play-button {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   width: 70px;
   height: 70px;
@@ -27,15 +51,29 @@
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Make control buttons slightly larger */
-.video-js .vjs-control {
-  font-size: 1.2em;
+/* Timeline bar modern style */
+.video-js .vjs-progress-control {
+  flex-grow: 1;
+  margin: 10px 0;
 }
-
-/* Timeline bar styling */
-.video-js .vjs-play-progress,
-.video-js .vjs-load-progress,
 .video-js .vjs-progress-holder {
   border-radius: 6px;
   height: 6px;
+}
+.video-js .vjs-play-progress,
+.video-js .vjs-load-progress {
+  border-radius: 6px;
+}
+
+/* Volume and other buttons aligned */
+.video-js .vjs-volume-panel,
+.video-js .vjs-fullscreen-control,
+.video-js .vjs-play-control,
+.video-js .vjs-mute-control {
+  align-self: center;
+}
+
+/* Responsive fixes */
+.video-js .vjs-button > .vjs-icon-placeholder {
+  line-height: 1;
 }
