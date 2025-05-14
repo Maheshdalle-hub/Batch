@@ -1,0 +1,41 @@
+/* Round the player */
+.video-js {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  background-color: #000;
+}
+
+/* Control bar tweaks */
+.video-js .vjs-control-bar {
+  background: rgba(0, 0, 0, 0.6); /* transparent control bar */
+  backdrop-filter: blur(6px);
+  padding: 8px 16px;
+  border-radius: 0 0 16px 16px;
+}
+
+/* Big Play Button styling */
+.video-js .vjs-big-play-button {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: none;
+  transition: all 0.3s ease;
+}
+.video-js .vjs-big-play-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Make control buttons slightly larger */
+.video-js .vjs-control {
+  font-size: 1.2em;
+}
+
+/* Timeline bar styling */
+.video-js .vjs-play-progress,
+.video-js .vjs-load-progress,
+.video-js .vjs-progress-holder {
+  border-radius: 6px;
+  height: 6px;
+}
