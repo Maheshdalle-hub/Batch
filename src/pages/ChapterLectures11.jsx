@@ -196,6 +196,21 @@ const ChapterLectures11 = () => {
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4370179/174628987185681071993/174628987185681071993_1071993.m3u8",
           notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/781289778058012200.pdf"
         },
+        {
+          name: "Basic Math L 3",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4376221/174672074184601071993/174672074184601071993_1071993.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "Basic Maths L 4",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4377330/174680770411381071993/174680770411381071993_1071993.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "Basic Maths L 5",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4377993/174689329024511071993/174689329024511071993_1071993.m3u8",
+          notesUrl: ""
+        },
       ],
       19: [
         {
