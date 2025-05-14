@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
-import "../styles/player.css"
 import "videojs-contrib-quality-levels";
 import "videojs-hls-quality-selector";
 import { useLocation, useNavigate } from "react-router-dom";
