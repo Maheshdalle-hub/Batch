@@ -109,6 +109,11 @@ const ChapterLectures10 = () => {
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4384004/174739989526388296383/174739989526388296383_8296383.m3u8",
           notesUrl: ""
         },
+        {
+          name: "L 8 + Doubt Class (Part-2)",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4384742/174748481878798296383/174748481878798296383_8296383.m3u8",
+          notesUrl: ""
+        },
       ],
       19: [
         {
