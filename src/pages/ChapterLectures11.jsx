@@ -133,6 +133,13 @@ const ChapterLectures11 = () => {
           notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/446451742730990000.pdf"
         },
       ],
+      2:[
+        {
+          name: "L 1",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4379033/174705494887511097666/174705494887511097666_1097666.m3u8",
+          notesUrl: ""
+        },
+      ],
       19: [
         {
           name: "DPP 1",
@@ -210,6 +217,13 @@ const ChapterLectures11 = () => {
           name: "Basic Maths L 5",
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4377993/174689329024511071993/174689329024511071993_1071993.m3u8",
           notesUrl: ""
+        },
+      ],
+      2:[
+        {
+          name: "L 1",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4384135/174741235930878296383/174741235930878296383_8296383.m3u8",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/534474456291874800.pdf"
         },
       ],
       19: [
