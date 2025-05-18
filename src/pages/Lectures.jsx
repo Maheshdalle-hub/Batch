@@ -40,14 +40,14 @@ const Lectures = () => {
       { name: "Chapter 2", index: 1 },
     ],
     English: {
-      A: [
+      B: [
         { name: "A Letter to God", index: 0 },
         { name: "A Dust of Snow", index: 1 },
         { name: "Fire & Ice", index: 2 },
         { name: "A Triumph of Surgery", index: 3 },
         { name: "Grammar", index: 19 },
       ],
-      B: [
+      A: [
         { name: "Two Gentlemen of Verona", index: 100 },
         { name: "Frog and Nightingale", index: 101 },
         { name: "Mr Packletide's Tiger", index: 102 },
@@ -69,10 +69,8 @@ const Lectures = () => {
     ],
   };
 
-  const isCourseSubject = subject === "English";
+  const isCourseSubject = subject === "English" || subject === "Hindi" ;
   const chapters = isCourseSubject ? lectures[subject][selectedCourse] : lectures[subject];
-
-  const isCourseSubjectH = subject === "Hindi";
 
   return (
     <div className="lectures-container">
@@ -84,23 +82,6 @@ const Lectures = () => {
       <h2>{subject} Lectures</h2>
 
       {isCourseSubject && (
-        <div className="course-tabs">
-          <button
-            className={`course-tab ${selectedCourse === "A" ? "active" : ""}`}
-            onClick={() => setSelectedCourse("A")}
-          >
-            Lang & Lit
-          </button>
-          <button
-            className={`course-tab ${selectedCourse === "B" ? "active" : ""}`}
-            onClick={() => setSelectedCourse("B")}
-          >
-            Communicative
-          </button>
-        </div>
-      )}
-
-      {isCourseSubjectH && (
         <div className="course-tabs">
           <button
             className={`course-tab ${selectedCourse === "A" ? "active" : ""}`}
