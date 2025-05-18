@@ -69,8 +69,12 @@ const Lectures = () => {
     ],
   };
 
-  const isCourseSubject = subject === "English" || subject === "Hindi";
+  const isCourseSubject = subject === "English";
   const chapters = isCourseSubject ? lectures[subject][selectedCourse] : lectures[subject];
+
+  const isCourseSubjectH = subject === "Hindi";
+  const chaptersH = isCourseSubjectH ? lectures[subject][selectedCourse] : lectures[subject];
+  
 
   return (
     <div className="lectures-container">
@@ -94,6 +98,23 @@ const Lectures = () => {
             onClick={() => setSelectedCourse("B")}
           >
             Communicative
+          </button>
+        </div>
+      )}
+
+      {isCourseSubjectH && (
+        <div className="course-tabs">
+          <button
+            className={`course-tab ${selectedCourse === "A" ? "active" : ""}`}
+            onClick={() => setSelectedCourse("A")}
+          >
+            Course A
+          </button>
+          <button
+            className={`course-tab ${selectedCourse === "B" ? "active" : ""}`}
+            onClick={() => setSelectedCourse("B")}
+          >
+            Course B
           </button>
         </div>
       )}
