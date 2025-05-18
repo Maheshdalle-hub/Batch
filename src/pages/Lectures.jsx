@@ -44,6 +44,7 @@ const Lectures = () => {
         { name: "A Letter to God", index: 0 },
         { name: "A Dust of Snow", index: 1 },
         { name: "Fire & Ice", index: 2 },
+        { name: "A Triumph of Surgery", index: 3 },
         { name: "Grammar", index: 19 },
       ],
       B: [
