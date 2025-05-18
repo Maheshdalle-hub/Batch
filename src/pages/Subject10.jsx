@@ -19,6 +19,7 @@ const Subject10 = () => {
     Thursday: { "17:00": "Science", "20:00": "SST" },
     Friday: { "17:00": "Science", "20:00": "Maths" },
     Saturday: { "17:00": "Science", "20:00": "Maths" },
+    Sunday: { "20:00": "Maths" },
   };
 
   const subjectLinks = {
