@@ -73,8 +73,6 @@ const Lectures = () => {
   const chapters = isCourseSubject ? lectures[subject][selectedCourse] : lectures[subject];
 
   const isCourseSubjectH = subject === "Hindi";
-  const chapters = isCourseSubjectH ? lectures[subject][selectedCourse] : lectures[subject];
-  
 
   return (
     <div className="lectures-container">
