@@ -17,20 +17,23 @@ const Lectures11 = () => {
     Physics: [
       {name: "PCP", index: 19 },
       { name: "Units and Measurement", index: 0 },
-      { name: "Chapter 2", index: 1 },
+      { name: "Basic Maths", index: 1 },
+      { name: "Motion in a straight line", index: 2},
     ],
     Chemistry: [
-      { name: "Chapter 1", index: 0 },
-      { name: "Chapter 2", index: 1 },
+      { name: "Basic concept of Chemistry", index: 0 },
+      { name: "Structure of an Atom", index: 1 },
     ],
     Maths: [
       { name: "DPP 01", index: 19 },
       { name: "Sets", index: 0 },
-      { name: "Chapter 2", index: 1 },
+      { name: "Complex no and quad eq", index: 1 },
+      { name: "Relations and Functions", index: 2},
     ],
     Biology: [
-      { name: "Chapter 1", index: 0 },
-      { name: "Chapter 2", index: 1 },
+      { name: "Living World", index: 0 },
+      { name: "Biological Classisfication", index: 1 },
+      { name: "Living World", index: 2},
     ],
     English: [
       { name: "Grammer", index: 19 },
