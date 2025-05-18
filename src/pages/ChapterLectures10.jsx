@@ -428,6 +428,18 @@ const ChapterLectures10 = () => {
           notesUrl: ""
         },
       ],
+      3:[
+        {
+          name: "L 1",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4378115/1747004104_5093798446180655/sunny/1746963761393_790760791059125000_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "L 2",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4378116/1747003684_6295147578406091/sunny/1746963929440_149734756542958400_video_VOD.m3u8",
+          notesUrl: ""
+        },
+      ],
       19: [
         {
           name: "Poetic Device 1",
