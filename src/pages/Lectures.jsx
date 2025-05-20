@@ -28,12 +28,14 @@ const Lectures = () => {
       { name: "Real Number", index: 0 },
       { name: "Polynomial", index: 1 },
       { name: "Pair of Linear Eq in two var", index: 2 },
+      { name: "Trigonometry", index: 3 },
     ],
     SST: [
       { name: "WPP", index: 19 },
       { name: "Development", index: 0 },
       { name: "Resources and Development", index: 1 },
       { name: "Power Sharing", index: 2 },
+      { name: "Rise of Nationalism in Europe", index: 3},
     ],
     IT: [
       { name: "Chapter 1", index: 0 },
