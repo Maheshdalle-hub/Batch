@@ -548,6 +548,28 @@ const ChapterLectures10 = () => {
          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4186199/1729265536_7680652203501416/1JK6BORv2rwZp2Uxm77iFjYbG2q36Drn_.m3u8"
         },
       ],
+      1:[
+        {
+          name: "राम - लक्ष्मण - परशुराम संवाद व्याख्या",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4027213/1729246988_2924527634767824/1BTZmE06ydNw5S5xhkayCinmIBats6UhU.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "राम - लक्ष्मण - परशुराम संवाद NCERT solution",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4027210/1729246987_5520520446678697/1fFdctu5EMGN0XGe9H6VlfekB_6EKch_M.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "राम - लक्ष्मण - परशुराम संवाद MCQs",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4027254/1729246989_7436779504232047/1u8JDzOj-xfiZDTigH8VomE2YulrPKc1T.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "राम - लक्ष्मण - परशुराम संवाद Revision",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4027255/1729246990_6541419237933644/1UMhxW2fNwZ8IIQB4B5gHzDLezAg4t3Tz.m3u8",
+          notesUrl: ""
+        },
+      ],
     },
   };
 
