@@ -121,8 +121,8 @@ const ChapterLectures10 = () => {
           redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/151758065059113380.pdf"
         },
         {
-          name: "ACP - Light",
-          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/553368258434162370.pdf"
+          name: "ACP - Light with solution",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/407153206272194100.pdf"
         },
       ],
     },
