@@ -60,7 +60,7 @@ const Lectures = () => {
       A: [
         { name: "Chapter 1", index: 0 },
         { name: "राम - लक्ष्मण - परशुराम संवाद", index: 1 },
-        { name: "कृतिका, माता का अँचल शिवपूजन सहाय", index: 3},
+        { name: "कृतिका, माता का अँचल शिवपूजन सहाय", index: 2 },
       ],
       B: [
         { name: "Chapter 1", index: 100 },
