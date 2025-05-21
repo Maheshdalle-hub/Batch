@@ -59,7 +59,8 @@ const Lectures = () => {
     Hindi: {
       A: [
         { name: "Chapter 1", index: 0 },
-        { name: "Chapter 2", index: 1 },
+        { name: "राम - लक्ष्मण - परशुराम संवाद", index: 1 },
+        { name: "कृतिका, माता का अँचल शिवपूजन सहाय", index: 3},
       ],
       B: [
         { name: "Chapter 1", index: 100 },
