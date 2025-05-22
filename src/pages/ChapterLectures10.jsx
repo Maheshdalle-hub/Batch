@@ -115,6 +115,13 @@ const ChapterLectures10 = () => {
           notesUrl: ""
         },
       ],
+      2:[
+        {
+          name: "L 1",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4388022/174783092256088296383/174783092256088296383_8296383.m3u8",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540/admin_v1/file_manager/pdf/6890481Life%20processes%20L1%20.pdf_Life%20processes%20L1%20.pdf"
+        },
+      ],
       19: [
         {
           name: "ACP Chemical Reaction & Equation",
@@ -401,6 +408,11 @@ const ChapterLectures10 = () => {
           name: "L 2",
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4386901/174774447851067880624/174774447851067880624_7880624.m3u8",
           notesUrl: ""
+        },
+        {
+          name: "L 3",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4388156/174784213776117880624/174784213776117880624_7880624.m3u8",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/771710141800132700.pdf"
         },
       ],
       19: [
