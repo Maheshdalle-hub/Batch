@@ -21,7 +21,8 @@ const Lectures = () => {
     Science: [
       { name: "ACP", index: 19 },
       { name: "Chemical Reaction & Equations", index: 0 },
-      { name: "Chapter 2", index: 1 },
+      { name: "Light", index: 1 },
+      { name: "Life Processes", index: 2},
     ],
     Maths: [
       { name: "DPP", index: 19 },
