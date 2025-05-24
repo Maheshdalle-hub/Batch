@@ -121,6 +121,11 @@ const ChapterLectures10 = () => {
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4388022/174783092256088296383/174783092256088296383_8296383.m3u8",
           notesUrl: "https://dxixtlyravvxx.cloudfront.net/540/admin_v1/file_manager/pdf/6890481Life%20processes%20L1%20.pdf_Life%20processes%20L1%20.pdf"
         },
+        {
+          name: "L 3",
+          m3u8Url: "https://next-api.infoaihub.com/next-toppers/stream/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0ZXN0ZmlsZS5ldS5vcmciLCJleHAiOjE3NDgwNzA1MTcsInVybCI6IlZuTTNaVUo1TlhkMWIxUktNVzEzVm0xeVdXSkpTM3AwT0VOdFVHazFSVXhPTlZNd2QybzFSVUpNUm1wcmVHcDBNbXhYU1ZkSVMwdHROR2RpUVRBNFdXWjJhVEUxY1ZveGJtRnFiWEp2WkRkWE5YazRlbk5HTDBOWWFsSlhjV2xuU1ROd015dG5ibEoyTHpoM1NtNVNOMHBZV1hrMFZscG9WbmszT0dwcVJtOHdUMVpVYkM5UE9GTXliSGhDV1RodVIwUnlkMGxDTVdvNVlVMHdPR1JLVVdOMlZFaDBWa2RIU2l0YVp6TkxLMlJwV0RkMWRXaG1TR1U0VVdjNFNXdHpMMFoyVEdjeE9GRnpMM1ZuTmtOalltRkxURFJGZHowOSJ9.8v5tTPXrp4xYaCfaa9tbWJfTkyDwU_z6DYS5G-E31Wc",
+          notesUrl: ""
+        },
       ],
       19: [
         {
