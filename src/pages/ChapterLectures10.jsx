@@ -126,6 +126,11 @@ const ChapterLectures10 = () => {
           redirect: "https://m3u8-player-ten.vercel.app/player?baseUrl=https://d2xqn12y4qo6nr.cloudfront.net/out/v1/4dacc3cc62ed4047b817b91580e11584/&startNum=29150&endNum=29650&queryParam=?m=1733768182",
           notesUrl: ""
         },
+        {
+          name: "L 3",
+          redirect: "https://m3u8-player-ten.vercel.app/player?baseUrl=https://d2xqn12y4qo6nr.cloudfront.net/out/v1/4dacc3cc62ed4047b817b91580e11584/&startNum=30303&endNum=30829&queryParam=?m=1733768182",
+          notesUrl: ""
+        },
       ],
       19: [
         {
