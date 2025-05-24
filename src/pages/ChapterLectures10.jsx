@@ -258,7 +258,7 @@ const ChapterLectures10 = () => {
         },
         {
           name: "L 3",
-          m3u8Url: "https://next-api.infoaihub.com/next-toppers/stream/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0ZXN0ZmlsZS5ldS5vcmciLCJleHAiOjE3NDgwOTAwNDYsInVybCI6IlZuTTNaVUo1TlhkMWIxUktNVzEzVm0xeVdXSkpTM3AwT0VOdFVHazFSVXhPTlZNd2QybzFSVUpNUm1wcmVHcDBNbXhYU1ZkSVMwdHROR2RpUVRBNFdXWjJhVEUxY1ZveGJtRnFiWEp2WkRkWE5YazRlbk5HTDBOWWFsSlhjV2xuU1ROd015dG5ibEoyTHlzeWNrMTBRbFZ2Tm1SclUzUkZUMEpTVkRacmFqRkxXSFJVZFM4cldIWmtkM2xuWkhaMVZqZG9hSGhxZHpCMFVETnZOREJaU2tSV1MwdEZkV2R6VTBSalkyMVJhamhZY1daamRYQmFLeXRHYTA1TFVXOU1jV1ExUTFRMWFtVldjbTFsYWxsUGIzZGtRMjFDWnowOSJ9.rg_9d1CPbpq6M6IJZpikXbe5cxWckFRs70c7eGty7U0",
+          m3u8Url: "https://m3u8-player-ten.vercel.app/player?baseUrl=https://d1kw75zcv4u98c.cloudfront.net/out/v1/287810d967cc428e9bd992002e55b72c/&startNum=32900&endNum=33242&queryParam=?m=1733765650",
           notesUrl: ""
         },
       ],
