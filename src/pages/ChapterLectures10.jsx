@@ -123,7 +123,7 @@ const ChapterLectures10 = () => {
         },
         {
           name: "L 2",
-          m3u8Url: "https://next-api.infoaihub.com/next-toppers/stream/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0ZXN0ZmlsZS5ldS5vcmciLCJleHAiOjE3NDgwNzA1MTcsInVybCI6IlZuTTNaVUo1TlhkMWIxUktNVzEzVm0xeVdXSkpTM3AwT0VOdFVHazFSVXhPTlZNd2QybzFSVUpNUm1wcmVHcDBNbXhYU1ZkSVMwdHROR2RpUVRBNFdXWjJhVEUxY1ZveGJtRnFiWEp2WkRkWE5YazRlbk5HTDBOWWFsSlhjV2xuU1ROd015dG5ibEoyTHpoM1NtNVNOMHBZV1hrMFZscG9WbmszT0dwcVJtOHdUMVpVYkM5UE9GTXliSGhDV1RodVIwUnlkMGxDTVdvNVlVMHdPR1JLVVdOMlZFaDBWa2RIU2l0YVp6TkxLMlJwV0RkMWRXaG1TR1U0VVdjNFNXdHpMMFoyVEdjeE9GRnpMM1ZuTmtOalltRkxURFJGZHowOSJ9.8v5tTPXrp4xYaCfaa9tbWJfTkyDwU_z6DYS5G-E31Wc",
+          m3u8Url: "https://next-api.infoaihub.com/next-toppers/stream/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0ZXN0ZmlsZS5ldS5vcmciLCJleHAiOjE3NDgwODk4MjcsInVybCI6IlZuTTNaVUo1TlhkMWIxUktNVzEzVm0xeVdXSkpTM3AwT0VOdFVHazFSVXhPTlZNd2QybzFSVUpNUm1wcmVHcDBNbXhYU1ZkSVMwdHROR2RpUVRBNFdXWjJhVEUxY1ZveGJtRnFiWEp2WkRkWE5YazRlbk5HTDBOWWFsSlhjV2xuU1ROd015dG5ibEoyTHpoM1NtNVNOMHBZV1hrMFZscG9WbmszT0dwcVJtOHdUMVpVYkM5UE9GTXliSGhDV1RodVIwUnlkMGxCTVVWb01Wb3djbkZCVmxGWE5FOVJMM1pVY0ZwdlBRIn0.6-m8jEb5HUCABS8yQnPCoutxJdQTuJamkDO9BMuZWwU",
           notesUrl: ""
         },
       ],
@@ -258,7 +258,7 @@ const ChapterLectures10 = () => {
         },
         {
           name: "L 3",
-          m3u8Url: "https://next-api.infoaihub.com/next-toppers/stream/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0ZXN0ZmlsZS5ldS5vcmciLCJleHAiOjE3NDgwNjk5MjEsInVybCI6IlZuTTNaVUo1TlhkMWIxUktNVzEzVm0xeVdXSkpTM3AwT0VOdFVHazFSVXhPTlZNd2QybzFSVUpNUm1wcmVHcDBNbXhYU1ZkSVMwdHROR2RpUVRBNFdXWjJhVEUxY1ZveGJtRnFiWEp2WkRkWE5YazRlbk5HTDBOWWFsSlhjV2xuU1ROd015dG5ibEoyTHlzeWNrMTBRbFZ2Tm1SclUzUkZUMEpTVkRacmFqRkxXSFJVZFM4cldIWmtkM2xuWkhaMVZqZG9hSGhxZHpCMFVETnZOREJaU2tSV1MwdEZkV2R6VTBSalkyMVJhamhZY1daamRYQmFLeXRHYTA1TFVXOU1jV1ExUTFRMWFtVldjbTFsYWxsUGIzZGtRMjFDWnowOSJ9.D4YW_iAIDJEVbiO31URr2OUa1XytjfeT3uo6Szsfi4g",
+          m3u8Url: "https://next-api.infoaihub.com/next-toppers/stream/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0ZXN0ZmlsZS5ldS5vcmciLCJleHAiOjE3NDgwOTAwNDYsInVybCI6IlZuTTNaVUo1TlhkMWIxUktNVzEzVm0xeVdXSkpTM3AwT0VOdFVHazFSVXhPTlZNd2QybzFSVUpNUm1wcmVHcDBNbXhYU1ZkSVMwdHROR2RpUVRBNFdXWjJhVEUxY1ZveGJtRnFiWEp2WkRkWE5YazRlbk5HTDBOWWFsSlhjV2xuU1ROd015dG5ibEoyTHlzeWNrMTBRbFZ2Tm1SclUzUkZUMEpTVkRacmFqRkxXSFJVZFM4cldIWmtkM2xuWkhaMVZqZG9hSGhxZHpCMFVETnZOREJaU2tSV1MwdEZkV2R6VTBSalkyMVJhamhZY1daamRYQmFLeXRHYTA1TFVXOU1jV1ExUTFRMWFtVldjbTFsYWxsUGIzZGtRMjFDWnowOSJ9.rg_9d1CPbpq6M6IJZpikXbe5cxWckFRs70c7eGty7U0",
           notesUrl: ""
         },
       ],
