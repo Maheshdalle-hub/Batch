@@ -262,6 +262,21 @@ const ChapterLectures11 = () => {
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4384135/174741235930878296383/174741235930878296383_8296383.m3u8",
           notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/534474456291874800.pdf"
         },
+        {
+          name: "L 2",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4384135/174741235930878296383/174741235930878296383_8296383.m3u8",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/534474456291874800.pdf"
+        },
+        {
+          name: "L 3",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4384839/174749905027548296383/174749905027548296383_8296383.m3u8",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/197692296755338560.pdf"
+        },
+        {
+          name: "L 4",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4389362/174793149686398296383/174793149686398296383_8296383.m3u8",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/258346732119085800.pdf"
+        },
       ],
       19: [
         {
