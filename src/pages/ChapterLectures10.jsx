@@ -123,12 +123,12 @@ const ChapterLectures10 = () => {
         },
         {
           name: "L 2",
-          redirect: "https://m3u8-player-ten.vercel.app/player?baseUrl=https://d2xqn12y4qo6nr.cloudfront.net/out/v1/4dacc3cc62ed4047b817b91580e11584/&startNum=29150&endNum=29650&queryParam=?m=1733768182",
-          notesUrl: ""
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4390836/174800421277348296383/174800421277348296383_8296383.m3u8",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/724154521085075300.pdf"
         },
         {
           name: "L 3",
-          redirect: "https://m3u8-player-ten.vercel.app/player?baseUrl=https://d2xqn12y4qo6nr.cloudfront.net/out/v1/4dacc3cc62ed4047b817b91580e11584/&startNum=30303&endNum=30829&queryParam=?m=1733768182",
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4391456/174809097852338296383/174809097852338296383_8296383.m3u8",
           notesUrl: ""
         },
       ],
@@ -259,12 +259,12 @@ const ChapterLectures10 = () => {
         {
           name: "L 2",
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4387086/174775745330681097666/174775745330681097666_1097666.m3u8",
-          notesUrl: ""
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/734221331851364500.pdf"
         },
         {
           name: "L 3",
-          redirect: "https://m3u8-player-ten.vercel.app/player?baseUrl=https://d1kw75zcv4u98c.cloudfront.net/out/v1/287810d967cc428e9bd992002e55b72c/&startNum=32900&endNum=33421&queryParam=?m=1733765650",
-          notesUrl: ""
+          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4390972/174801504255421097666/174801504255421097666_1097666.m3u8",
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/808796890763276000.pdf"
         },
       ],
       19: [
