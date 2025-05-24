@@ -251,6 +251,11 @@ const ChapterLectures10 = () => {
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4387086/174775745330681097666/174775745330681097666_1097666.m3u8",
           notesUrl: ""
         },
+        {
+          name: "L 3",
+          m3u8Url: "https://next-api.infoaihub.com/next-toppers/stream/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0ZXN0ZmlsZS5ldS5vcmciLCJleHAiOjE3NDgwNjk5MjEsInVybCI6IlZuTTNaVUo1TlhkMWIxUktNVzEzVm0xeVdXSkpTM3AwT0VOdFVHazFSVXhPTlZNd2QybzFSVUpNUm1wcmVHcDBNbXhYU1ZkSVMwdHROR2RpUVRBNFdXWjJhVEUxY1ZveGJtRnFiWEp2WkRkWE5YazRlbk5HTDBOWWFsSlhjV2xuU1ROd015dG5ibEoyTHlzeWNrMTBRbFZ2Tm1SclUzUkZUMEpTVkRacmFqRkxXSFJVZFM4cldIWmtkM2xuWkhaMVZqZG9hSGhxZHpCMFVETnZOREJaU2tSV1MwdEZkV2R6VTBSalkyMVJhamhZY1daamRYQmFLeXRHYTA1TFVXOU1jV1ExUTFRMWFtVldjbTFsYWxsUGIzZGtRMjFDWnowOSJ9.D4YW_iAIDJEVbiO31URr2OUa1XytjfeT3uo6Szsfi4g",
+          notesUrl: ""
+        },
       ],
       19: [
         {
