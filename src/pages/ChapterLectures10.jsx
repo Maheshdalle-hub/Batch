@@ -266,6 +266,11 @@ const ChapterLectures10 = () => {
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4390972/174801504255421097666/174801504255421097666_1097666.m3u8",
           notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/808796890763276000.pdf"
         },
+        {
+          name: "L 4",
+          redirect: "https://m3u8-player-ten.vercel.app/player?baseUrl=https://d1kw75zcv4u98c.cloudfront.net/out/v1/287810d967cc428e9bd992002e55b72c/&startNum=33944&endNum=34475&queryParam=?m=1733765650",
+          notesUrl: ""
+        },
       ],
       19: [
         {
