@@ -123,7 +123,7 @@ const ChapterLectures10 = () => {
         },
         {
           name: "L 2",
-          m3u8Url: "https://next-api.infoaihub.com/next-toppers/stream/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0ZXN0ZmlsZS5ldS5vcmciLCJleHAiOjE3NDgwODk4MjcsInVybCI6IlZuTTNaVUo1TlhkMWIxUktNVzEzVm0xeVdXSkpTM3AwT0VOdFVHazFSVXhPTlZNd2QybzFSVUpNUm1wcmVHcDBNbXhYU1ZkSVMwdHROR2RpUVRBNFdXWjJhVEUxY1ZveGJtRnFiWEp2WkRkWE5YazRlbk5HTDBOWWFsSlhjV2xuU1ROd015dG5ibEoyTHpoM1NtNVNOMHBZV1hrMFZscG9WbmszT0dwcVJtOHdUMVpVYkM5UE9GTXliSGhDV1RodVIwUnlkMGxCTVVWb01Wb3djbkZCVmxGWE5FOVJMM1pVY0ZwdlBRIn0.6-m8jEb5HUCABS8yQnPCoutxJdQTuJamkDO9BMuZWwU",
+          redirect: "https://m3u8-player-ten.vercel.app/player?baseUrl=https://d2xqn12y4qo6nr.cloudfront.net/out/v1/4dacc3cc62ed4047b817b91580e11584/&startNum=29150&endNum=29650&queryParam=?m=1733768182",
           notesUrl: ""
         },
       ],
