@@ -19,7 +19,7 @@ const Subject10 = () => {
     Thursday: { "17:00": "Science", "20:00": "SST" },
     Friday: { "17:00": "Science", "20:00": "Maths" },
     Saturday: { "17:00": "Science", "20:00": "Maths" },
-    Sunday: { "20:00": "Maths" },
+    Sunday: { "17:00": "Maths" },
   };
 
   const subjectLinks = {
@@ -40,7 +40,7 @@ const Subject10 = () => {
       ];
 
       for (let slot of slots) {
-        if (slot.subject && currentMinutes >= slot.start - 15 && currentMinutes < slot.start + 120) {
+        if (slot.subject && currentMinutes >= slot.start - 15 && currentMinutes < slot.start + 150) {
           setM3u8Url(subjectLinks[slot.subject] || "");
           return;
         }
