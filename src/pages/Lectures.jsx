@@ -39,7 +39,7 @@ const Lectures = () => {
       { name: "Rise of Nationalism in Europe", index: 3},
     ],
     IT: [
-      { name: "Notice, index: 0 },
+      { name: "Notice", index: 0 },
       { name: "Communication Skills II", index: 1 },
     ],
     English: {
