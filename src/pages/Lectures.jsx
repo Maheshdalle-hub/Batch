@@ -39,8 +39,8 @@ const Lectures = () => {
       { name: "Rise of Nationalism in Europe", index: 3},
     ],
     IT: [
-      { name: "Chapter 1", index: 0 },
-      { name: "Chapter 2", index: 1 },
+      { name: "Notice, index: 0 },
+      { name: "Communication Skills II", index: 1 },
     ],
     English: {
       B: [
