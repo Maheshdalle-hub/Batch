@@ -635,6 +635,22 @@ const ChapterLectures10 = () => {
         },
       ],
     },
+    IT: {
+      0:[
+        {
+          name: "Intrdoduction",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4391689/1748179024_7031915392041686/sunny/1748178845599_206479182859561570_video_VOD.m3u8",
+          notesUrl: ""
+        },
+      ],
+      1:[
+        {
+          name: "L 1",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4391701/1748180044_3694449338382459/sunny/1748179295562_439147986971553900_video_VOD.m3u8",
+          notesUrl: ""
+        },
+      ],
+    },
   };
 
   return (
