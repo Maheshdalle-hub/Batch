@@ -141,6 +141,10 @@ const ChapterLectures10 = () => {
           name: "ACP - Light with solution",
           redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/407153206272194100.pdf"
         },
+        {
+          name: "ACP - Life Processes",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/896713520382589400.pdf"
+        },
       ],
     },
     Maths: {
@@ -461,6 +465,10 @@ const ChapterLectures10 = () => {
         {
           name: "WPP 02 Solution",
           redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/397988482376201500.pdf"
+        },
+        {
+          name: "WPP 03",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/886218050969477900.pdf"
         },
       ],
     },
