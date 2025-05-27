@@ -669,6 +669,25 @@ const ChapterLectures10 = () => {
         },
       ],
     },
+    Sanskrit: {
+      0:[
+        {
+          name: "Overview",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4392867/1748270525_4262533898579492/sunny/1748270459435_806367464182505500_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "Explaination(soon)",
+          m3u8Url: "",
+          notesUrl: ""
+        },
+        {
+          name: "Ncert(soon)",
+          m3u8Url: "",
+          notesUrl: ""
+        },
+      ],
+    },
   };
 
   return (
