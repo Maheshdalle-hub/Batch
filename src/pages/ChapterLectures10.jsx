@@ -538,6 +538,21 @@ const ChapterLectures10 = () => {
           name: "Poetic Device 2",
           m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4355436/1745094844_9240190758365079/sunny/1745075412050_483337412598451650_video_VOD.m3u8"
         },
+        {
+          name: "Tenses L1",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4376992/1746790926_2620131171601548/sunny/1746785842321_68968204127858800_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "Tenses L2",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4376993/1746791165_4683530659641818/sunny/1746786281807_635426128592612900_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "Tenses L3",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4376994/1746791225_3697514107018118/sunny/1746786504709_85453328252238460_video_VOD.m3u8",
+          notesUrl: ""
+        },
       ],
       100: [
         {
