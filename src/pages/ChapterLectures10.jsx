@@ -667,6 +667,23 @@ const ChapterLectures10 = () => {
           notesUrl: ""
         },
       ],
+      100: [
+        {
+          name: "Vyakhya",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4022799/1729246425_3748257353243627/1BwhwuSXeWGLNWHjjQZlUkzIlJ0TnPLL8.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "NCERT",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4186004/1729264204_6299093521635921/1pMXWkFKHoq6kXYC4OXtsB6FXEDVYDHtF.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "MCQ",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4186003/1729264201_5005411849119025/1zb3s7ebuJpCMYBqvUFOAu2Y7jYwDI5Rg.m3u8",
+          notesUrl: ""
+        },
+      ],
     },
     IT: {
       0:[
