@@ -63,6 +63,7 @@ const Subject11 = () => {
   }, []);
 
   const subjects = [
+    { name: "Click Here for Lectures", path: "/11/lectures"},
     { name: "Physics", path: "/lectures/11/Physics" },
     { name: "Chemistry", path: "/lectures/11/Chemistry" },
     { name: "Maths", path: "/lectures/11/Maths" },
