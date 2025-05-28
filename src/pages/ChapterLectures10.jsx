@@ -714,13 +714,13 @@ const ChapterLectures10 = () => {
           notesUrl: ""
         },
         {
-          name: "Explaination(soon)",
-          m3u8Url: "",
+          name: "Explaination",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4393578/1748359683_8609289660244522/sunny/1748340021121_496240411986023000_video_VOD.m3u8",
           notesUrl: ""
         },
         {
-          name: "Ncert(soon)",
-          m3u8Url: "",
+          name: "Ncert",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4393579/1748359864_9290021229425817/sunny/1748340242129_74623608989819540_video_VOD.m3u8",
           notesUrl: ""
         },
       ],
