@@ -127,7 +127,7 @@ const LecturesPage11 = () => {
               {lectures.map((lecture, index) => (
                 <div
                   key={index}
-                  onClick={() => goToVideo(index)}
+                  onClick={() => goToVideo(index), localStorage.setItem("chapterName", lectures[index].name) }
                   style={{
                     marginBottom: 12,
                     padding: 15,
