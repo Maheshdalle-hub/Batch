@@ -46,7 +46,7 @@ const LecturesPage11 = () => {
   };
 
   const goToVideo = (index) => {
-    navigate(`/video/11/${selectedSubject}/${index}`, {
+    navigate(`/video/11/${selectedSubject}/0`, {
       state: {
         m3u8Url: lectures[index].m3u8Url,
         notesUrl: lectures[index].notesUrl,
