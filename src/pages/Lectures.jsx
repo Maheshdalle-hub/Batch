@@ -66,7 +66,7 @@ const Lectures = () => {
       B: [
         { name: "Kabir sakhi", index: 100 },
         { name: "मीरा बाई पद", index: 101 },
-        { name: "मैथिलीशरण गुप्त मनुष्यता, index: 102 },
+        { name: "मैथिलीशरण गुप्त मनुष्यता", index: 102 },
         { name: "प्रेमचंद (बड़े भाई साहब)", index: 103 },
       ],
     },
