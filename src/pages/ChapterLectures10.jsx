@@ -752,6 +752,50 @@ const ChapterLectures10 = () => {
           notesUrl: ""
         },
       ],
+      103:[
+        {
+          name: "व्याख्या",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4386557/1747735207_5772515403484032/1747732477592_597202369284620000_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "NCERT solution",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4386558/1747735324_2501842379880458/1747732664352_106631119491318660_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "MCQ",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4386565/1747736223_4697660312665519/1747732957839_384404218424568600_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "Revision",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4386564/1747736044_3373946016654926/1747732950488_780744059685443800_video_VOD.m3u8",
+          notesUrl: ""
+        },
+      ],
+      104:[
+        {
+          name: "व्याख्या",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4068639/1729247016_1865423112262903/1gXTzRd5JtfrEk46O1oFk0bhOBrcLEDNe.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "NCERT solution",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4068643/1729247016_3433907686448510/1uJyy6WA17hG98Ri0yMGWY3fXsVZ41Qhn.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "MCQ",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4186191/1729265513_7957689546831481/1JXTr_DIwf8zeFxDTJRwEszCFjF2c6iOO.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "Revision",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4068959/1729247017_5436053137118731/1z25xFPAifSQdLNBhON0Q3d5RTFQw9IG9.m3u8",
+          notesUrl: ""
+        },
+      ],
     },
     IT: {
       0:[
