@@ -702,6 +702,55 @@ const ChapterLectures10 = () => {
           m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4186003/1729264201_5005411849119025/1zb3s7ebuJpCMYBqvUFOAu2Y7jYwDI5Rg.m3u8",
           notesUrl: ""
         },
+        {
+          name: "Revision",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4186002/1729264198_4870497616513049/1uPOe5shWczFuzCNnxghGGMRaPePX8XHO.m3u8",
+          notesUrl: ""
+        },
+      ],
+      101:[
+        {
+          name: "व्याख्या",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4024976/1729246982_8084464057441626/1Khyag3GaFq4dNq54rDcdEa2zzI89RMyj.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "NCERT solution",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4027204/1729246986_8663782319788251/1FTmHZ9eNGLzw_k29ZdFmPDruvidEbBmt.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "MCQ",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4027203/1729246985_6448729982209644/1RhU3P2f3l3WmCmrLkvAaIlGu7M6OhFe_.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "Revision",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4027205/1729246986_4345354320627457/1UG1vV7M55hv7uYAe4ciq3tbVU78L9jPY.m3u8",
+          notesUrl: ""
+        },
+      ],
+      102:[
+        {
+          name: "व्याख्या",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4385813/1747667888_6119594912489100/1747667018445_506741420641968200_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "NCERT solution",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4385815/1747668366_7577475886333521/1747667717559_724171110248383000_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "MCQ",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4385814/1747667891_8076973356809402/1747667462887_393977460855431000_video_VOD.m3u8",
+          notesUrl: ""
+        },
+        {
+          name: "Revision",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4064299/1729247012_3686791531736965/10-4JhO_xc0OBhQfJfvpKaLc6l24ABFVz.m3u8",
+          notesUrl: ""
+        },
       ],
     },
     IT: {
