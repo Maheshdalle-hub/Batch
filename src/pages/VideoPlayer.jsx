@@ -3,6 +3,7 @@ import videojs from "video.js";
 import "video.js/dist/video-js.css";
 import "videojs-contrib-quality-levels";
 import "videojs-hls-quality-selector";
+import 'videojs-hotkeys';
 import { useLocation, useNavigate } from "react-router-dom";
 
 const VideoPlayer = () => {
@@ -48,7 +49,8 @@ const VideoPlayer = () => {
 
     playerRef.current = videojs(videoRef.current, {
       controls: true,
-      autoplay: false,
+      preload: true,
+      autoplay: true,
       fluid: true,
       playbackRates: [0.5, 1, 1.25, 1.5, 1.75, 2],
       html5: {
@@ -57,6 +59,14 @@ const VideoPlayer = () => {
           enableLowInitialPlaylist: true,
         },
       },
+      function () {
+        // Hotkeys plugin options
+        this.hotkeys({
+          volumeStep: 0.1,
+          seekStep: 10,
+          enableModifiersForNumbers: false
+        });
+      }
     });
 
     playerRef.current.src({
