@@ -12,6 +12,7 @@
     "video.js": "^8.21.1",
     "videojs-hls-quality-selector": "^2.0.0",
     "yocto-queue": "^1.0.0",
+    "videojs-hotkeys": "^0.2.30",
     "firebase": "^10.7.1"
   },
   "scripts": {
