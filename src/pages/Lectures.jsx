@@ -33,6 +33,7 @@ const Lectures = () => {
     ],
     SST: [
       { name: "WPP", index: 19 },
+      { name: "Holiday Homework", index:100 },
       { name: "Development", index: 0 },
       { name: "Resources and Development", index: 1 },
       { name: "Power Sharing", index: 2 },
