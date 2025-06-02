@@ -149,7 +149,7 @@ const ChapterLectures10 = () => {
         {
           name: "L 7",
           m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4398033/174878264133148296383/174878264133148296383_8296383.m3u8",
-          notesUrl: ""
+          notesUrl: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/741214109704298900.pdf"
         },
       ],
       19: [
