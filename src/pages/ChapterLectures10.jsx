@@ -503,6 +503,12 @@ const ChapterLectures10 = () => {
           notesUrl: ""
         },
       ],
+      100:[
+        {
+          name: "Holiday Homework",
+          redirect: "https://dxixtlyravvxx.cloudfront.net/540admin_v1/file_manager/pdf/87435818420271620.pdf"
+        },
+      ],
       19: [
         {
           name: "WPP 01",
