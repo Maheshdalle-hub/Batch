@@ -27,7 +27,7 @@ const testData = {
       },
       {
         question: "For what value of k, is 3 a zero of polynomial 2x²+x+k?:",
-        options: ["40", "21", "19", "26"],
+        options: ["40", "-21", "19", "-26"],
         correctAnswer: 2,
         explanation: "Hmm"
       },
