@@ -56,6 +56,7 @@ const Subject10 = () => {
 
   const subjects = [
     { name: "Notice", path: "/lectures/10/Notice" },
+    { name: "Test (MCQ)", path: "/10/test"},
     { name: "Science", path: "/lectures/10/Science" },
     { name: "Maths", path: "/lectures/10/Maths" },
     { name: "SST", path: "/lectures/10/SST" },
@@ -76,7 +77,7 @@ const Subject10 = () => {
           state={{ chapterName: "Live Class", m3u8Url }}
           className="subject-box live-class-section"
         >
-          🔴 Live Class (Click to Join)
+          🔴 No Live Class (Holidays)
         </Link>
       </div>
 
