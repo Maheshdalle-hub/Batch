@@ -14,6 +14,7 @@ import ChapterLectures11 from "./pages/ChapterLectures11";
 import VideoPlayer from "./pages/VideoPlayer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import LecturesPage11 from './pages/LecturesPage11';
+import TestPlatform from './pages/TestPlatform';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/lectures/10/:subject" element={<ProtectedRoute><Lectures /></ProtectedRoute>} />
         <Route path="/lectures/11/:subject" element={<ProtectedRoute><Lectures11 /></ProtectedRoute>} />
         <Route path="/11/lectures" element={<LecturesPage11 />} />
+        <Route path="/10/test" element={<ProtectedRoute><TestPlatform /></ProtectedRoute>} />
 
         {/* Chapter Lectures */}
         <Route path="/chapter-lectures/9/:subject/:chapterIndex" element={<ProtectedRoute><ChapterLectures9 /></ProtectedRoute>} />
