@@ -126,13 +126,44 @@ body {
 .nav-buttons button:hover {
   background-color: #444;
   }
-button:disabled {
-  background: #555;
-  cursor: not-allowed;
+
+.nav-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
 }
 
+.submit-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.option.correct {
+  border: 2px solid green;
+}
+
+.option.wrong {
+  border: 2px solid red;
+    }
 .submit-btn {
   margin-top: 20px;
   width: 100%;
   font-size: 1rem;
-  }
+}
+
+pre {
+  background: none;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  overflow-x: auto;
+  white-space: pre; /* Don't wrap */
+  font-family: inherit;
+  font-size: 1rem;
+  color: inherit;
+  max-width: 100%;
+}
