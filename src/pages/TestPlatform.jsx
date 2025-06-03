@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import testData from './testdata';
+import testData from './testData';
 import "../styles/styles.css";
 
 const TestPlatform = () => {
