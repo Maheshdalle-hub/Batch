@@ -842,6 +842,18 @@ const ChapterLectures10 = () => {
           m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4391701/1748180044_3694449338382459/sunny/1748179295562_439147986971553900_video_VOD.m3u8",
           notesUrl: ""
         },
+        {
+          name: "L 2",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4393990/1748364545_5158785497797223/sunny/1748356148965_265442288714603600_video_VOD.m3u8",
+          notesUrl: ""
+        },
+      ],
+      2: [
+        {
+          name: "L 1",
+          m3u8Url: "https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4398521/1748854506_5390971521172609/sunny/1748854163810_864208687017221800_video_VOD.m3u8",
+          notesUrl: ""
+        },
       ],
     },
     Sanskrit: {
