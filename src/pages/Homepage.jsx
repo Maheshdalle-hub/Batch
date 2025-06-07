@@ -18,7 +18,7 @@ const Homepage = () => {
 
   const handleClick = (classNumber) => {
     if (!isLoggedIn) {
-      navigate("/login");
+      navigate(`/subjects/${classNumber}`);
       return;
     }
     navigate(`/subjects/${classNumber}`);
@@ -135,14 +135,14 @@ const Homepage = () => {
             <h1 style={{ color: "#fff" }}>Aarambh Batch 2025-26</h1>
           </div>
 
+          <div className="click-box" onClick={() => handleClick(11)}>
+            <img src={imageUrl11} alt="Class 11 Batch" className="homepage-image" />
+            <h1 style={{ color: "#fff" }}>Prarambh Science 11th</h1>
+          </div>
+          
           <div className="click-box" onClick={() => handleClick(9)}>
             <img src={imageUrl9} alt="Class 9 Batch" className="homepage-image" />
             <h1 style={{ color: "#fff" }}>Class 9</h1>
-          </div>
-
-          <div className="click-box" onClick={() => handleClick(11)}>
-            <img src={imageUrl11} alt="Class 11 Batch" className="homepage-image" />
-            <h1 style={{ color: "#fff" }}>Class 11</h1>
           </div>
         </div>
       </div>
