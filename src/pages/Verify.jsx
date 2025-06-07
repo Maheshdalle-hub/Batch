@@ -26,7 +26,7 @@ const Verify = () => {
     const expirationTime = Date.now() + 1.5 * 24 * 60 * 60 * 1000;
     localStorage.setItem("isLoggedIn", "true");
     localStorage.setItem("isVerified", "true");
-    localStorage.setItem("verificationExpires", expirationTime);
+    localStorage.setItem("verificationExpires", "false");
 
     // ✅ Clear used token
     localStorage.removeItem("currentToken");
