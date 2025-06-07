@@ -42,6 +42,7 @@ const Lectures = () => {
     IT: [
       { name: "Notice", index: 0 },
       { name: "Communication Skills II", index: 1 },
+      { name: "Skill Management II", index: 2 },
     ],
     English: {
       B: [
