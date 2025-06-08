@@ -48,18 +48,18 @@ const ChapterLectures9 = () => {
           notesUrl: ""
         },
       ],
-      1:[
-        {
-          name: "L 1",
-          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4373763/174653575278717555169/174653575278717555169_7555169.m3u8",
-          notesUrl: ""
-        },
-        {
-          name: "L 2",
-          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4375004/174663371989087555169/174663371989087555169_7555169.m3u8",
-          notesUrl: ""
-        },
-      ],
+      1: [
+{'name': 'L1', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4373763/174653575278717555169/174653575278717555169_7555169.m3u8'},
+{'name': 'L2', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4375004/174663371989087555169/174663371989087555169_7555169.m3u8'},
+{'name': 'L3', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4379021/174705453261387555169/174705453261387555169_7555169.m3u8'},
+{'name': 'L4', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4380507/174714048756637555169/174714048756637555169_7555169.m3u8'},
+{'name': 'L5 (Doubt Solving)', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4381981/174723737820747555169/174723737820747555169_7555169.m3u8'},
+{'name': 'Fundamental Unit of Life L1', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4385663/174765778737748296383/174765778737748296383_8296383.m3u8'},
+{'name': 'L2', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4388166/174784311082348296383/174784311082348296383_8296383.m3u8'},
+{'name': 'L3', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4392729/174826422289318296383/174826422289318296383_8296383.m3u8'},
+{'name': 'L4', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4393920/174834967737708296383/174834967737708296383_8296383.m3u8'},
+{'name': 'L5', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4395109/174844706284808296383/174844706284808296383_8296383.m3u8'},
+],
     },
     SST: {
       0: [
