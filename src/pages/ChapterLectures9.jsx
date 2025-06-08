@@ -137,17 +137,16 @@ const ChapterLectures9 = () => {
         },
       ],
       1:[
-        {
-          name: "L 1",
-          m3u8Url: "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4376184/174671865862761097666/174671865862761097666_1097666.m3u8",
-          notesUrl: ""
-        },
-        {
-          name: "L 2 (soon)",
-          m3u8Url: "",
-          notesUrl: ""
-        },
-      ],
+{'Name': 'Polynomials L1', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4377207/174679563175571097666/174679563175571097666_1097666.m3u8'},
+{'Name': 'Polynomials L2', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4377938/174688306660241097666/174688306660241097666_1097666.m3u8'},
+{'Name': 'Polynomials L3', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4383998/174739970880251097666/174739970880251097666_1097666.m3u8'},
+{'Name': 'Polynomials L4', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4384765/174748733028261097666/174748733028261097666_1097666.m3u8'},
+{'Name': 'Polynomials L5', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4384986/174757357814051097666/174757357814051097666_1097666.m3u8'},
+{'Name': 'Polynomials L6', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4389346/174793035190161097666/174793035190161097666_1097666.m3u8'},
+{'Name': 'Polynomials L7', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4390842/174800460375161097666/174800460375161097666_1097666.m3u8'},
+{'Name': 'Polynomials L8', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4391472/174809232290121097666/174809232290121097666_1097666.m3u8'},
+{'Name': 'Polynomials L9', 'm3u8Url': 'https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4396260/174853287832481261798/174853287832481261798_1261798.m3u8'}
+]
     },
   };
 
