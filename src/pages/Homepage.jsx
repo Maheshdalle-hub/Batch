@@ -14,7 +14,10 @@ const Homepage = () => {
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn") === "true";
     setIsLoggedIn(loggedIn);
-  }, []);
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("verificationExpires", "false");
+  },       
+            []);
 
   const handleClick = (classNumber) => {
     if (!isLoggedIn) {
